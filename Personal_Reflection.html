@@ -232,61 +232,61 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="emoji-title">💭🤖✨</div>
+            <div class="emoji-title"></div>
             <h1>Personal Reflection & AI Use Statement</h1>
-            <p class="subtitle">個人反思與 AI 使用聲明</p>
+            <p class="subtitle"> AI </p>
         </div>
         
         <form id="reflectionForm">
             <!-- Personal Information -->
             <div class="form-section">
-                <h2><span>👤</span>Your Information (你的資料)</h2>
+                <h2><span></span>Your Information ()</h2>
                 
                 <div class="form-group">
-                    <label for="studentName">Your Name (你的名字) *</label>
+                    <label for="studentName">Your Name () *</label>
                     <input type="text" id="studentName" name="studentName" placeholder="Enter your full name" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="studentClass">Your Class (你的班級)</label>
+                    <label for="studentClass">Your Class ()</label>
                     <input type="text" id="studentClass" name="studentClass" placeholder="e.g., P6A">
                 </div>
                 
                 <div class="form-group">
-                    <label for="groupName2">Your Group Name (你的小組名稱)</label>
+                    <label for="groupName2">Your Group Name ()</label>
                     <input type="text" id="groupName2" name="groupName2" placeholder="Enter your group name">
                 </div>
                 
                 <div class="form-group">
-                    <label for="reflectionDate">Date (日期) *</label>
+                    <label for="reflectionDate">Date () *</label>
                     <input type="date" id="reflectionDate" name="reflectionDate" required>
                 </div>
             </div>
             
             <!-- Learning Reflection -->
             <div class="form-section">
-                <h2><span>🎓</span>Learning Reflection (學習反思)</h2>
+                <h2><span></span>Learning Reflection ()</h2>
                 
                 <div class="form-group">
-                    <label for="mostInterested">What topic interested you the most during this unit? Why? (這個單元中，哪個主題最吸引你？為什麼？) *</label>
+                    <label for="mostInterested">What topic interested you the most during this unit? Why? () *</label>
                     <p class="reflection-prompt">Think about: water pollution sources, evidence, solutions, stakeholders...</p>
                     <textarea id="mostInterested" name="mostInterested" placeholder="Example: I was interested in the food chain impacts because..." required></textarea>
                 </div>
                 
                 <div class="form-group">
-                    <label for="useEvidence">How did you use evidence to support your group's ideas? (你如何用證據來支持小組的想法？) *</label>
+                    <label for="useEvidence">How did you use evidence to support your group's ideas? () *</label>
                     <p class="reflection-prompt">Describe 1-2 pieces of evidence your group used...</p>
                     <textarea id="useEvidence" name="useEvidence" placeholder="Example: We used data from the beach clean-up showing..." required></textarea>
                 </div>
                 
                 <div class="form-group">
-                    <label for="wouldImprove">If you did this project again, how would you improve it? (如果再做一次，你會如何改進？)</label>
+                    <label for="wouldImprove">If you did this project again, how would you improve it? ()</label>
                     <p class="reflection-prompt">What went well? What was challenging?</p>
                     <textarea id="wouldImprove" name="wouldImprove" placeholder="Example: We could collect more data by..."></textarea>
                 </div>
                 
                 <div class="form-group">
-                    <label for="viewChange">Has your perspective about marine pollution changed? How? (你對海洋污染的看法有改變嗎？如何改變？)</label>
+                    <label for="viewChange">Has your perspective about marine pollution changed? How? ()</label>
                     <p class="reflection-prompt">Before vs. after this unit...</p>
                     <textarea id="viewChange" name="viewChange" placeholder="Example: Before I thought... Now I understand that..." required></textarea>
                 </div>
@@ -294,25 +294,25 @@
             
             <!-- AI Use Statement -->
             <div class="ai-section">
-                <h2>🤖 AI Use Statement (AI 使用聲明)</h2>
+                <h2> AI Use Statement (AI )</h2>
                 
                 <div class="ai-field">
                     <strong>Did you use any AI tools in this project?</strong>
                     <div class="checkbox-group">
                         <div class="checkbox-item">
                             <input type="checkbox" name="usedAI" id="usedYes">
-                            <label for="usedYes">Yes, I used AI (是的，我使用了 AI)</label>
+                            <label for="usedYes">Yes, I used AI ( AI)</label>
                         </div>
                         <div class="checkbox-item">
                             <input type="checkbox" name="noAI" id="usedNo">
-                            <label for="usedNo">No, I didn't use AI (沒有，我沒使用 AI)</label>
+                            <label for="usedNo">No, I didn't use AI ( AI)</label>
                         </div>
                     </div>
                 </div>
                 
                 <div id="aiDetails" style="display: none;">
                     <div class="ai-field">
-                        <strong>Which AI tool(s) did you use? (你使用了哪個 AI 工具？) *</strong>
+                        <strong>Which AI tool(s) did you use? ( AI ) *</strong>
                         <div class="checkbox-group">
                             <div class="checkbox-item">
                                 <input type="checkbox" name="aiTool" value="ChatGPT">
@@ -334,33 +334,33 @@
                     </div>
                     
                     <div class="ai-field">
-                        <strong>How did you use AI? (Tick all that apply) (你如何使用 AI？)</strong>
+                        <strong>How did you use AI? (Tick all that apply) ( AI)</strong>
                         <div class="checkbox-group">
                             <div class="checkbox-item">
                                 <input type="checkbox" name="aiUse" value="brainstorm">
-                                <label>Brainstorm ideas (腦力激盪)</label>
+                                <label>Brainstorm ideas ()</label>
                             </div>
                             <div class="checkbox-item">
                                 <input type="checkbox" name="aiUse" value="checkWriting">
-                                <label>Check my writing (檢查我的寫作)</label>
+                                <label>Check my writing ()</label>
                             </div>
                             <div class="checkbox-item">
                                 <input type="checkbox" name="aiUse" value="generateQuestions">
-                                <label>Generate questions (生成問題)</label>
+                                <label>Generate questions ()</label>
                             </div>
                             <div class="checkbox-item">
                                 <input type="checkbox" name="aiUse" value="verifyFacts">
-                                <label>Verify facts (驗證事實)</label>
+                                <label>Verify facts ()</label>
                             </div>
                             <div class="checkbox-item">
                                 <input type="checkbox" name="aiUse" value="other">
-                                <label>Other (其他)</label>
+                                <label>Other ()</label>
                             </div>
                         </div>
                     </div>
                     
                     <div class="ai-field">
-                        <strong>Was AI helpful? (AI 有幫助嗎？) Rate 1-5 *</strong>
+                        <strong>Was AI helpful? (AI ) Rate 1-5 *</strong>
                         <input type="range" name="aiHelpful" min="1" max="5" value="3" style="margin-top: 10px;">
                         <p style="text-align: center; color: #999; margin-top: 5px;">
                             <span id="helpfulValue">3</span> / 5
@@ -368,12 +368,12 @@
                     </div>
                     
                     <div class="ai-field">
-                        <strong>How did you verify AI information? Write 2 sources you checked: (你如何驗證 AI 的信息？寫出 2 個你檢查過的來源) *</strong>
+                        <strong>How did you verify AI information? Write 2 sources you checked: ( AI  2 ) *</strong>
                         <textarea name="verifiedSources" placeholder="Example: Source 1: Government department website | Source 2: NGO report" style="margin-top: 10px;"></textarea>
                     </div>
                     
                     <div class="ai-field">
-                        <strong>What did you change or improve from AI's output? (你從 AI 的輸出中修改或改進了什麼？) *</strong>
+                        <strong>What did you change or improve from AI's output? ( AI ) *</strong>
                         <textarea name="aiChanges" placeholder="Example: I added local Hong Kong context that AI didn't mention..." style="margin-top: 10px;"></textarea>
                     </div>
                 </div>
@@ -381,61 +381,61 @@
             
             <!-- Teamwork Reflection -->
             <div class="form-section">
-                <h2><span>👥</span>Teamwork Reflection (團隊合作反思)</h2>
+                <h2><span></span>Teamwork Reflection ()</h2>
                 
                 <div class="form-group">
-                    <label for="myRole">What was your main role in the group? (你在小組中的主要角色？) *</label>
+                    <label for="myRole">What was your main role in the group? () *</label>
                     <div class="checkbox-group">
                         <div class="checkbox-item">
                             <input type="checkbox" name="role" value="researcher">
-                            <label>Researcher (研究員)</label>
+                            <label>Researcher ()</label>
                         </div>
                         <div class="checkbox-item">
                             <input type="checkbox" name="role" value="designer">
-                            <label>Designer (設計師)</label>
+                            <label>Designer ()</label>
                         </div>
                         <div class="checkbox-item">
                             <input type="checkbox" name="role" value="presenter">
-                            <label>Presenter (演講者)</label>
+                            <label>Presenter ()</label>
                         </div>
                         <div class="checkbox-item">
                             <input type="checkbox" name="role" value="builder">
-                            <label>Builder/Prototype (製作者)</label>
+                            <label>Builder/Prototype ()</label>
                         </div>
                         <div class="checkbox-item">
                             <input type="checkbox" name="role" value="recorder">
-                            <label>Recorder (記錄者)</label>
+                            <label>Recorder ()</label>
                         </div>
                     </div>
                 </div>
                 
                 <div class="form-group">
-                    <label for="effectiveCollaboration">What was the most effective collaboration method in your group? (小組中最有效的協作方式是？)</label>
+                    <label for="effectiveCollaboration">What was the most effective collaboration method in your group? ()</label>
                     <textarea id="effectiveCollaboration" name="effectiveCollaboration" placeholder="Example: Dividing tasks by strengths worked well because..."></textarea>
                 </div>
                 
                 <div class="form-group">
-                    <label for="conflicts">How did your group handle disagreements? (你們如何解決分歧？)</label>
+                    <label for="conflicts">How did your group handle disagreements? ()</label>
                     <textarea id="conflicts" name="conflicts" placeholder="Example: When we disagreed about the solution, we discussed pros and cons..."></textarea>
                 </div>
             </div>
             
             <!-- Action Commitment -->
             <div class="action-box">
-                <h3>💪 Action Commitment (行動承諾)</h3>
-                <label for="commitment">After completing this unit, I commit to taking this action to help reduce marine pollution: (完成這個單元後，我承諾採取此行動來幫助減少海洋污染：) *</label>
+                <h3> Action Commitment ()</h3>
+                <label for="commitment">After completing this unit, I commit to taking this action to help reduce marine pollution: () *</label>
                 <textarea id="commitment" name="commitment" placeholder="Example: I will join a beach clean-up volunteer program... or reduce my plastic use by..." required></textarea>
                 
-                <label for="when" style="margin-top: 15px;">When will you do this? (你何時會做這個？)</label>
+                <label for="when" style="margin-top: 15px;">When will you do this? ()</label>
                 <input type="text" id="when" name="when" placeholder="Example: Next Saturday / Next month / This week">
                 
-                <label for="track" style="margin-top: 15px;">How will you track your progress? (你如何追蹤進度？)</label>
+                <label for="track" style="margin-top: 15px;">How will you track your progress? ()</label>
                 <input type="text" id="track" name="track" placeholder="Example: Take photos, keep a diary, count items">
             </div>
             
             <!-- Submit Button -->
-            <button type="submit" class="submit-btn">✅ Submit Reflection (提交反思)</button>
-            <p class="progress-text">Thank you for your thoughtful reflection! 感謝你的深思熟慮！</p>
+            <button type="submit" class="submit-btn"> Submit Reflection ()</button>
+            <p class="progress-text">Thank you for your thoughtful reflection! </p>
         </form>
     </div>
     
@@ -463,7 +463,7 @@
         // Form submission
         document.getElementById('reflectionForm').addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('Thank you for your reflection! 感謝你的反思！\n\nYour response has been submitted. 你的回應已提交。');
+            alert('Thank you for your reflection! \n\nYour response has been submitted. ');
         });
     </script>
 </body>
