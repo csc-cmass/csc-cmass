@@ -517,7 +517,7 @@
  <label for="solutionDesc">Describe your solution in 1–2 sentences</label>
  <textarea id="solutionDesc" placeholder="Example: We propose installing floating litter booms at typhoon shelters to capture plastic waste before it reaches open water."></textarea>
 </div>
- <button class="ai-generate-btn" id="generateBtn" onclick="generateQuestions">Generate Stakeholder Questions</button>
+ <button class="ai-generate-btn" id="generateBtn" onclick="generateQuestions()">Generate Stakeholder Questions</button>
  <div class="ai-error" id="aiError"></div>
 </div>
  <div class="ai-loading" id="aiLoading">Generating questions...</div>
@@ -546,10 +546,20 @@
  <!-- Exit Ticket -->
  <div class="exit-ticket">
  <h2>Exit Ticket (Post-unit)</h2>
- <p>Complete this sentence before you leave:</p>
- <p><em>"One thing I will do to help reduce marine pollution is ______ because ______."</em></p>
- <p><a href="#" style="color:#e65100; font-weight:600;">[Insert Post-unit Exit Form link]</a></p>
-</div>
+ <p style="margin-bottom:16px;">Complete this sentence before you leave:</p>
+ <form id="exitForm">
+ <div style="display:flex;flex-direction:column;gap:10px;">
+ <input type="text" id="exitName" placeholder="Your name" required
+ style="padding:12px 14px;border:2px solid #ffa500;border-radius:10px;font-size:18px;font-family:inherit;background:white;">
+ <textarea id="exitAnswer" rows="3" required placeholder="One thing I will do to help reduce marine pollution is ... because ..."
+ style="padding:12px 14px;border:2px solid #ffa500;border-radius:10px;font-size:18px;font-family:inherit;resize:vertical;background:white;"></textarea>
+ <button type="submit"
+ style="padding:14px;background:linear-gradient(135deg,#ffa500,#e65100);color:white;border:none;border-radius:10px;font-size:19px;font-weight:700;cursor:pointer;">
+ Submit Exit Ticket
+ </button>
+ </div>
+ </form>
+ </div>
 
  <!-- Navigation -->
  <div class="section">
@@ -597,7 +607,7 @@
  });
 
  if (response.status === 429) {
- const errData = await response.json;
+ const errData = await response.json();
  const waitSec = parseInt(response.headers.get('retry-after') || '15') + 2;
  if (attempt < retries) {
  document.getElementById('aiLoading').textContent =
@@ -611,19 +621,19 @@
  }
 
  if (!response.ok) {
- const errData = await response.json;
+ const errData = await response.json();
  throw new Error(errData.error?.message || `HTTP ${response.status}`);
  }
 
- const data = await response.json;
+ const data = await response.json();
  const text = data.choices?.[0]?.message?.content;
  if (!text) throw new Error('No response received from Groq.');
  return text;
  }
  }
 
- async function generateQuestions {
- const solution = document.getElementById('solutionDesc').value.trim;
+ async function generateQuestions() {
+ const solution = document.getElementById('solutionDesc').value.trim();
  const role = document.getElementById('stakeholderRole').value;
  const btn = document.getElementById('generateBtn');
  const output = document.getElementById('aiOutput');
@@ -668,6 +678,15 @@ Generate 5 challenging but fair questions this stakeholder would realistically a
  loading.classList.remove('visible');
  }
  }
+
+document.getElementById('exitForm').addEventListener('submit', function(e) {
+ e.preventDefault();
+ this.style.display = 'none';
+ const msg = document.createElement('div');
+ msg.style.cssText = 'background:#e8f5e9;border:2px solid #4caf50;border-radius:12px;padding:24px;text-align:center;';
+ msg.innerHTML = '<p style="font-size:28px;font-weight:700;color:#2e7d32;margin-bottom:8px;">Thank you!</p><p style="font-size:19px;color:#444;">Your exit ticket has been submitted. Great work today!</p>';
+ this.parentNode.appendChild(msg);
+});
 </script>
 </body>
 </html>

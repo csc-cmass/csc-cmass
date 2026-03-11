@@ -373,9 +373,12 @@
  const saved = JSON.parse(localStorage.getItem('peerAssessments') || '[]');
  saved.push(entry);
  localStorage.setItem('peerAssessments', JSON.stringify(saved));
- alert('Thank you for your feedback! Your assessment has been saved.');
  form.reset();
  document.querySelectorAll('.star-btn').forEach(b => b.classList.remove('selected'));
+ const overlay = document.createElement('div');
+ overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:9999;';
+ overlay.innerHTML = '<div style="background:white;border-radius:16px;padding:40px;max-width:400px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.3);"><p style="font-size:30px;font-weight:700;color:#764ba2;margin-bottom:12px;">Assessment Submitted!</p><p style="font-size:19px;color:#555;margin-bottom:24px;">Thank you for your KIND, HELPFUL, and HONEST feedback!</p><button onclick="this.closest(\'div[style]\').remove()" style="padding:12px 28px;background:linear-gradient(135deg,#667eea,#764ba2);color:white;border:none;border-radius:10px;font-size:18px;font-weight:700;cursor:pointer;">Close</button></div>';
+ document.body.appendChild(overlay);
  });
 </script>
 </body>
