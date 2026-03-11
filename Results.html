@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 22px;
+            background: #f0f0f0;
+            color: #555;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 28px;
+            transition: background 0.2s;
+        }
+        .back-btn:hover { background: #e0e0e0; }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 24px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        .header h1 { font-size: 32px; color: #764ba2; margin-bottom: 6px; }
+        .header p { font-size: 18px; color: #888; }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 0;
+        }
+        .tab-btn {
+            padding: 12px 28px;
+            border: none;
+            border-radius: 10px 10px 0 0;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            background: #f0f0f0;
+            color: #888;
+            transition: all 0.2s;
+            margin-bottom: -2px;
+        }
+        .tab-btn.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-bottom: 2px solid white;
+        }
+
+        .tab-panel { display: none; }
+        .tab-panel.active { display: block; }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+        .stat-card {
+            background: #f8f9ff;
+            border-left: 5px solid #667eea;
+            border-radius: 10px;
+            padding: 16px 20px;
+            text-align: center;
+        }
+        .stat-card .num {
+            font-size: 36px;
+            font-weight: 700;
+            color: #764ba2;
+        }
+        .stat-card .label {
+            font-size: 15px;
+            color: #888;
+            margin-top: 4px;
+        }
+
+        .toolbar {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 18px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .toolbar input {
+            flex: 1;
+            min-width: 200px;
+            padding: 10px 14px;
+            border: 2px solid #dde2ff;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: inherit;
+        }
+        .toolbar input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        .btn-export {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .btn-export:hover { opacity: 0.9; transform: translateY(-1px); }
+
+        .btn-clear {
+            padding: 10px 20px;
+            background: #ffebee;
+            color: #c62828;
+            border: 2px solid #ffcdd2;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .btn-clear:hover { background: #ffcdd2; }
+
+        .table-wrap {
+            overflow-x: auto;
+            border-radius: 10px;
+            border: 1px solid #dde2ff;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 16px;
+        }
+        thead th {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 14px 16px;
+            text-align: left;
+            font-size: 15px;
+            white-space: nowrap;
+        }
+        tbody tr { border-bottom: 1px solid #f0f0f0; transition: background 0.15s; }
+        tbody tr:last-child { border-bottom: none; }
+        tbody tr:hover { background: #f8f9ff; }
+        tbody td {
+            padding: 12px 16px;
+            vertical-align: top;
+            font-size: 15px;
+            color: #444;
+            max-width: 220px;
+        }
+        .cell-long {
+            max-width: 260px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+        .cell-long:hover { white-space: normal; overflow: visible; }
+
+        .score-badge {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            line-height: 32px;
+            text-align: center;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 15px;
+            color: white;
+        }
+        .score-1 { background: #ef5350; }
+        .score-2 { background: #ffa726; }
+        .score-3 { background: #66bb6a; }
+        .score-4 { background: #42a5f5; }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #aaa;
+        }
+        .empty-state p { font-size: 20px; margin-bottom: 8px; }
+        .empty-state small { font-size: 16px; }
+
+        /* Detail modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .modal-overlay.open { display: flex; }
+        .modal {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            max-width: 700px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        .modal h2 { font-size: 22px; color: #764ba2; margin-bottom: 20px; }
+        .modal-close {
+            float: right;
+            background: #f0f0f0;
+            border: none;
+            border-radius: 8px;
+            padding: 8px 14px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .modal-row {
+            margin-bottom: 14px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .modal-row:last-child { border-bottom: none; }
+        .modal-row label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        .modal-row p { font-size: 17px; color: #333; line-height: 1.6; }
+
+        @media (max-width: 700px) {
+            .container { padding: 20px; }
+            .header h1 { font-size: 24px; }
+            .tabs { flex-wrap: wrap; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <a href="index.html" class="back-btn">&#8592; Back to Lesson 8</a>
+
+    <div class="header">
+        <h1>Results Dashboard</h1>
+        <p>View all submitted peer assessments and personal reflections</p>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('peer')">Peer Assessments</button>
+        <button class="tab-btn" onclick="switchTab('reflection')">Personal Reflections</button>
+    </div>
+
+    <!-- Peer Assessment Tab -->
+    <div class="tab-panel active" id="tab-peer">
+        <div class="stats-row" id="peerStats"></div>
+        <div class="toolbar">
+            <input type="text" id="peerSearch" placeholder="Search by name or group..." oninput="renderPeer()">
+            <button class="btn-export" onclick="exportCSV('peer')">Export CSV</button>
+            <button class="btn-clear" onclick="clearData('peer')">Clear All</button>
+        </div>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Your Name</th>
+                        <th>Class</th>
+                        <th>Group Assessed</th>
+                        <th>Date</th>
+                        <th>Science</th>
+                        <th>Solution</th>
+                        <th>Stakeholders</th>
+                        <th>Sources</th>
+                        <th>Communication</th>
+                        <th>Total</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody id="peerBody"></tbody>
+            </table>
+        </div>
+        <div id="peerEmpty" class="empty-state" style="display:none;">
+            <p>No peer assessments submitted yet.</p>
+            <small>Submissions will appear here after students complete the form.</small>
+        </div>
+    </div>
+
+    <!-- Reflection Tab -->
+    <div class="tab-panel" id="tab-reflection">
+        <div class="stats-row" id="reflectionStats"></div>
+        <div class="toolbar">
+            <input type="text" id="reflectionSearch" placeholder="Search by name or group..." oninput="renderReflections()">
+            <button class="btn-export" onclick="exportCSV('reflection')">Export CSV</button>
+            <button class="btn-clear" onclick="clearData('reflection')">Clear All</button>
+        </div>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Name</th>
+                        <th>Class</th>
+                        <th>Group</th>
+                        <th>Date</th>
+                        <th>Used AI?</th>
+                        <th>AI Tools</th>
+                        <th>AI Helpful (1-5)</th>
+                        <th>Role</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody id="reflectionBody"></tbody>
+            </table>
+        </div>
+        <div id="reflectionEmpty" class="empty-state" style="display:none;">
+            <p>No reflections submitted yet.</p>
+            <small>Submissions will appear here after students complete the form.</small>
+        </div>
+    </div>
+</div>
+
+<!-- Detail Modal -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+    <div class="modal" id="modalContent">
+        <button class="modal-close" onclick="document.getElementById('modalOverlay').classList.remove('open')">Close</button>
+        <h2 id="modalTitle">Details</h2>
+        <div id="modalBody"></div>
+    </div>
+</div>
+
+<script>
+    // ── Tab switching ──────────────────────────────────────────
+    function switchTab(name) {
+        document.querySelectorAll('.tab-btn').forEach((b, i) => {
+            b.classList.toggle('active', (i === 0 && name === 'peer') || (i === 1 && name === 'reflection'));
+        });
+        document.getElementById('tab-peer').classList.toggle('active', name === 'peer');
+        document.getElementById('tab-reflection').classList.toggle('active', name === 'reflection');
+    }
+
+    // ── Score badge ────────────────────────────────────────────
+    function scoreBadge(v) {
+        const n = parseInt(v) || 0;
+        return `<span class="score-badge score-${n || 1}">${n || '—'}</span>`;
+    }
+
+    // ── Peer Assessments ───────────────────────────────────────
+    function renderPeer() {
+        const data = JSON.parse(localStorage.getItem('peerAssessments') || '[]');
+        const q = document.getElementById('peerSearch').value.toLowerCase();
+        const filtered = data.filter(r =>
+            (r.assessorName || '').toLowerCase().includes(q) ||
+            (r.groupName || '').toLowerCase().includes(q)
+        );
+
+        // Stats
+        const avgScore = filtered.length
+            ? (filtered.reduce((s, r) => s + [r.r1,r.r2,r.r3,r.r4,r.r5].reduce((a,b) => a + (parseInt(b)||0), 0), 0) / filtered.length / 5).toFixed(2)
+            : '—';
+        const groups = [...new Set(filtered.map(r => r.groupName).filter(Boolean))].length;
+        document.getElementById('peerStats').innerHTML = `
+            <div class="stat-card"><div class="num">${filtered.length}</div><div class="label">Submissions</div></div>
+            <div class="stat-card"><div class="num">${groups}</div><div class="label">Groups Assessed</div></div>
+            <div class="stat-card"><div class="num">${avgScore}</div><div class="label">Avg Score / 4</div></div>
+        `;
+
+        const tbody = document.getElementById('peerBody');
+        const empty = document.getElementById('peerEmpty');
+        if (!filtered.length) {
+            tbody.innerHTML = '';
+            empty.style.display = 'block';
+            return;
+        }
+        empty.style.display = 'none';
+        tbody.innerHTML = filtered.map((r, i) => {
+            const total = [r.r1,r.r2,r.r3,r.r4,r.r5].reduce((a,b) => a + (parseInt(b)||0), 0);
+            return `<tr>
+                <td>${r.timestamp || '—'}</td>
+                <td>${r.assessorName || '—'}</td>
+                <td>${r.assessorClass || '—'}</td>
+                <td>${r.groupName || '—'}</td>
+                <td>${r.date || '—'}</td>
+                <td>${scoreBadge(r.r1)}</td>
+                <td>${scoreBadge(r.r2)}</td>
+                <td>${scoreBadge(r.r3)}</td>
+                <td>${scoreBadge(r.r4)}</td>
+                <td>${scoreBadge(r.r5)}</td>
+                <td><strong style="color:#764ba2;font-size:17px;">${total}/20</strong></td>
+                <td><button style="padding:6px 14px;background:#f0f0f0;border:none;border-radius:6px;cursor:pointer;font-size:14px;font-weight:600;" onclick='showPeerDetail(${i})'>View</button></td>
+            </tr>`;
+        }).join('');
+
+        // Store filtered for modal lookup
+        window._peerFiltered = filtered;
+    }
+
+    function showPeerDetail(i) {
+        const r = window._peerFiltered[i];
+        document.getElementById('modalTitle').textContent = `Peer Assessment — ${r.assessorName || 'Unknown'} → ${r.groupName || 'Unknown'}`;
+        document.getElementById('modalBody').innerHTML = `
+            ${row('Submitted', r.timestamp)}
+            ${row('Your Name', r.assessorName)}
+            ${row('Your Class', r.assessorClass)}
+            ${row('Group Assessed', r.groupName)}
+            ${row('Date', r.date)}
+            ${row('Science & Evidence', `${r.r1}/4`)}
+            ${row('Solution Quality', `${r.r2}/4`)}
+            ${row('Stakeholder Perspectives', `${r.r3}/4`)}
+            ${row('Sources & Citations', `${r.r4}/4`)}
+            ${row('Communication', `${r.r5}/4`)}
+            ${row('What I liked', r.liked)}
+            ${row('Suggestion for improvement', r.improve)}
+            ${row('Question for group', r.question)}
+        `;
+        document.getElementById('modalOverlay').classList.add('open');
+    }
+
+    // ── Personal Reflections ───────────────────────────────────
+    function renderReflections() {
+        const data = JSON.parse(localStorage.getItem('reflections') || '[]');
+        const q = document.getElementById('reflectionSearch').value.toLowerCase();
+        const filtered = data.filter(r =>
+            (r.studentName || '').toLowerCase().includes(q) ||
+            (r.groupName || '').toLowerCase().includes(q)
+        );
+
+        const aiCount = filtered.filter(r => r.usedAI === 'Yes').length;
+        document.getElementById('reflectionStats').innerHTML = `
+            <div class="stat-card"><div class="num">${filtered.length}</div><div class="label">Submissions</div></div>
+            <div class="stat-card"><div class="num">${aiCount}</div><div class="label">Used AI</div></div>
+            <div class="stat-card"><div class="num">${filtered.length - aiCount}</div><div class="label">No AI Used</div></div>
+        `;
+
+        const tbody = document.getElementById('reflectionBody');
+        const empty = document.getElementById('reflectionEmpty');
+        if (!filtered.length) {
+            tbody.innerHTML = '';
+            empty.style.display = 'block';
+            return;
+        }
+        empty.style.display = 'none';
+        tbody.innerHTML = filtered.map((r, i) => `<tr>
+            <td>${r.timestamp || '—'}</td>
+            <td>${r.studentName || '—'}</td>
+            <td>${r.studentClass || '—'}</td>
+            <td>${r.groupName || '—'}</td>
+            <td>${r.date || '—'}</td>
+            <td><span style="font-weight:700;color:${r.usedAI==='Yes'?'#667eea':'#aaa'}">${r.usedAI || '—'}</span></td>
+            <td>${r.aiTools || '—'}</td>
+            <td>${r.usedAI==='Yes' ? `<span style="font-weight:700;color:#764ba2">${r.aiHelpful}/5</span>` : '—'}</td>
+            <td>${r.roles || '—'}</td>
+            <td><button style="padding:6px 14px;background:#f0f0f0;border:none;border-radius:6px;cursor:pointer;font-size:14px;font-weight:600;" onclick='showReflectionDetail(${i})'>View</button></td>
+        </tr>`).join('');
+
+        window._reflFiltered = filtered;
+    }
+
+    function showReflectionDetail(i) {
+        const r = window._reflFiltered[i];
+        document.getElementById('modalTitle').textContent = `Reflection — ${r.studentName || 'Unknown'}`;
+        document.getElementById('modalBody').innerHTML = `
+            ${row('Submitted', r.timestamp)}
+            ${row('Name', r.studentName)}
+            ${row('Class', r.studentClass)}
+            ${row('Group', r.groupName)}
+            ${row('Most Interesting Topic', r.mostInterested)}
+            ${row('How Evidence Was Used', r.useEvidence)}
+            ${row('What Would Be Improved', r.wouldImprove)}
+            ${row('Perspective Change', r.viewChange)}
+            ${row('Used AI?', r.usedAI)}
+            ${r.usedAI === 'Yes' ? row('AI Tools', r.aiTools) : ''}
+            ${r.usedAI === 'Yes' ? row('How AI Was Used', r.aiUses) : ''}
+            ${r.usedAI === 'Yes' ? row('AI Helpfulness', `${r.aiHelpful}/5`) : ''}
+            ${r.usedAI === 'Yes' ? row('Sources Verified Against AI', r.verifiedSources) : ''}
+            ${r.usedAI === 'Yes' ? row('What Was Changed From AI', r.aiChanges) : ''}
+            ${row('Role in Group', r.roles)}
+            ${row('Best Collaboration Method', r.collaboration)}
+            ${row('How Disagreements Were Handled', r.conflicts)}
+            ${row('Action Commitment', r.commitment)}
+            ${row('When', r.when)}
+            ${row('How to Track', r.track)}
+        `;
+        document.getElementById('modalOverlay').classList.add('open');
+    }
+
+    // ── Helpers ────────────────────────────────────────────────
+    function row(label, value) {
+        if (!value) return '';
+        return `<div class="modal-row"><label>${label}</label><p>${value}</p></div>`;
+    }
+
+    function closeModal(e) {
+        if (e.target === document.getElementById('modalOverlay')) {
+            document.getElementById('modalOverlay').classList.remove('open');
+        }
+    }
+
+    // ── Export CSV ─────────────────────────────────────────────
+    function exportCSV(type) {
+        let data, headers, rowFn;
+        if (type === 'peer') {
+            data = JSON.parse(localStorage.getItem('peerAssessments') || '[]');
+            headers = ['Timestamp','Your Name','Class','Group Assessed','Date','Science','Solution','Stakeholders','Sources','Communication','Total','Liked','Improve','Question'];
+            rowFn = r => [r.timestamp, r.assessorName, r.assessorClass, r.groupName, r.date, r.r1, r.r2, r.r3, r.r4, r.r5,
+                [r.r1,r.r2,r.r3,r.r4,r.r5].reduce((a,b)=>a+(parseInt(b)||0),0), r.liked, r.improve, r.question];
+        } else {
+            data = JSON.parse(localStorage.getItem('reflections') || '[]');
+            headers = ['Timestamp','Name','Class','Group','Date','Used AI','AI Tools','AI Helpful','Roles','Most Interested','Evidence Used','Would Improve','View Change','Verified Sources','AI Changes','Commitment'];
+            rowFn = r => [r.timestamp, r.studentName, r.studentClass, r.groupName, r.date, r.usedAI, r.aiTools, r.aiHelpful,
+                r.roles, r.mostInterested, r.useEvidence, r.wouldImprove, r.viewChange, r.verifiedSources, r.aiChanges, r.commitment];
+        }
+        if (!data.length) { alert('No data to export.'); return; }
+        const escape = v => `"${(v||'').toString().replace(/"/g,'""')}"`;
+        const csv = [headers.map(escape).join(','), ...data.map(r => rowFn(r).map(escape).join(','))].join('\n');
+        const a = document.createElement('a');
+        a.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
+        a.download = `${type}_results_${new Date().toISOString().slice(0,10)}.csv`;
+        a.click();
+    }
+
+    // ── Clear data ─────────────────────────────────────────────
+    function clearData(type) {
+        const key = type === 'peer' ? 'peerAssessments' : 'reflections';
+        const label = type === 'peer' ? 'peer assessments' : 'reflections';
+        if (confirm(`Delete ALL ${label}? This cannot be undone.`)) {
+            localStorage.removeItem(key);
+            type === 'peer' ? renderPeer() : renderReflections();
+        }
+    }
+
+    // ── Init ───────────────────────────────────────────────────
+    renderPeer();
+    renderReflections();
+</script>
+</body>
+</html>

@@ -404,7 +404,39 @@
  });
  document.getElementById('reflectionForm').addEventListener('submit', e => {
  e.preventDefault();
- alert('Thank you for your reflection!\n\n\nYour response has been submitted.\n');
+ const form = e.target;
+ const aiTools = [...form.querySelectorAll('[name="aiTool"]:checked')].map(c => c.value).join(', ');
+ const aiUses  = [...form.querySelectorAll('[name="aiUse"]:checked')].map(c => c.value).join(', ');
+ const roles   = [...form.querySelectorAll('[name="role"]:checked')].map(c => c.value).join(', ');
+ const entry = {
+ timestamp: new Date().toLocaleString(),
+ studentName: form.studentName.value,
+ studentClass: form.studentClass.value,
+ groupName: form.groupName2.value,
+ date: form.reflectionDate.value,
+ mostInterested: form.mostInterested.value,
+ useEvidence: form.useEvidence.value,
+ wouldImprove: form.wouldImprove.value,
+ viewChange: form.viewChange.value,
+ usedAI: form.usedAI.checked ? 'Yes' : 'No',
+ aiTools,
+ aiUses,
+ aiHelpful: form.aiHelpful.value,
+ verifiedSources: form.verifiedSources ? form.verifiedSources.value : '',
+ aiChanges: form.aiChanges ? form.aiChanges.value : '',
+ roles,
+ collaboration: form.effectiveCollaboration.value,
+ conflicts: form.conflicts.value,
+ commitment: form.commitment.value,
+ when: form.when.value,
+ track: form.track.value,
+ };
+ const saved = JSON.parse(localStorage.getItem('reflections') || '[]');
+ saved.push(entry);
+ localStorage.setItem('reflections', JSON.stringify(saved));
+ alert('Thank you for your reflection! Your response has been saved.');
+ form.reset();
+ document.getElementById('aiDetails').style.display = 'none';
  });
 </script>
 </body>

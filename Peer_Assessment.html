@@ -354,7 +354,28 @@
 
  document.getElementById('assessmentForm').addEventListener('submit', e => {
  e.preventDefault();
- alert('Thank you for your feedback!\n\n\nYour assessment has been submitted.\n');
+ const form = e.target;
+ const entry = {
+ timestamp: new Date().toLocaleString(),
+ assessorName: form.assessorName.value,
+ assessorClass: form.assessorClass.value,
+ groupName: form.groupName.value,
+ date: form.date.value,
+ r1: form.rating1.value,
+ r2: form.rating2.value,
+ r3: form.rating3.value,
+ r4: form.rating4.value,
+ r5: form.rating5.value,
+ liked: form.whatWasGood.value,
+ improve: form.whatCanImprove.value,
+ question: form.oneQuestion.value,
+ };
+ const saved = JSON.parse(localStorage.getItem('peerAssessments') || '[]');
+ saved.push(entry);
+ localStorage.setItem('peerAssessments', JSON.stringify(saved));
+ alert('Thank you for your feedback! Your assessment has been saved.');
+ form.reset();
+ document.querySelectorAll('.star-btn').forEach(b => b.classList.remove('selected'));
  });
 </script>
 </body>

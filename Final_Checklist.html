@@ -346,14 +346,14 @@
  const checkboxes = document.querySelectorAll('.cb');
  const total = checkboxes.length;
 
- function updateProgress() {
+ function updateProgress {
  const done = document.querySelectorAll('.cb:checked').length;
  document.getElementById('progressFill').style.width = (done / total * 100) + '%';
  document.getElementById('progressLabel').textContent = done + ' / ' + total + ' completed';
  }
 
  checkboxes.forEach(cb => cb.addEventListener('change', updateProgress));
- updateProgress();
+ updateProgress;
 </script>
 </body>
 </html>
