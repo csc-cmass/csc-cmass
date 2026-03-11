@@ -3,29 +3,46 @@
 <head>
  <meta charset="UTF-8">
  <link rel="preconnect" href="https://fonts.googleapis.com">
- <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=Fredoka:wght@500;700&display=swap" rel="stylesheet">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>Personal Reflection & AI Use Statement</title>
  <style>
  * { margin: 0; padding: 0; box-sizing: border-box; }
 
  body {
- font-family: 'Archivo Black', Arial, sans-serif;
- background: linear-gradient(180deg, #0077b6 0%, #023e8a 50%, #03045e 100%);
- color: #333;
+ font-family: 'Baloo 2', Arial, sans-serif;
+ background: linear-gradient(180deg, #8fd3fe 0%, #58b7ff 35%, #0077b6 100%);
+ color: #17324d;
  min-height: 100vh;
  padding: 20px;
+ position: relative;
+ overflow-x: hidden;
+ }
+
+ body::before {
+   content: "";
+   position: fixed;
+   inset: -10% -10% auto -10%;
+   height: 70vh;
+   background:
+     radial-gradient(circle at 10% 20%, rgba(255,255,255,0.45) 0 18px, transparent 19px),
+     radial-gradient(circle at 30% 10%, rgba(255,255,255,0.35) 0 14px, transparent 15px),
+     radial-gradient(circle at 70% 25%, rgba(255,255,255,0.35) 0 16px, transparent 17px),
+     radial-gradient(circle at 85% 12%, rgba(255,255,255,0.35) 0 12px, transparent 13px);
+   opacity: 0.9;
+   pointer-events: none;
  }
 
  .container {
  max-width: 900px;
  margin: 0 auto;
  background: white;
- border-radius: 16px;
+ border-radius: 22px;
  border-top: 6px solid transparent;
- border-image: linear-gradient(90deg,#f857a6,#ff5858,#ffb347,#43c6ac,#0057d9) 1;
+ border-image: linear-gradient(90deg,#00b4d8,#90e0ef,#48cae4,#0077b6,#00509d) 1;
  padding: 40px;
- box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+ box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+ position: relative;
  }
 
  .back-btn {
@@ -33,54 +50,60 @@
  align-items: center;
  gap: 8px;
  padding: 12px 22px;
- background: #f0f0f0;
- color: #555;
+ background: #e6f7ff;
+ color: #1f5074;
  text-decoration: none;
- border-radius: 10px;
- font-size: 21px;
+ border-radius: 12px;
+ font-size: 20px;
  font-weight: 600;
  margin-bottom: 28px;
  transition: background 0.2s;
+ border: 2px solid #bde7ff;
  }
- .back-btn:hover { background: #e0e0e0; color: #333; }
+ .back-btn:hover { background: #d6f1ff; color: #15405f; }
 
  .header {
  text-align: center;
  margin-bottom: 40px;
  padding-bottom: 24px;
- border-bottom: 2px solid #f0f0f0;
+ border-bottom: 3px dashed #cfefff;
  }
- .header h1 { font-size: 38px; color: #0057d9; margin-bottom: 6px; }
- .header .meta { font-size: 21px; color: #888; }
+ .header h1 {
+ font-family: 'Fredoka', Arial, sans-serif;
+ font-size: 40px;
+ color: #004e98;
+ margin-bottom: 6px;
+ }
+ .header .meta { font-size: 20px; color: #2b5c86; }
 
  .section {
- background: #f0f8ff;
- border-left: 6px solid #0057d9;
- padding: 20px 24px;
+ background: #f0fbff;
+ border-left: 8px solid #0057d9;
+ padding: 22px 24px;
  margin-bottom: 24px;
- border-radius: 8px;
+ border-radius: 14px;
  }
  .section h2 {
- font-size: 24px;
- color: #0057d9;
+ font-family: 'Fredoka', Arial, sans-serif;
+ font-size: 26px;
+ color: #00509d;
  margin-bottom: 18px;
- text-transform: uppercase;
- letter-spacing: 0.5px;
+ letter-spacing: 0.3px;
  }
 
  .ai-section {
- background: linear-gradient(135deg, #e8f4ff, #f0fff4);
- border: 2px solid #0057d9;
+ background: linear-gradient(135deg, #e6f7ff, #e9f9ff);
+ border: 3px solid #0057d9;
  border-radius: 12px;
  padding: 24px;
  margin-bottom: 24px;
  }
  .ai-section h2 {
- font-size: 24px;
- color: #0057d9;
+ font-family: 'Fredoka', Arial, sans-serif;
+ font-size: 26px;
+ color: #00509d;
  margin-bottom: 18px;
- text-transform: uppercase;
- letter-spacing: 0.5px;
+ letter-spacing: 0.3px;
  }
 
  .ai-field {
@@ -88,45 +111,45 @@
  border-radius: 10px;
  padding: 16px;
  margin-bottom: 14px;
- border-left: 4px solid #1565c0;
+ border-left: 4px solid #00b4d8;
  }
  .ai-field strong {
  display: block;
- font-size: 21px;
- color: #0057d9;
+ font-size: 20px;
+ color: #00509d;
  margin-bottom: 10px;
  }
 
  .action-section {
- background: linear-gradient(135deg, #e8f5e9, #f1f8f6);
- border-left: 5px solid #4caf50;
- border-radius: 8px;
- padding: 20px 24px;
+ background: linear-gradient(135deg, #e6f7ff, #f1fbff);
+ border-left: 5px solid #00b4d8;
+ border-radius: 14px;
+ padding: 22px 24px;
  margin-bottom: 24px;
  }
  .action-section h2 {
- font-size: 24px;
- color: #2e7d32;
+ font-family: 'Fredoka', Arial, sans-serif;
+ font-size: 26px;
+ color: #00509d;
  margin-bottom: 18px;
- text-transform: uppercase;
- letter-spacing: 0.5px;
+ letter-spacing: 0.3px;
  }
 
  .form-group { margin-bottom: 20px; }
 
  label {
  display: block;
- font-size: 22px;
+ font-size: 20px;
  font-weight: 600;
- color: #0057d9;
+ color: #00509d;
  margin-bottom: 8px;
  }
- .ai-section label, .ai-field label { color: #0057d9; }
- .action-section label { color: #2e7d32; }
+ .ai-section label, .ai-field label { color: #00509d; }
+ .action-section label { color: #00509d; }
 
  .hint {
- font-size: 19px;
- color: #999;
+ font-size: 18px;
+ color: #5b86a8;
  font-style: italic;
  margin-bottom: 8px;
  margin-top: -4px;
@@ -141,9 +164,9 @@
  border: 2px solid #bbdefb;
  border-radius: 10px;
  font-family: inherit;
- font-size: 21px;
+ font-size: 20px;
  background: white;
- color: #333;
+ color: #2b5a7a;
  transition: border-color 0.2s;
  }
  input[type="text"]:focus,
@@ -166,7 +189,7 @@
  display: flex;
  align-items: center;
  gap: 10px;
- font-size: 21px;
+ font-size: 20px;
  }
  .checkbox-item input[type="checkbox"] {
  width: 22px;
@@ -177,8 +200,8 @@
  }
  .checkbox-item label {
  font-weight: normal;
- font-size: 21px;
- color: #444;
+ font-size: 20px;
+ color: #2b5a7a;
  margin: 0;
  cursor: pointer;
  }
@@ -190,8 +213,8 @@
  }
  .range-value {
  text-align: center;
- font-size: 21px;
- color: #0057d9;
+ font-size: 20px;
+ color: #00509d;
  font-weight: 700;
  margin-top: 6px;
  }
@@ -199,15 +222,15 @@
  .submit-btn {
  width: 100%;
  padding: 16px;
- background: linear-gradient(135deg, #0057d9, #00b4d8);
+ background: linear-gradient(135deg, #00b4d8, #00509d);
  color: white;
  border: none;
  border-radius: 12px;
- font-size: 22px;
+ font-size: 21px;
  font-weight: 700;
  cursor: pointer;
  transition: all 0.2s ease;
- box-shadow: 0 4px 12px rgba(102,126,234,0.3);
+ box-shadow: 0 4px 12px rgba(0,80,157,0.25);
  margin-top: 10px;
  }
  .submit-btn:hover {
@@ -219,9 +242,9 @@
  text-align: center;
  margin-top: 36px;
  padding-top: 20px;
- border-top: 1px solid #eee;
- color: #aaa;
- font-size: 20px;
+ border-top: 1px solid #e5f5ff;
+ color: #447098;
+ font-size: 19px;
  }
 
  @media (max-width: 700px) {
@@ -231,23 +254,16 @@
  }
 
  /* Colourful section variants */
- .section:nth-of-type(1) { border-left-color: #f857a6; }
- .section:nth-of-type(2) { border-left-color: #ff5858; }
- .section:nth-of-type(3) { border-left-color: #ffb347; }
- .section:nth-of-type(4) { border-left-color: #43c6ac; }
- .section:nth-of-type(5) { border-left-color: #0057d9; }
- .section:nth-of-type(6) { border-left-color: #f857a6; }
-
- .section:nth-of-type(1) h2 { color: #c2185b; }
- .section:nth-of-type(2) h2 { color: #d32f2f; }
- .section:nth-of-type(3) h2 { color: #e65100; }
- .section:nth-of-type(4) h2 { color: #00695c; }
- .section:nth-of-type(5) h2 { color: #0057d9; }
- .section:nth-of-type(6) h2 { color: #c2185b; }
+ .section:nth-of-type(1) { border-left-color: #00b4d8; }
+ .section:nth-of-type(2) { border-left-color: #48cae4; }
+ .section:nth-of-type(3) { border-left-color: #0096c7; }
+ .section:nth-of-type(4) { border-left-color: #0077b6; }
+ .section:nth-of-type(5) { border-left-color: #00509d; }
+ .section:nth-of-type(6) { border-left-color: #00b4d8; }
 
  /* Colourful header */
  .header h1 {
-   background: linear-gradient(90deg, #f857a6, #ff5858, #ffb347, #43c6ac, #0057d9);
+   background: linear-gradient(90deg, #00b4d8, #48cae4, #0096c7, #0077b6, #00509d);
    -webkit-background-clip: text;
    -webkit-text-fill-color: transparent;
    background-clip: text;
@@ -256,15 +272,15 @@
  /* Colourful container top stripe */
  .container {
    border-top: 8px solid;
-   border-image: linear-gradient(90deg, #f857a6, #ff5858, #ffb347, #43c6ac, #0057d9) 1;
+   border-image: linear-gradient(90deg, #00b4d8, #48cae4, #0096c7, #0077b6, #00509d) 1;
  }
 
  /* Colourful nav buttons */
- .nav-btn:nth-child(1) { background: linear-gradient(135deg, #f857a6, #ff5858) !important; }
- .nav-btn:nth-child(2) { background: linear-gradient(135deg, #ff5858, #ffb347) !important; }
- .nav-btn:nth-child(3) { background: linear-gradient(135deg, #ffb347, #43c6ac) !important; }
- .nav-btn:nth-child(4) { background: linear-gradient(135deg, #43c6ac, #0057d9) !important; }
- .nav-btn:nth-child(5) { background: linear-gradient(135deg, #0057d9, #f857a6) !important; }
+ .nav-btn:nth-child(1) { background: linear-gradient(135deg, #00b4d8, #0096c7) !important; }
+ .nav-btn:nth-child(2) { background: linear-gradient(135deg, #0096c7, #0077b6) !important; }
+ .nav-btn:nth-child(3) { background: linear-gradient(135deg, #0077b6, #00509d) !important; }
+ .nav-btn:nth-child(4) { background: linear-gradient(135deg, #48cae4, #00b4d8) !important; }
+ .nav-btn:nth-child(5) { background: linear-gradient(135deg, #00509d, #00b4d8) !important; }
 
 </style>
 </head>
@@ -502,6 +518,21 @@
 </div>
 
  <script>
+ // DATA INTEGRITY: Clean up any misplaced data on page load
+ (function cleanupLocalStorage() {
+ try {
+ const refl = JSON.parse(localStorage.getItem('reflections') || '[]');
+ const cleanRefl = refl.filter(item => {
+ if (item.formType === 'peerAssessment') return false;
+ if (!item.studentName) return false;
+ return true;
+ });
+ if (cleanRefl.length !== refl.length) localStorage.setItem('reflections', JSON.stringify(cleanRefl));
+ } catch (e) {
+ console.warn('Reflection data cleanup failed:', e.message);
+ }
+ })();
+
  document.getElementById('usedYes').addEventListener('change', function() {
  if (this.checked) {
  document.getElementById('usedNo').checked = false;
@@ -520,41 +551,50 @@
  document.getElementById('reflectionForm').addEventListener('submit', e => {
  e.preventDefault();
  const form = e.target;
- const aiTools = [...form.querySelectorAll('[name="aiTool"]:checked')].map(c => c.value).join(', ');
- const aiUses  = [...form.querySelectorAll('[name="aiUse"]:checked')].map(c => c.value).join(', ');
+ 
+ // Validate required fields
+ if (!form.studentName.value.trim() || !form.reflectionDate.value || !form.mostInterested.value.trim() || !form.useEvidence.value.trim() || !form.viewChange.value.trim() || !form.commitment.value.trim()) {
+ alert('Please fill in all required fields (* marked).');
+ return;
+ }
+ 
  const roles   = [...form.querySelectorAll('[name="role"]:checked')].map(c => c.value).join(', ');
  const entry = {
+ formType: 'personalReflection',
  timestamp: new Date().toLocaleString(),
- studentName: form.studentName.value,
- studentClass: form.studentClass.value,
- groupName: form.groupName2.value,
+ studentName: form.studentName.value.trim(),
+ studentClass: form.studentClass.value.trim(),
+ groupName: form.groupName2.value.trim(),
  date: form.reflectionDate.value,
- mostInterested: form.mostInterested.value,
- useEvidence: form.useEvidence.value,
- wouldImprove: form.wouldImprove.value,
- viewChange: form.viewChange.value,
- usedAI: form.usedAI.checked ? 'Yes' : 'No',
- aiTools,
- aiUses,
- aiHelpful: form.aiHelpful.value,
- verifiedSources: form.verifiedSources ? form.verifiedSources.value : '',
- aiChanges: form.aiChanges ? form.aiChanges.value : '',
- roles,
- collaboration: form.effectiveCollaboration.value,
- conflicts: form.conflicts.value,
- commitment: form.commitment.value,
- when: form.when.value,
- track: form.track.value,
+ mostInterested: form.mostInterested.value.trim(),
+ useEvidence: form.useEvidence.value.trim(),
+ wouldImprove: form.wouldImprove.value.trim(),
+ viewChange: form.viewChange.value.trim(),
+ usedAI: form.usedYes.checked ? 'Yes' : 'No',
+ aiHelpful: form.aiHelpful?.value || '',
+ verifiedSources: form.verifiedSources?.value?.trim() || '',
+ aiChanges: form.aiChanges?.value?.trim() || '',
+ roles: roles,
+ collaboration: form.effectiveCollaboration.value.trim(),
+ conflicts: form.conflicts.value.trim(),
+ commitment: form.commitment.value.trim(),
+ when: form.when.value.trim(),
+ track: form.track.value.trim(),
  };
+ 
+ // Get existing reflections only
  const saved = JSON.parse(localStorage.getItem('reflections') || '[]');
- saved.push(entry);
- localStorage.setItem('reflections', JSON.stringify(saved));
+ // Filter to ensure only reflections (safety check)
+ const cleanedSaved = saved.filter(item => item.formType === 'personalReflection' || !item.formType);
+ cleanedSaved.push(entry);
+ localStorage.setItem('reflections', JSON.stringify(cleanedSaved));
+ 
  form.reset();
  document.getElementById('aiDetails').style.display = 'none';
  const overlay = document.createElement('div');
  overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:9999;';
  overlay.id = 'reflectionOverlay';
- overlay.innerHTML = '<div style="background:white;border-radius:16px;padding:40px;max-width:400px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.3);"><p style="font-size:30px;font-weight:700;color:#0d47a1;margin-bottom:12px;">Reflection Submitted!</p><p style="font-size:19px;color:#555;margin-bottom:24px;">Thank you for sharing your thoughts. Your reflection has been saved!</p><button onclick="document.getElementById(\'reflectionOverlay\').remove()" style="padding:12px 28px;background:linear-gradient(135deg,#1976d2,#0d47a1);color:white;border:none;border-radius:10px;font-size:18px;font-weight:700;cursor:pointer;">OK</button></div>';
+ overlay.innerHTML = '<div style="background:white;border-radius:16px;padding:40px;max-width:400px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.3);"><p style="font-size:30px;font-weight:700;color:#0d47a1;margin-bottom:12px;">Reflection Submitted!</p><p style="font-size:19px;color:#555;margin-bottom:24px;">Thank you for sharing your thoughts. Your reflection has been saved!</p><button onclick="document.getElementById(\'reflectionOverlay\').remove();window.location.reload();" style="padding:12px 28px;background:linear-gradient(135deg,#1976d2,#0d47a1);color:white;border:none;border-radius:10px;font-size:18px;font-weight:700;cursor:pointer;">OK</button></div>';
  document.body.appendChild(overlay);
  });
 </script>

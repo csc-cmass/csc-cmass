@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
  <link rel="preconnect" href="https://fonts.googleapis.com">
- <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=Fredoka:wght@500;700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Results Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -11,22 +11,39 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Archivo Black', Arial, sans-serif;
-            background: linear-gradient(180deg, #0077b6 0%, #023e8a 50%, #03045e 100%);
-            color: #333;
+            font-family: 'Baloo 2', Arial, sans-serif;
+            background: linear-gradient(180deg, #8fd3fe 0%, #58b7ff 35%, #0077b6 100%);
+            color: #17324d;
             min-height: 100vh;
             padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: -10% -10% auto -10%;
+            height: 70vh;
+            background:
+              radial-gradient(circle at 10% 20%, rgba(255,255,255,0.45) 0 18px, transparent 19px),
+              radial-gradient(circle at 30% 10%, rgba(255,255,255,0.35) 0 14px, transparent 15px),
+              radial-gradient(circle at 70% 25%, rgba(255,255,255,0.35) 0 16px, transparent 17px),
+              radial-gradient(circle at 85% 12%, rgba(255,255,255,0.35) 0 12px, transparent 13px);
+            opacity: 0.9;
+            pointer-events: none;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             background: white;
-            border-radius: 16px;
- border-top: 6px solid transparent;
- border-image: linear-gradient(90deg,#f857a6,#ff5858,#ffb347,#43c6ac,#0057d9) 1;
+            border-radius: 22px;
+            border-top: 6px solid transparent;
+            border-image: linear-gradient(90deg,#00b4d8,#90e0ef,#48cae4,#0077b6,#00509d) 1;
             padding: 40px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+            position: relative;
         }
 
         .back-btn {
@@ -34,25 +51,31 @@
             align-items: center;
             gap: 8px;
             padding: 12px 22px;
-            background: #f0f0f0;
-            color: #555;
+            background: #e6f7ff;
+            color: #1f5074;
             text-decoration: none;
-            border-radius: 10px;
-            font-size: 21px;
+            border-radius: 12px;
+            font-size: 20px;
             font-weight: 600;
             margin-bottom: 28px;
             transition: background 0.2s;
+            border: 2px solid #bde7ff;
         }
-        .back-btn:hover { background: #e0e0e0; }
+        .back-btn:hover { background: #d6f1ff; }
 
         .header {
             text-align: center;
             margin-bottom: 40px;
             padding-bottom: 24px;
-            border-bottom: 2px solid #f0f0f0;
+            border-bottom: 3px dashed #cfefff;
         }
-        .header h1 { font-size: 38px; color: #0057d9; margin-bottom: 6px; }
-        .header p { font-size: 21px; color: #888; }
+        .header h1 {
+            font-family: 'Fredoka', Arial, sans-serif;
+            font-size: 40px;
+            color: #004e98;
+            margin-bottom: 6px;
+        }
+        .header p { font-size: 20px; color: #2b5c86; }
 
         .tabs {
             display: flex;
@@ -65,16 +88,16 @@
             padding: 12px 28px;
             border: none;
             border-radius: 10px 10px 0 0;
-            font-size: 21px;
+            font-size: 20px;
             font-weight: 600;
             cursor: pointer;
             background: #f0f0f0;
-            color: #888;
+            color: #4c7394;
             transition: all 0.2s;
             margin-bottom: -2px;
         }
         .tab-btn.active {
-            background: linear-gradient(135deg, #0057d9, #00b4d8);
+            background: linear-gradient(135deg, #00b4d8, #00509d);
             color: white;
             border-bottom: 2px solid white;
         }
@@ -89,20 +112,20 @@
             margin-bottom: 28px;
         }
         .stat-card {
-            background: #f0f8ff;
-            border-left: 6px solid #0057d9;
-            border-radius: 10px;
+            background: #f0fbff;
+            border-left: 8px solid #0057d9;
+            border-radius: 12px;
             padding: 16px 20px;
             text-align: center;
         }
         .stat-card .num {
-            font-size: 36px;
+            font-size: 34px;
             font-weight: 700;
-            color: #0057d9;
+            color: #00509d;
         }
         .stat-card .label {
             font-size: 18px;
-            color: #888;
+            color: #4c7394;
             margin-top: 4px;
         }
 
@@ -121,6 +144,7 @@
             border-radius: 8px;
             font-size: 19px;
             font-family: inherit;
+            color: #2b5a7a;
         }
         .toolbar input:focus {
             outline: none;
@@ -128,7 +152,7 @@
         }
         .btn-export {
             padding: 10px 20px;
-            background: linear-gradient(135deg, #0057d9, #00b4d8);
+            background: linear-gradient(135deg, #00b4d8, #00509d);
             color: white;
             border: none;
             border-radius: 8px;
@@ -156,8 +180,8 @@
 
         .table-wrap {
             overflow-x: auto;
-            border-radius: 10px;
-            border: 1px solid #bbdefb;
+            border-radius: 12px;
+            border: 2px solid #bbdefb;
         }
         table {
             width: 100%;
@@ -165,7 +189,7 @@
             font-size: 19px;
         }
         thead th {
-            background: linear-gradient(135deg, #0057d9, #00b4d8);
+            background: linear-gradient(135deg, #00b4d8, #00509d);
             color: white;
             padding: 14px 16px;
             text-align: left;
@@ -174,12 +198,12 @@
         }
         tbody tr { border-bottom: 1px solid #f0f0f0; transition: background 0.15s; }
         tbody tr:last-child { border-bottom: none; }
-        tbody tr:hover { background: #f0f8ff; }
+        tbody tr:hover { background: #f0fbff; }
         tbody td {
             padding: 12px 16px;
             vertical-align: top;
             font-size: 18px;
-            color: #444;
+            color: #2b5a7a;
             max-width: 220px;
         }
         .cell-long {
@@ -210,7 +234,7 @@
         .empty-state {
             text-align: center;
             padding: 60px 20px;
-            color: #aaa;
+            color: #4c7394;
         }
         .empty-state p { font-size: 22px; margin-bottom: 8px; }
         .empty-state small { font-size: 19px; }
@@ -229,26 +253,27 @@
         .modal-overlay.open { display: flex; }
         .modal {
             background: white;
-            border-radius: 16px;
- border-top: 6px solid transparent;
- border-image: linear-gradient(90deg,#f857a6,#ff5858,#ffb347,#43c6ac,#0057d9) 1;
+            border-radius: 18px;
+            border-top: 6px solid transparent;
+            border-image: linear-gradient(90deg,#00b4d8,#48cae4,#0096c7,#0077b6,#00509d) 1;
             padding: 32px;
             max-width: 700px;
             width: 100%;
             max-height: 85vh;
             overflow-y: auto;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.22);
         }
-        .modal h2 { font-size: 22px; color: #0057d9; margin-bottom: 20px; }
+        .modal h2 { font-size: 22px; color: #00509d; margin-bottom: 20px; }
         .modal-close {
             float: right;
-            background: #f0f0f0;
-            border: none;
-            border-radius: 8px;
+            background: #e6f7ff;
+            border: 2px solid #bde7ff;
+            border-radius: 10px;
             padding: 8px 14px;
-            font-size: 19px;
+            font-size: 18px;
             cursor: pointer;
             font-weight: 600;
+            color: #1f5074;
         }
         .modal-row {
             margin-bottom: 14px;
@@ -260,12 +285,12 @@
             display: block;
             font-size: 13px;
             font-weight: 700;
-            color: #999;
+            color: #5b86a8;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-bottom: 4px;
         }
-        .modal-row p { font-size: 20px; color: #333; line-height: 1.6; }
+        .modal-row p { font-size: 19px; color: #2b5a7a; line-height: 1.6; }
 
         .charts-grid {
             display: grid;
@@ -274,16 +299,15 @@
             margin-bottom: 32px;
         }
         .chart-card {
-            background: #f0f8ff;
-            border-left: 6px solid #0057d9;
-            border-radius: 10px;
+            background: #f0fbff;
+            border-left: 8px solid #0057d9;
+            border-radius: 12px;
             padding: 20px;
         }
         .chart-card h3 {
             font-size: 20px;
-            color: #0057d9;
+            color: #00509d;
             margin-bottom: 14px;
-            text-transform: uppercase;
             letter-spacing: 0.4px;
         }
         .chart-card canvas { max-height: 240px; }
@@ -296,23 +320,16 @@
         }
     
  /* Colourful section variants */
- .section:nth-of-type(1) { border-left-color: #f857a6; }
- .section:nth-of-type(2) { border-left-color: #ff5858; }
- .section:nth-of-type(3) { border-left-color: #ffb347; }
- .section:nth-of-type(4) { border-left-color: #43c6ac; }
- .section:nth-of-type(5) { border-left-color: #0057d9; }
- .section:nth-of-type(6) { border-left-color: #f857a6; }
-
- .section:nth-of-type(1) h2 { color: #c2185b; }
- .section:nth-of-type(2) h2 { color: #d32f2f; }
- .section:nth-of-type(3) h2 { color: #e65100; }
- .section:nth-of-type(4) h2 { color: #00695c; }
- .section:nth-of-type(5) h2 { color: #0057d9; }
- .section:nth-of-type(6) h2 { color: #c2185b; }
+ .section:nth-of-type(1) { border-left-color: #00b4d8; }
+ .section:nth-of-type(2) { border-left-color: #48cae4; }
+ .section:nth-of-type(3) { border-left-color: #0096c7; }
+ .section:nth-of-type(4) { border-left-color: #0077b6; }
+ .section:nth-of-type(5) { border-left-color: #00509d; }
+ .section:nth-of-type(6) { border-left-color: #00b4d8; }
 
  /* Colourful header */
  .header h1 {
-   background: linear-gradient(90deg, #f857a6, #ff5858, #ffb347, #43c6ac, #0057d9);
+   background: linear-gradient(90deg, #00b4d8, #48cae4, #0096c7, #0077b6, #00509d);
    -webkit-background-clip: text;
    -webkit-text-fill-color: transparent;
    background-clip: text;
@@ -321,15 +338,15 @@
  /* Colourful container top stripe */
  .container {
    border-top: 8px solid;
-   border-image: linear-gradient(90deg, #f857a6, #ff5858, #ffb347, #43c6ac, #0057d9) 1;
+   border-image: linear-gradient(90deg, #00b4d8, #48cae4, #0096c7, #0077b6, #00509d) 1;
  }
 
  /* Colourful nav buttons */
- .nav-btn:nth-child(1) { background: linear-gradient(135deg, #f857a6, #ff5858) !important; }
- .nav-btn:nth-child(2) { background: linear-gradient(135deg, #ff5858, #ffb347) !important; }
- .nav-btn:nth-child(3) { background: linear-gradient(135deg, #ffb347, #43c6ac) !important; }
- .nav-btn:nth-child(4) { background: linear-gradient(135deg, #43c6ac, #0057d9) !important; }
- .nav-btn:nth-child(5) { background: linear-gradient(135deg, #0057d9, #f857a6) !important; }
+ .nav-btn:nth-child(1) { background: linear-gradient(135deg, #00b4d8, #0096c7) !important; }
+ .nav-btn:nth-child(2) { background: linear-gradient(135deg, #0096c7, #0077b6) !important; }
+ .nav-btn:nth-child(3) { background: linear-gradient(135deg, #0077b6, #00509d) !important; }
+ .nav-btn:nth-child(4) { background: linear-gradient(135deg, #48cae4, #00b4d8) !important; }
+ .nav-btn:nth-child(5) { background: linear-gradient(135deg, #00509d, #00b4d8) !important; }
 
 </style>
 </head>
@@ -575,7 +592,9 @@
 
     // ── Peer Assessments ───────────────────────────────────────
     function renderPeer() {
-        const data = JSON.parse(localStorage.getItem('peerAssessments') || '[]');
+        let data = JSON.parse(localStorage.getItem('peerAssessments') || '[]');
+        // Ensure only peer assessments
+        data = data.filter(r => !r.formType || r.formType === 'peerAssessment');
         const q = document.getElementById('peerSearch').value.toLowerCase();
         const filtered = data.filter(r =>
             (r.assessorName || '').toLowerCase().includes(q) ||
@@ -647,7 +666,9 @@
 
     // ── Personal Reflections ───────────────────────────────────
     function renderReflections() {
-        const data = JSON.parse(localStorage.getItem('reflections') || '[]');
+        let data = JSON.parse(localStorage.getItem('reflections') || '[]');
+        // Ensure only reflections
+        data = data.filter(r => !r.formType || r.formType === 'personalReflection');
         const q = document.getElementById('reflectionSearch').value.toLowerCase();
         const filtered = data.filter(r =>
             (r.studentName || '').toLowerCase().includes(q) ||
@@ -731,13 +752,17 @@
         let data, headers, rowFn;
         if (type === 'peer') {
             data = JSON.parse(localStorage.getItem('peerAssessments') || '[]');
+            // Filter to ensure only peer assessments
+            data = data.filter(r => !r.formType || r.formType === 'peerAssessment');
             headers = ['Timestamp','Your Name','Class','Group Assessed','Date','Science','Solution','Stakeholders','Sources','Communication','Total','Liked','Improve','Question'];
             rowFn = r => [r.timestamp, r.assessorName, r.assessorClass, r.groupName, r.date, r.r1, r.r2, r.r3, r.r4, r.r5,
                 [r.r1,r.r2,r.r3,r.r4,r.r5].reduce((a,b)=>a+(parseInt(b)||0),0), r.liked, r.improve, r.question];
         } else {
             data = JSON.parse(localStorage.getItem('reflections') || '[]');
-            headers = ['Timestamp','Name','Class','Group','Date','Used AI','AI Tools','AI Helpful','Roles','Most Interested','Evidence Used','Would Improve','View Change','Verified Sources','AI Changes','Commitment'];
-            rowFn = r => [r.timestamp, r.studentName, r.studentClass, r.groupName, r.date, r.usedAI, r.aiTools, r.aiHelpful,
+            // Filter to ensure only reflections
+            data = data.filter(r => !r.formType || r.formType === 'personalReflection');
+            headers = ['Timestamp','Name','Class','Group','Date','Used AI','AI Helpful','Roles','Most Interested','Evidence Used','Would Improve','View Change','Verified Sources','AI Changes','Commitment'];
+            rowFn = r => [r.timestamp, r.studentName, r.studentClass, r.groupName, r.date, r.usedAI, r.aiHelpful,
                 r.roles, r.mostInterested, r.useEvidence, r.wouldImprove, r.viewChange, r.verifiedSources, r.aiChanges, r.commitment];
         }
         if (!data.length) { alert('No data to export.'); return; }

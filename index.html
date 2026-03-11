@@ -3,10 +3,21 @@
 <head>
  <meta charset="UTF-8">
  <link rel="preconnect" href="https://fonts.googleapis.com">
- <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=Fredoka:wght@500;700&display=swap" rel="stylesheet">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Lesson 8: Stakeholder Meeting & Final Presentation</title>
+ <title>Clean Seas Kids: Water Pollution Action</title>
  <style>
+ :root {
+   --blue-900: #003566;
+   --blue-800: #00509d;
+   --blue-700: #0077b6;
+   --blue-600: #0096c7;
+   --blue-500: #00b4d8;
+   --blue-200: #caf0f8;
+   --sun-100: #fff3b0;
+   --coral-500: #ff6b6b;
+   --lime-500: #7bd389;
+ }
  * {
  margin: 0;
  padding: 0;
@@ -14,63 +25,116 @@
  }
 
  body {
- font-family: 'Archivo Black', Arial, sans-serif;
- background: linear-gradient(180deg, #0077b6 0%, #023e8a 50%, #03045e 100%);
- color: #333;
+ font-family: 'Baloo 2', Arial, sans-serif;
+ background: linear-gradient(180deg, #8fd3fe 0%, #58b7ff 35%, #0077b6 100%);
+ color: #17324d;
  min-height: 100vh;
  padding: 20px;
+ position: relative;
+ overflow-x: hidden;
+ }
+
+ body::before {
+   content: "";
+   position: fixed;
+   inset: -10% -10% auto -10%;
+   height: 70vh;
+   background:
+     radial-gradient(circle at 10% 20%, rgba(255,255,255,0.45) 0 18px, transparent 19px),
+     radial-gradient(circle at 30% 10%, rgba(255,255,255,0.35) 0 14px, transparent 15px),
+     radial-gradient(circle at 70% 25%, rgba(255,255,255,0.35) 0 16px, transparent 17px),
+     radial-gradient(circle at 85% 12%, rgba(255,255,255,0.35) 0 12px, transparent 13px);
+   opacity: 0.9;
+   pointer-events: none;
  }
 
  .container {
  max-width: 900px;
  margin: 0 auto;
- background: white;
- border-radius: 16px;
+ background: #ffffff;
+ border-radius: 22px;
  border-top: 6px solid transparent;
- border-image: linear-gradient(90deg,#f857a6,#ff5858,#ffb347,#43c6ac,#0057d9) 1;
+ border-image: linear-gradient(90deg,#00b4d8,#90e0ef,#48cae4,#0077b6,#00509d) 1;
  padding: 40px;
- box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+ box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+ position: relative;
  }
 
  .header {
  text-align: center;
  margin-bottom: 40px;
  padding-bottom: 24px;
- border-bottom: 2px solid #f0f0f0;
+ border-bottom: 3px dashed #cfefff;
  }
 
  .header h1 {
- font-size: 38px;
- color: #0057d9;
+ font-family: 'Fredoka', Arial, sans-serif;
+ font-size: 42px;
+ color: #004e98;
  margin-bottom: 6px;
  }
 
  .header .meta {
- font-size: 21px;
- color: #888;
+ font-size: 20px;
+ color: #2b5c86;
  }
 
  .section {
- background: #f0f8ff;
- border-left: 6px solid #0057d9;
- padding: 20px 24px;
+ background: #f0fbff;
+ border-left: 8px solid #0057d9;
+ padding: 22px 24px;
  margin-bottom: 24px;
- border-radius: 8px;
+ border-radius: 14px;
  }
 
  .section h2 {
- font-size: 24px;
- color: #0057d9;
- margin-bottom: 14px;
- text-transform: uppercase;
- letter-spacing: 0.5px;
+  font-family: 'Fredoka', Arial, sans-serif;
+  font-size: 26px;
+  color: #00509d;
+  margin-bottom: 14px;
+  letter-spacing: 0.3px;
+ }
+
+ .section h2 .icon {
+   width: 26px;
+   height: 26px;
+   vertical-align: -5px;
+   margin-right: 8px;
+ }
+
+ .hero-svg {
+   width: 100%;
+   max-width: 560px;
+   height: auto;
+   margin: 0 auto 12px;
+   display: block;
+   border-radius: 12px;
+   overflow: hidden;
+ }
+
+ .fun-strip {
+   display: grid;
+   grid-template-columns: repeat(6, 1fr);
+   gap: 8px;
+   margin: 18px 0 28px;
+ }
+
+ .fun-bubble {
+   background: #e6f7ff;
+   border: 2px solid #bde7ff;
+   border-radius: 999px;
+   padding: 10px 0;
+   text-align: center;
+   font-weight: 700;
+   color: #00509d;
+   font-size: 18px;
  }
 
  .section p,
  .section li {
- font-size: 22px;
+ font-size: 21px;
  line-height: 1.7;
- color: #444;
+ color: #24425c;
  margin-bottom: 6px;
  }
 
@@ -89,15 +153,15 @@
  background: white;
  padding: 14px;
  border-radius: 8px;
- border: 1px solid #bbdefb;
- font-size: 21px;
- color: #444;
+ border: 2px solid #bbdefb;
+ font-size: 20px;
+ color: #245072;
  line-height: 1.5;
  }
 
  .criteria-box strong {
  display: block;
- color: #0057d9;
+ color: #00509d;
  margin-bottom: 4px;
  }
 
@@ -109,11 +173,11 @@
  }
 
  .term-badge {
- background: linear-gradient(135deg, #0057d9, #00b4d8);
+ background: linear-gradient(135deg, #0077b6, #00b4d8);
  color: white;
  padding: 6px 14px;
  border-radius: 20px;
- font-size: 20px;
+ font-size: 19px;
  font-weight: 600;
  }
 
@@ -147,7 +211,7 @@
  background: white;
  padding: 12px 16px;
  border-radius: 8px;
- border-left: 3px solid #1976d2;
+ border-left: 4px solid #1976d2;
  flex: 1;
  }
 
@@ -155,7 +219,7 @@
  display: block;
  color: #0057d9;
  margin-bottom: 3px;
- font-size: 22px;
+ font-size: 21px;
  }
 
  .tl-body p {
@@ -175,9 +239,9 @@
  background: white;
  padding: 14px;
  border-radius: 8px;
- font-size: 20px;
+ font-size: 19px;
  line-height: 1.5;
- color: #444;
+ color: #29506f;
  }
 
  .ai-rule.allowed { border-top: 4px solid #4caf50; }
@@ -198,11 +262,11 @@
 
  .submit-link-box {
  background: white;
- border: 1px solid #bbdefb;
+ border: 2px solid #bbdefb;
  border-radius: 8px;
  padding: 14px;
- font-size: 21px;
- color: #444;
+ font-size: 20px;
+ color: #25506f;
  }
 
  .submit-link-box strong {
@@ -218,8 +282,8 @@
  }
 
  .exit-ticket {
- background: linear-gradient(135deg, #fff9e6, #fffaed);
- border-left: 5px solid #ffa500;
+ background: linear-gradient(135deg, #e6f7ff, #f1fbff);
+ border-left: 6px solid #00b4d8;
  padding: 20px 24px;
  border-radius: 8px;
  margin-bottom: 24px;
@@ -227,23 +291,22 @@
 
  .exit-ticket h2 {
  font-size: 24px;
- color: #e65100;
+ color: #00509d;
  margin-bottom: 12px;
- text-transform: uppercase;
- letter-spacing: 0.5px;
+ letter-spacing: 0.3px;
  }
 
  .exit-ticket p {
- font-size: 22px;
- color: #555;
+ font-size: 21px;
+ color: #26485f;
  line-height: 1.7;
  margin-bottom: 8px;
  }
 
  /* AI Rehearsal Tool */
  .ai-tool-section {
- background: linear-gradient(135deg, #e8f4ff, #f0fff4);
- border: 2px solid #0057d9;
+ background: linear-gradient(135deg, #e6f7ff, #e9f9ff);
+ border: 3px solid #0057d9;
  border-radius: 12px;
  padding: 24px;
  margin-bottom: 24px;
@@ -253,13 +316,12 @@
  font-size: 24px;
  color: #0057d9;
  margin-bottom: 6px;
- text-transform: uppercase;
- letter-spacing: 0.5px;
+ letter-spacing: 0.4px;
  }
 
  .ai-tool-section p.desc {
- font-size: 21px;
- color: #666;
+ font-size: 20px;
+ color: #2b5a7a;
  margin-bottom: 16px;
  }
 
@@ -284,7 +346,7 @@
  border: 1.5px solid #90caf9;
  border-radius: 8px;
  font-family: inherit;
- font-size: 21px;
+ font-size: 20px;
  background: white;
  color: #333;
  }
@@ -302,12 +364,12 @@
  }
 
  .ai-generate-btn {
- background: linear-gradient(135deg, #f857a6, #0057d9);
+ background: linear-gradient(135deg, #00b4d8, #00509d);
  color: white;
  border: none;
  padding: 12px 24px;
  border-radius: 8px;
- font-size: 22px;
+ font-size: 21px;
  font-weight: 600;
  cursor: pointer;
  transition: all 0.2s ease;
@@ -329,9 +391,9 @@
  margin-top: 16px;
  background: white;
  border-radius: 8px;
- border-left: 4px solid #1565c0;
+ border-left: 5px solid #1565c0;
  padding: 16px;
- font-size: 21px;
+ font-size: 20px;
  line-height: 1.7;
  color: #333;
  display: none;
@@ -345,7 +407,7 @@
  text-align: center;
  padding: 16px;
  color: #1565c0;
- font-size: 21px;
+ font-size: 20px;
  }
 
  .ai-loading.visible { display: block; }
@@ -353,7 +415,7 @@
  .ai-error {
  display: none;
  color: #c62828;
- font-size: 20px;
+ font-size: 19px;
  padding: 10px;
  background: #ffebee;
  border-radius: 6px;
@@ -376,7 +438,7 @@
  text-decoration: none;
  border-radius: 10px;
  font-weight: 600;
- font-size: 22px;
+ font-size: 21px;
  text-align: center;
  transition: all 0.2s ease;
  box-shadow: 0 4px 12px rgba(102,126,234,0.3);
@@ -392,8 +454,8 @@
  margin-top: 36px;
  padding-top: 20px;
  border-top: 1px solid #eee;
- color: #aaa;
- font-size: 20px;
+ color: #447098;
+ font-size: 19px;
  }
 
  @media (max-width: 700px) {
@@ -404,23 +466,16 @@
  }
 
  /* Colourful section variants */
- .section:nth-of-type(1) { border-left-color: #f857a6; }
- .section:nth-of-type(2) { border-left-color: #ff5858; }
- .section:nth-of-type(3) { border-left-color: #ffb347; }
- .section:nth-of-type(4) { border-left-color: #43c6ac; }
- .section:nth-of-type(5) { border-left-color: #0057d9; }
- .section:nth-of-type(6) { border-left-color: #f857a6; }
-
- .section:nth-of-type(1) h2 { color: #c2185b; }
- .section:nth-of-type(2) h2 { color: #d32f2f; }
- .section:nth-of-type(3) h2 { color: #e65100; }
- .section:nth-of-type(4) h2 { color: #00695c; }
- .section:nth-of-type(5) h2 { color: #0057d9; }
- .section:nth-of-type(6) h2 { color: #c2185b; }
+ .section:nth-of-type(1) { border-left-color: #00b4d8; }
+ .section:nth-of-type(2) { border-left-color: #48cae4; }
+ .section:nth-of-type(3) { border-left-color: #0096c7; }
+ .section:nth-of-type(4) { border-left-color: #0077b6; }
+ .section:nth-of-type(5) { border-left-color: #00509d; }
+ .section:nth-of-type(6) { border-left-color: #00b4d8; }
 
  /* Colourful header */
  .header h1 {
-   background: linear-gradient(90deg, #f857a6, #ff5858, #ffb347, #43c6ac, #0057d9);
+   background: linear-gradient(90deg, #00b4d8, #48cae4, #0096c7, #0077b6, #00509d);
    -webkit-background-clip: text;
    -webkit-text-fill-color: transparent;
    background-clip: text;
@@ -429,15 +484,15 @@
  /* Colourful container top stripe */
  .container {
    border-top: 8px solid;
-   border-image: linear-gradient(90deg, #f857a6, #ff5858, #ffb347, #43c6ac, #0057d9) 1;
+   border-image: linear-gradient(90deg, #00b4d8, #48cae4, #0096c7, #0077b6, #00509d) 1;
  }
 
  /* Colourful nav buttons */
- .nav-btn:nth-child(1) { background: linear-gradient(135deg, #f857a6, #ff5858) !important; }
- .nav-btn:nth-child(2) { background: linear-gradient(135deg, #ff5858, #ffb347) !important; }
- .nav-btn:nth-child(3) { background: linear-gradient(135deg, #ffb347, #43c6ac) !important; }
- .nav-btn:nth-child(4) { background: linear-gradient(135deg, #43c6ac, #0057d9) !important; }
- .nav-btn:nth-child(5) { background: linear-gradient(135deg, #0057d9, #f857a6) !important; }
+ .nav-btn:nth-child(1) { background: linear-gradient(135deg, #00b4d8, #0096c7) !important; }
+ .nav-btn:nth-child(2) { background: linear-gradient(135deg, #0096c7, #0077b6) !important; }
+ .nav-btn:nth-child(3) { background: linear-gradient(135deg, #0077b6, #00509d) !important; }
+ .nav-btn:nth-child(4) { background: linear-gradient(135deg, #48cae4, #00b4d8) !important; }
+ .nav-btn:nth-child(5) { background: linear-gradient(135deg, #00509d, #00b4d8) !important; }
 
 </style>
 </head>
@@ -446,7 +501,7 @@
 
  <!-- Header -->
  <div class="header">
-<svg viewBox="0 0 900 130" xmlns="http://www.w3.org/2000/svg" style="width:100%;margin-bottom:12px;border-radius:12px;overflow:hidden;">
+<svg viewBox="0 0 900 130" xmlns="http://www.w3.org/2000/svg" class="hero-svg">
   <!-- Sky -->
   <rect width="900" height="130" fill="#b3e5fc"/>
   <!-- Sun -->
@@ -541,29 +596,50 @@
   <path d="M888 130 Q893 112 885 97 Q879 84 887 74" stroke="#2e7d32" stroke-width="5" fill="none" stroke-linecap="round"/>
 </svg>
 
-<h1>Lesson 8: Stakeholder Meeting &amp; Final Presentation</h1>
- <p class="meta"> + &nbsp;|&nbsp; 60 minutes &nbsp;|&nbsp; Conclusion</p>
+ <h1>Clean Seas Kids: Water Pollution Action</h1>
+ <p class="meta">Grade 5–6 • 60 minutes • Big Finish</p>
 </div>
+
+ <div class="fun-strip" aria-hidden="true">
+   <div class="fun-bubble">Save</div>
+   <div class="fun-bubble">Our</div>
+   <div class="fun-bubble">Blue</div>
+   <div class="fun-bubble">Waters</div>
+   <div class="fun-bubble">Today</div>
+   <div class="fun-bubble">!</div>
+ </div>
 
  <!-- Learning Goals -->
  <div class="section">
- <h2>Learning Goals</h2>
+ <h2>
+   <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+     <path d="M12 2c3.8 3.3 6 6.3 6 9.4A6 6 0 1 1 6 11.4C6 8.3 8.2 5.3 12 2Z" fill="#00b4d8"/>
+     <circle cx="10" cy="13" r="1.5" fill="#ffffff"/>
+   </svg>
+   What You'll Learn
+ </h2>
  <ul>
- <li>I can present a solution using evidence and reliable sources.</li>
- <li>I can respond to questions as a stakeholder and revise my ideas.</li>
+ <li>I can explain a solution using evidence and trusted sources.</li>
+ <li>I can answer questions kindly and improve my ideas.</li>
 </ul>
 </div>
 
  <!-- Success Criteria -->
  <div class="section">
- <h2>Success Criteria</h2>
+ <h2>
+   <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+     <circle cx="12" cy="12" r="9" fill="#ffd166"/>
+     <path d="M12 6v3M12 15v3M6 12h3M15 12h3M7.5 7.5l2 2M14.5 14.5l2 2M16.5 7.5l-2 2M9.5 14.5l-2 2" stroke="#ff9f1c" stroke-width="1.5" stroke-linecap="round"/>
+   </svg>
+   How To Shine
+ </h2>
  <div class="criteria-grid">
  <div class="criteria-box">
- <strong>Slides include:</strong>
+ <strong>Slides include</strong>
  Problem → Evidence → Solution → Stakeholders → Sources
 </div>
  <div class="criteria-box">
- <strong>Role-play shows:</strong>
+ <strong>Role-play shows</strong>
  Different viewpoints and respectful discussion
 </div>
 </div>
@@ -571,7 +647,13 @@
 
  <!-- Key Terms -->
  <div class="section">
- <h2>Key Terms</h2>
+ <h2>
+   <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+     <path d="M12 3c3 3.2 5 5.9 5 8.3a5 5 0 1 1-10 0C7 8.9 9 6.2 12 3Z" fill="#48cae4"/>
+     <path d="M6 18c1.8 1.4 3.9 2 6 2s4.2-.6 6-2" stroke="#0077b6" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+   </svg>
+   Word Splash
+ </h2>
  <div class="terms-row">
  <span class="term-badge">stakeholder</span>
  <span class="term-badge">citation</span>
@@ -582,34 +664,40 @@
 
  <!-- Activities -->
  <div class="section">
- <h2>Activities — 60 min</h2>
+ <h2>
+   <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+     <rect x="4" y="5" width="16" height="14" rx="3" fill="#90e0ef"/>
+     <path d="M8 5v-2M16 5v-2M7.5 10h9M7.5 13h6" stroke="#00509d" stroke-width="1.5" stroke-linecap="round"/>
+   </svg>
+   Plan For Today
+ </h2>
  <div class="timeline">
  <div class="timeline-item">
  <div class="tl-dot">1</div>
  <div class="tl-body">
- <strong>Final Edit Time — 10 min</strong>
- <p>Check: sources + AI Use Box included on your final slide.</p>
+ <strong>Final Edits — 10 min</strong>
+ <p>Check: sources + AI Use box on your final slide.</p>
 </div>
 </div>
  <div class="timeline-item">
  <div class="tl-dot">2</div>
  <div class="tl-body">
- <strong>Presentations + Role-play Meeting — 30 min</strong>
- <p>Each group: 2–3 min pitch + 1–2 min Q&amp;A as stakeholders.</p>
+ <strong>Presentations + Role-play — 30 min</strong>
+ <p>Each group: 2–3 min pitch + 1–2 min Q&amp;A.</p>
 </div>
 </div>
  <div class="timeline-item">
  <div class="tl-dot">3</div>
  <div class="tl-body">
- <strong>Peer Assessment — 10 min</strong>
- <p>Complete the peer assessment form using the rubric. <a href="Peer_Assessment.html" style="color:#1976d2;">Open Form</a></p>
+ <strong>Peer Feedback — 10 min</strong>
+ <p>Use the rubric to give helpful feedback. <a href="Peer_Assessment.html" style="color:#1976d2;">Open Form</a></p>
 </div>
 </div>
  <div class="timeline-item">
  <div class="tl-dot">4</div>
  <div class="tl-body">
- <strong>Individual Reflection + AI Use Statement — 10 min</strong>
- <p>Complete your personal reflection and AI disclosure. <a href="Personal_Reflection.html" style="color:#1976d2;">Open Form</a></p>
+ <strong>Reflection + AI Use — 10 min</strong>
+ <p>Complete your reflection and AI disclosure. <a href="Personal_Reflection.html" style="color:#1976d2;">Open Form</a></p>
 </div>
 </div>
 </div>
@@ -617,11 +705,20 @@
 
  <!-- AI Use Rules -->
  <div class="section">
- <h2>AI Use — Lesson 8</h2>
+ <h2>
+   <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+     <circle cx="8" cy="10" r="3" fill="#00b4d8"/>
+     <circle cx="16" cy="10" r="3" fill="#00b4d8"/>
+     <rect x="6" y="13" width="12" height="6" rx="3" fill="#0077b6"/>
+     <circle cx="9" cy="16" r="1" fill="#e6f7ff"/>
+     <circle cx="15" cy="16" r="1" fill="#e6f7ff"/>
+   </svg>
+   AI Helpers
+ </h2>
  <div class="ai-rules">
  <div class="ai-rule allowed">
  <strong>Allowed</strong>
- Rehearsal partner — use the tool below to generate stakeholder questions and practise your Q&amp;A.
+ Rehearsal partner — generate practice questions and rehearse your answers.
 </div>
  <div class="ai-rule must">
  <strong>Must Do</strong>
@@ -629,15 +726,21 @@
 </div>
  <div class="ai-rule notallowed">
  <strong>Not Allowed</strong>
- Adding unverified "facts" to your slides at the last minute.
+ Adding unverified "facts" at the last minute.
 </div>
 </div>
 </div>
 
  <!-- AI Rehearsal Tool -->
  <div class="ai-tool-section">
- <h2>AI Rehearsal Partner</h2>
- <p class="desc">Generate stakeholder questions to practise your Q&amp;A before presenting. You must still verify any facts you use in your presentation.</p>
+ <h2>
+   <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" width="24" height="24">
+     <path d="M5 6h14a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H9l-4 3v-3H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" fill="#bde7ff"/>
+     <path d="M8 10h8M8 13h6" stroke="#00509d" stroke-width="1" stroke-linecap="round"/>
+   </svg>
+   AI Rehearsal Buddy
+ </h2>
+ <p class="desc">Generate stakeholder questions to practice your Q&amp;A. You still must check facts yourself.</p>
  <div class="ai-inputs">
  <div>
  <label for="stakeholderRole">Stakeholder Role</label>
@@ -665,8 +768,14 @@
 
  <!-- CER Checker -->
  <div class="ai-tool-section">
- <h2>AI CER Checker</h2>
- <p class="desc">Type your Claim, Evidence, and Reasoning below. AI will check if your reasoning connects well to your evidence and give you tips to improve.</p>
+ <h2>
+   <svg class="icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+     <rect x="5" y="4" width="14" height="16" rx="2" fill="#e6f7ff"/>
+     <path d="M8 9h8M8 12h6M8 15h5" stroke="#0077b6" stroke-width="1.5" stroke-linecap="round"/>
+   </svg>
+   AI CER Checker
+ </h2>
+ <p class="desc">Type your Claim, Evidence, and Reasoning. AI will check if they connect and give tips.</p>
  <div class="ai-inputs">
    <div>
      <label for="cerClaim">Claim</label>
@@ -692,8 +801,15 @@
 
  <!-- Peer Feedback Helper -->
  <div class="ai-tool-section">
- <h2>AI Peer Feedback Helper</h2>
- <p class="desc">Write your rough peer feedback below. AI will help you make it kinder, more specific, and more helpful before you submit.</p>
+ <h2>
+   <svg class="icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+     <circle cx="9" cy="10" r="4" fill="#90e0ef"/>
+     <path d="M3 19c1.3-3 3.4-4 6-4s4.7 1 6 4" fill="#bde7ff"/>
+     <path d="M14 8h7v6h-3l-2 2v-2h-2z" fill="#00b4d8"/>
+   </svg>
+   AI Peer Feedback Helper
+ </h2>
+ <p class="desc">Write rough feedback. AI helps make it kinder and more specific.</p>
  <div class="ai-inputs">
    <div>
      <label for="feedbackGroup">Which group are you giving feedback to?</label>
@@ -715,7 +831,14 @@
 
  <!-- Submit Links -->
  <div class="section">
- <h2>Submit (Final)</h2>
+ <h2>
+   <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+     <path d="M5 7h14v12H5z" fill="#90e0ef"/>
+     <path d="M8 7V5h8v2" stroke="#00509d" stroke-width="1.5" stroke-linecap="round"/>
+     <path d="M8 12h8M8 15h6" stroke="#0077b6" stroke-width="1.5" stroke-linecap="round"/>
+   </svg>
+   Submit Your Work
+ </h2>
  <div class="submit-links">
  <div class="submit-link-box">
  <strong>Group Slides</strong>
@@ -737,7 +860,13 @@
 
  <!-- Exit Ticket -->
  <div class="exit-ticket">
- <h2>Taking Action: My Commitment</h2>
+ <h2>
+   <svg class="icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+     <path d="M12 3c3.2 3.5 5.2 6.4 5.2 9.1a5.2 5.2 0 1 1-10.4 0C6.8 9.4 8.8 6.5 12 3Z" fill="#48cae4"/>
+     <path d="M9 13c.5 1.5 1.8 2.5 3 2.5s2.5-1 3-2.5" stroke="#00509d" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+   </svg>
+   My Water Promise
+ </h2>
  <p>Complete this sentence before you leave:</p>
  <p><em>"One thing I will do to help reduce marine pollution is ______ because ______."</em></p>
  <p><a href="#" style="color:#e65100; font-weight:600;">[Insert Post-unit Exit Form link]</a></p>
@@ -745,7 +874,13 @@
 
  <!-- Navigation -->
  <div class="section">
- <h2>Resources</h2>
+ <h2>
+   <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+     <path d="M4 6h16v12H4z" fill="#bde7ff"/>
+     <path d="M8 10h8M8 13h6" stroke="#00509d" stroke-width="1.5" stroke-linecap="round"/>
+   </svg>
+   Tools + Links
+ </h2>
  <div class="nav-buttons">
  <a href="Final_Checklist.html" class="nav-btn">Final Checklist</a>
  <a href="Presentation_Guide.html" class="nav-btn">Presentation Guide</a>
@@ -764,6 +899,31 @@
  <script>
  // Paste your Groq API key here (free at console.groq.com)
  const GROQ_API_KEY = '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';
+
+ // DATA INTEGRITY: Ensure forms don't mix data
+ (function cleanupLocalStorage() {
+ try {
+ // Validate peer assessments
+ const peer = JSON.parse(localStorage.getItem('peerAssessments') || '[]');
+ const cleanPeer = peer.filter(item => {
+ if (item.formType === 'personalReflection') return false; // Remove misplaced reflections
+ if (!item.assessorName || !item.groupName) return false; // Remove incomplete entries
+ return true;
+ });
+ if (cleanPeer.length !== peer.length) localStorage.setItem('peerAssessments', JSON.stringify(cleanPeer));
+ 
+ // Validate reflections
+ const refl = JSON.parse(localStorage.getItem('reflections') || '[]');
+ const cleanRefl = refl.filter(item => {
+ if (item.formType === 'peerAssessment') return false; // Remove misplaced assessments
+ if (!item.studentName) return false; // Remove incomplete entries
+ return true;
+ });
+ if (cleanRefl.length !== refl.length) localStorage.setItem('reflections', JSON.stringify(cleanRefl));
+ } catch (e) {
+ console.warn('Data integrity check: ', e.message);
+ }
+ })();
 
  const roleDescriptions = {
  fisherman: 'a fisherman who fishes in Hong Kong waters and depends on healthy marine life for their livelihood',
