@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
  <meta charset="UTF-8">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>Lesson 8: Stakeholder Meeting & Final Presentation</title>
  <style>
@@ -12,8 +14,8 @@
  }
 
  body {
- font-family: 'Segoe UI', Arial, sans-serif;
- background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+ font-family: 'Archivo Black', Arial, sans-serif;
+ background: linear-gradient(180deg, #0077b6 0%, #023e8a 50%, #03045e 100%);
  color: #333;
  min-height: 100vh;
  padding: 20px;
@@ -24,6 +26,8 @@
  margin: 0 auto;
  background: white;
  border-radius: 16px;
+ border-top: 6px solid transparent;
+ border-image: linear-gradient(90deg,#f857a6,#ff5858,#ffb347,#43c6ac,#0057d9) 1;
  padding: 40px;
  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
  }
@@ -36,27 +40,27 @@
  }
 
  .header h1 {
- font-size: 32px;
- color: #764ba2;
+ font-size: 38px;
+ color: #0057d9;
  margin-bottom: 6px;
  }
 
  .header .meta {
- font-size: 18px;
+ font-size: 21px;
  color: #888;
  }
 
  .section {
- background: #f8f9ff;
- border-left: 5px solid #667eea;
+ background: #f0f8ff;
+ border-left: 6px solid #0057d9;
  padding: 20px 24px;
  margin-bottom: 24px;
  border-radius: 8px;
  }
 
  .section h2 {
- font-size: 21px;
- color: #764ba2;
+ font-size: 24px;
+ color: #0057d9;
  margin-bottom: 14px;
  text-transform: uppercase;
  letter-spacing: 0.5px;
@@ -64,7 +68,7 @@
 
  .section p,
  .section li {
- font-size: 20px;
+ font-size: 22px;
  line-height: 1.7;
  color: #444;
  margin-bottom: 6px;
@@ -85,15 +89,15 @@
  background: white;
  padding: 14px;
  border-radius: 8px;
- border: 1px solid #dde2ff;
- font-size: 18px;
+ border: 1px solid #bbdefb;
+ font-size: 21px;
  color: #444;
  line-height: 1.5;
  }
 
  .criteria-box strong {
  display: block;
- color: #764ba2;
+ color: #0057d9;
  margin-bottom: 4px;
  }
 
@@ -105,11 +109,11 @@
  }
 
  .term-badge {
- background: linear-gradient(135deg, #667eea, #764ba2);
+ background: linear-gradient(135deg, #0057d9, #00b4d8);
  color: white;
  padding: 6px 14px;
  border-radius: 20px;
- font-size: 17px;
+ font-size: 20px;
  font-weight: 600;
  }
 
@@ -127,13 +131,13 @@
  .tl-dot {
  width: 28px;
  height: 28px;
- background: linear-gradient(135deg, #667eea, #764ba2);
+ background: linear-gradient(135deg, #0057d9, #00b4d8);
  color: white;
  border-radius: 50%;
  display: flex;
  align-items: center;
  justify-content: center;
- font-size: 17px;
+ font-size: 20px;
  font-weight: bold;
  flex-shrink: 0;
  margin-top: 2px;
@@ -143,19 +147,19 @@
  background: white;
  padding: 12px 16px;
  border-radius: 8px;
- border-left: 3px solid #667eea;
+ border-left: 3px solid #1976d2;
  flex: 1;
  }
 
  .tl-body strong {
  display: block;
- color: #764ba2;
+ color: #0057d9;
  margin-bottom: 3px;
- font-size: 20px;
+ font-size: 22px;
  }
 
  .tl-body p {
- font-size: 18px;
+ font-size: 21px;
  color: #666;
  margin: 0;
  }
@@ -171,7 +175,7 @@
  background: white;
  padding: 14px;
  border-radius: 8px;
- font-size: 17px;
+ font-size: 20px;
  line-height: 1.5;
  color: #444;
  }
@@ -194,23 +198,23 @@
 
  .submit-link-box {
  background: white;
- border: 1px solid #dde2ff;
+ border: 1px solid #bbdefb;
  border-radius: 8px;
  padding: 14px;
- font-size: 18px;
+ font-size: 21px;
  color: #444;
  }
 
  .submit-link-box strong {
  display: block;
- color: #764ba2;
+ color: #0057d9;
  margin-bottom: 6px;
  }
 
  .submit-link-box a {
- color: #667eea;
+ color: #1976d2;
  text-decoration: none;
- font-size: 17px;
+ font-size: 20px;
  }
 
  .exit-ticket {
@@ -222,7 +226,7 @@
  }
 
  .exit-ticket h2 {
- font-size: 21px;
+ font-size: 24px;
  color: #e65100;
  margin-bottom: 12px;
  text-transform: uppercase;
@@ -230,7 +234,7 @@
  }
 
  .exit-ticket p {
- font-size: 20px;
+ font-size: 22px;
  color: #555;
  line-height: 1.7;
  margin-bottom: 8px;
@@ -238,23 +242,23 @@
 
  /* AI Rehearsal Tool */
  .ai-tool-section {
- background: linear-gradient(135deg, #f3e5f5, #ede7f6);
- border: 2px solid #9c27b0;
+ background: linear-gradient(135deg, #e8f4ff, #f0fff4);
+ border: 2px solid #0057d9;
  border-radius: 12px;
  padding: 24px;
  margin-bottom: 24px;
  }
 
  .ai-tool-section h2 {
- font-size: 21px;
- color: #6a1b9a;
+ font-size: 24px;
+ color: #0057d9;
  margin-bottom: 6px;
  text-transform: uppercase;
  letter-spacing: 0.5px;
  }
 
  .ai-tool-section p.desc {
- font-size: 18px;
+ font-size: 21px;
  color: #666;
  margin-bottom: 16px;
  }
@@ -266,9 +270,9 @@
  }
 
  .ai-inputs label {
- font-size: 17px;
+ font-size: 20px;
  font-weight: 600;
- color: #6a1b9a;
+ color: #0057d9;
  margin-bottom: 4px;
  display: block;
  }
@@ -277,10 +281,10 @@
  .ai-inputs textarea {
  width: 100%;
  padding: 10px 12px;
- border: 1.5px solid #ce93d8;
+ border: 1.5px solid #90caf9;
  border-radius: 8px;
  font-family: inherit;
- font-size: 18px;
+ font-size: 21px;
  background: white;
  color: #333;
  }
@@ -293,17 +297,17 @@
  .ai-inputs select:focus,
  .ai-inputs textarea:focus {
  outline: none;
- border-color: #9c27b0;
+ border-color: #1565c0;
  box-shadow: 0 0 0 3px rgba(156,39,176,0.15);
  }
 
  .ai-generate-btn {
- background: linear-gradient(135deg, #9c27b0, #6a1b9a);
+ background: linear-gradient(135deg, #f857a6, #0057d9);
  color: white;
  border: none;
  padding: 12px 24px;
  border-radius: 8px;
- font-size: 20px;
+ font-size: 22px;
  font-weight: 600;
  cursor: pointer;
  transition: all 0.2s ease;
@@ -325,9 +329,9 @@
  margin-top: 16px;
  background: white;
  border-radius: 8px;
- border-left: 4px solid #9c27b0;
+ border-left: 4px solid #1565c0;
  padding: 16px;
- font-size: 18px;
+ font-size: 21px;
  line-height: 1.7;
  color: #333;
  display: none;
@@ -340,8 +344,8 @@
  display: none;
  text-align: center;
  padding: 16px;
- color: #9c27b0;
- font-size: 18px;
+ color: #1565c0;
+ font-size: 21px;
  }
 
  .ai-loading.visible { display: block; }
@@ -349,7 +353,7 @@
  .ai-error {
  display: none;
  color: #c62828;
- font-size: 17px;
+ font-size: 20px;
  padding: 10px;
  background: #ffebee;
  border-radius: 6px;
@@ -367,12 +371,12 @@
  .nav-btn {
  display: block;
  padding: 14px 20px;
- background: linear-gradient(135deg, #667eea, #764ba2);
+ background: linear-gradient(135deg, #0057d9, #00b4d8);
  color: white;
  text-decoration: none;
  border-radius: 10px;
  font-weight: 600;
- font-size: 20px;
+ font-size: 22px;
  text-align: center;
  transition: all 0.2s ease;
  box-shadow: 0 4px 12px rgba(102,126,234,0.3);
@@ -389,15 +393,52 @@
  padding-top: 20px;
  border-top: 1px solid #eee;
  color: #aaa;
- font-size: 17px;
+ font-size: 20px;
  }
 
  @media (max-width: 700px) {
  .criteria-grid,
  .ai-rules,
  .submit-links { grid-template-columns: 1fr; }
- h1 { font-size: 26px; }
+ h1 { font-size: 30px; }
  }
+
+ /* Colourful section variants */
+ .section:nth-of-type(1) { border-left-color: #f857a6; }
+ .section:nth-of-type(2) { border-left-color: #ff5858; }
+ .section:nth-of-type(3) { border-left-color: #ffb347; }
+ .section:nth-of-type(4) { border-left-color: #43c6ac; }
+ .section:nth-of-type(5) { border-left-color: #0057d9; }
+ .section:nth-of-type(6) { border-left-color: #f857a6; }
+
+ .section:nth-of-type(1) h2 { color: #c2185b; }
+ .section:nth-of-type(2) h2 { color: #d32f2f; }
+ .section:nth-of-type(3) h2 { color: #e65100; }
+ .section:nth-of-type(4) h2 { color: #00695c; }
+ .section:nth-of-type(5) h2 { color: #0057d9; }
+ .section:nth-of-type(6) h2 { color: #c2185b; }
+
+ /* Colourful header */
+ .header h1 {
+   background: linear-gradient(90deg, #f857a6, #ff5858, #ffb347, #43c6ac, #0057d9);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   background-clip: text;
+ }
+
+ /* Colourful container top stripe */
+ .container {
+   border-top: 8px solid;
+   border-image: linear-gradient(90deg, #f857a6, #ff5858, #ffb347, #43c6ac, #0057d9) 1;
+ }
+
+ /* Colourful nav buttons */
+ .nav-btn:nth-child(1) { background: linear-gradient(135deg, #f857a6, #ff5858) !important; }
+ .nav-btn:nth-child(2) { background: linear-gradient(135deg, #ff5858, #ffb347) !important; }
+ .nav-btn:nth-child(3) { background: linear-gradient(135deg, #ffb347, #43c6ac) !important; }
+ .nav-btn:nth-child(4) { background: linear-gradient(135deg, #43c6ac, #0057d9) !important; }
+ .nav-btn:nth-child(5) { background: linear-gradient(135deg, #0057d9, #f857a6) !important; }
+
 </style>
 </head>
 <body>
@@ -466,14 +507,14 @@
  <div class="tl-dot">3</div>
  <div class="tl-body">
  <strong>Peer Assessment — 10 min</strong>
- <p>Complete the peer assessment form using the rubric. <a href="Peer_Assessment.html" style="color:#667eea;">Open Form</a></p>
+ <p>Complete the peer assessment form using the rubric. <a href="Peer_Assessment.html" style="color:#1976d2;">Open Form</a></p>
 </div>
 </div>
  <div class="timeline-item">
  <div class="tl-dot">4</div>
  <div class="tl-body">
  <strong>Individual Reflection + AI Use Statement — 10 min</strong>
- <p>Complete your personal reflection and AI disclosure. <a href="Personal_Reflection.html" style="color:#667eea;">Open Form</a></p>
+ <p>Complete your personal reflection and AI disclosure. <a href="Personal_Reflection.html" style="color:#1976d2;">Open Form</a></p>
 </div>
 </div>
 </div>
@@ -517,11 +558,64 @@
  <label for="solutionDesc">Describe your solution in 1–2 sentences</label>
  <textarea id="solutionDesc" placeholder="Example: We propose installing floating litter booms at typhoon shelters to capture plastic waste before it reaches open water."></textarea>
 </div>
- <button class="ai-generate-btn" id="generateBtn" onclick="generateQuestions">Generate Stakeholder Questions</button>
+ <div style="display:flex;gap:10px;">
+   <button class="ai-generate-btn" id="generateBtn" onclick="generateQuestions()" style="flex:1;">Generate Stakeholder Questions</button>
+   <button class="ai-generate-btn" onclick="fillRehearsalExample()" style="background:linear-gradient(135deg,#ff9800,#e65100);flex:0 0 auto;">Show Example</button>
+ </div>
  <div class="ai-error" id="aiError"></div>
 </div>
  <div class="ai-loading" id="aiLoading">Generating questions...</div>
  <div class="ai-output" id="aiOutput"></div>
+</div>
+
+ <!-- CER Checker -->
+ <div class="ai-tool-section">
+ <h2>AI CER Checker</h2>
+ <p class="desc">Type your Claim, Evidence, and Reasoning below. AI will check if your reasoning connects well to your evidence and give you tips to improve.</p>
+ <div class="ai-inputs">
+   <div>
+     <label for="cerClaim">Claim</label>
+     <textarea id="cerClaim" placeholder="Example: Marine litter is increasing in Hong Kong waters."></textarea>
+   </div>
+   <div>
+     <label for="cerEvidence">Evidence</label>
+     <textarea id="cerEvidence" placeholder="Example: In 2024, a beach clean-up at Discovery Bay collected 250 kg of plastic waste."></textarea>
+   </div>
+   <div>
+     <label for="cerReasoning">Reasoning</label>
+     <textarea id="cerReasoning" placeholder="Example: This shows pollution is a real, growing problem that affects local beaches."></textarea>
+   </div>
+   <div style="display:flex;gap:10px;">
+     <button class="ai-generate-btn" id="cerBtn" onclick="checkCER()" style="flex:1;">Check My CER</button>
+     <button class="ai-generate-btn" onclick="fillCERExample()" style="background:linear-gradient(135deg,#ff9800,#e65100);flex:0 0 auto;">Show Example</button>
+   </div>
+   <div class="ai-error" id="cerError"></div>
+ </div>
+ <div class="ai-loading" id="cerLoading">Checking your CER...</div>
+ <div class="ai-output" id="cerOutput"></div>
+</div>
+
+ <!-- Peer Feedback Helper -->
+ <div class="ai-tool-section">
+ <h2>AI Peer Feedback Helper</h2>
+ <p class="desc">Write your rough peer feedback below. AI will help you make it kinder, more specific, and more helpful before you submit.</p>
+ <div class="ai-inputs">
+   <div>
+     <label for="feedbackGroup">Which group are you giving feedback to?</label>
+     <textarea id="feedbackGroup" placeholder="Example: Group Ocean Stars — they presented about floating litter booms."></textarea>
+   </div>
+   <div>
+     <label for="feedbackRough">Your rough feedback (write freely, don't worry about wording)</label>
+     <textarea id="feedbackRough" placeholder="Example: Their idea was ok but I think they forgot to talk about cost and it was a bit boring."></textarea>
+   </div>
+   <div style="display:flex;gap:10px;">
+     <button class="ai-generate-btn" id="feedbackBtn" onclick="improveFeedback()" style="flex:1;">Improve My Feedback</button>
+     <button class="ai-generate-btn" onclick="fillFeedbackExample()" style="background:linear-gradient(135deg,#ff9800,#e65100);flex:0 0 auto;">Show Example</button>
+   </div>
+   <div class="ai-error" id="feedbackError"></div>
+ </div>
+ <div class="ai-loading" id="feedbackLoading">Improving your feedback...</div>
+ <div class="ai-output" id="feedbackOutput"></div>
 </div>
 
  <!-- Submit Links -->
@@ -530,7 +624,10 @@
  <div class="submit-links">
  <div class="submit-link-box">
  <strong>Group Slides</strong>
- <a href="#">[Insert link]</a>
+ <a href="https://classroom.google.com" target="_blank"
+   style="display:block;margin-top:8px;padding:10px 16px;background:linear-gradient(135deg,#4caf50,#2e7d32);color:white;border-radius:8px;font-size:17px;font-weight:600;cursor:pointer;width:100%;text-align:center;text-decoration:none;">
+   Open Google Classroom
+ </a>
 </div>
  <div class="submit-link-box">
  <strong>Peer Assessment</strong>
@@ -545,7 +642,7 @@
 
  <!-- Exit Ticket -->
  <div class="exit-ticket">
- <h2>Exit Ticket (Post-unit)</h2>
+ <h2>Taking Action: My Commitment</h2>
  <p>Complete this sentence before you leave:</p>
  <p><em>"One thing I will do to help reduce marine pollution is ______ because ______."</em></p>
  <p><a href="#" style="color:#e65100; font-weight:600;">[Insert Post-unit Exit Form link]</a></p>
@@ -596,7 +693,7 @@
  });
 
  if (response.status === 429) {
- const errData = await response.json;
+ const errData = await response.json();
  const waitSec = parseInt(response.headers.get('retry-after') || '15') + 2;
  if (attempt < retries) {
  document.getElementById('aiLoading').textContent =
@@ -610,19 +707,95 @@
  }
 
  if (!response.ok) {
- const errData = await response.json;
+ const errData = await response.json();
  throw new Error(errData.error?.message || `HTTP ${response.status}`);
  }
 
- const data = await response.json;
+ const data = await response.json();
  const text = data.choices?.[0]?.message?.content;
  if (!text) throw new Error('No response received from Groq.');
  return text;
  }
- }
+}
+ function fillRehearsalExample() {
+ document.getElementById('stakeholderRole').value = 'fisherman';
+ document.getElementById('solutionDesc').value = 'We propose installing a floating litter boom at the entrance of Typhoon Shelter in Sai Kung to trap plastic waste before it reaches open water. The boom is made from recycled materials and can be cleaned weekly by volunteers.';
+}
 
- async function generateQuestions {
- const solution = document.getElementById('solutionDesc').value.trim;
+function fillCERExample() {
+ document.getElementById('cerClaim').value = 'Plastic pollution in Hong Kong waters is harming sea turtles.';
+ document.getElementById('cerEvidence').value = 'According to WWF Hong Kong (2023), 78% of green sea turtles found stranded on local beaches had plastic in their stomachs.';
+ document.getElementById('cerReasoning').value = 'This shows that plastic pollution is dangerous because sea turtles mistake plastic bags for jellyfish and eat them, which can block their digestive system and cause death.';
+}
+
+function fillFeedbackExample() {
+ document.getElementById('feedbackGroup').value = 'Group Blue Waves — they presented a solar-powered water filtration boat.';
+ document.getElementById('feedbackRough').value = 'Their idea was pretty cool but I think they didn\'t explain how it works properly and their slides had too much text. Also they were a bit quiet when presenting.';
+}
+
+async function checkCER() {
+ const claim     = document.getElementById('cerClaim').value.trim();
+ const evidence  = document.getElementById('cerEvidence').value.trim();
+ const reasoning = document.getElementById('cerReasoning').value.trim();
+ const btn       = document.getElementById('cerBtn');
+ const output    = document.getElementById('cerOutput');
+ const loading   = document.getElementById('cerLoading');
+ const errorBox  = document.getElementById('cerError');
+ output.classList.remove('visible');
+ errorBox.classList.remove('visible');
+ if (!claim || !evidence || !reasoning) {
+   errorBox.textContent = 'Please fill in all three fields (Claim, Evidence, Reasoning).';
+   errorBox.classList.add('visible');
+   return;
+ }
+ btn.disabled = true;
+ loading.classList.add('visible');
+ const prompt = `You are a helpful primary school science teacher. A student has written a CER (Claim-Evidence-Reasoning) about marine pollution in Hong Kong.\n\nClaim: "${claim}"\nEvidence: "${evidence}"\nReasoning: "${reasoning}"\n\nPlease check their CER and give friendly feedback (suitable for a primary school student):\n1. Does the Evidence support the Claim? (Yes/Partly/No — explain briefly)\n2. Does the Reasoning explain HOW the Evidence connects to the Claim? (Yes/Partly/No — explain briefly)\n3. One specific thing they did well\n4. One specific tip to make the CER stronger\n\nKeep your feedback encouraging and easy to understand. Use simple language.`;
+ try {
+   const text = await callGroq(prompt);
+   output.textContent = text;
+   output.classList.add('visible');
+ } catch(err) {
+   errorBox.textContent = err.message;
+   errorBox.classList.add('visible');
+ } finally {
+   btn.disabled = false;
+   loading.classList.remove('visible');
+ }
+}
+
+async function improveFeedback() {
+ const group    = document.getElementById('feedbackGroup').value.trim();
+ const rough    = document.getElementById('feedbackRough').value.trim();
+ const btn      = document.getElementById('feedbackBtn');
+ const output   = document.getElementById('feedbackOutput');
+ const loading  = document.getElementById('feedbackLoading');
+ const errorBox = document.getElementById('feedbackError');
+ output.classList.remove('visible');
+ errorBox.classList.remove('visible');
+ if (!rough) {
+   errorBox.textContent = 'Please write your rough feedback first.';
+   errorBox.classList.add('visible');
+   return;
+ }
+ btn.disabled = true;
+ loading.classList.add('visible');
+ const prompt = `You are a kind and helpful primary school teacher. A student has written rough peer feedback about a classmate's presentation on marine pollution in Hong Kong.\n\n${group ? `Group being assessed: ${group}` : ''}\nStudent's rough feedback: "${rough}"\n\nPlease rewrite this feedback so it is:\n- KIND: uses positive and respectful language\n- HELPFUL: gives a specific suggestion for improvement\n- HONEST: keeps the student's original meaning\n\nWrite the improved feedback in 3 short sections:\n1. One thing I really liked: ...\n2. One suggestion: ...\n3. One question I have: ...\n\nUse simple language suitable for a primary school student.`;
+ try {
+   const text = await callGroq(prompt);
+   output.textContent = text;
+   output.classList.add('visible');
+ } catch(err) {
+   errorBox.textContent = err.message;
+   errorBox.classList.add('visible');
+ } finally {
+   btn.disabled = false;
+   loading.classList.remove('visible');
+ }
+}
+
+async function generateQuestions() {
+ const solution = document.getElementById('solutionDesc').value.trim();
  const role = document.getElementById('stakeholderRole').value;
  const btn = document.getElementById('generateBtn');
  const output = document.getElementById('aiOutput');
@@ -632,11 +805,12 @@
  output.classList.remove('visible');
  errorBox.classList.remove('visible');
 
- if (!solution) {
- errorBox.textContent = 'Please describe your solution first.';
- errorBox.classList.add('visible');
- return;
- }
+    if (!solution) {
+    errorBox.textContent = 'Please describe your solution first.';
+    errorBox.classList.add('visible');
+    return;
+     
+}
 
  if (GROQ_API_KEY === 'YOUR_GROQ_API_KEY') {
  errorBox.textContent = 'API key not configured. Get a free key at console.groq.com and paste it into the script.';

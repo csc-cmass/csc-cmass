@@ -2,14 +2,16 @@
 <html lang="en">
 <head>
  <meta charset="UTF-8">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>Final Checklist - Before Presenting</title>
  <style>
  * { margin: 0; padding: 0; box-sizing: border-box; }
 
  body {
- font-family: 'Segoe UI', Arial, sans-serif;
- background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+ font-family: 'Archivo Black', Arial, sans-serif;
+ background: linear-gradient(180deg, #0077b6 0%, #023e8a 50%, #03045e 100%);
  color: #333;
  min-height: 100vh;
  padding: 20px;
@@ -20,6 +22,8 @@
  margin: 0 auto;
  background: white;
  border-radius: 16px;
+ border-top: 6px solid transparent;
+ border-image: linear-gradient(90deg,#f857a6,#ff5858,#ffb347,#43c6ac,#0057d9) 1;
  padding: 40px;
  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
  }
@@ -33,7 +37,7 @@
  color: #555;
  text-decoration: none;
  border-radius: 10px;
- font-size: 18px;
+ font-size: 21px;
  font-weight: 600;
  margin-bottom: 28px;
  transition: background 0.2s;
@@ -46,19 +50,19 @@
  padding-bottom: 24px;
  border-bottom: 2px solid #f0f0f0;
  }
- .header h1 { font-size: 32px; color: #764ba2; margin-bottom: 6px; }
- .header .meta { font-size: 18px; color: #888; }
+ .header h1 { font-size: 38px; color: #0057d9; margin-bottom: 6px; }
+ .header .meta { font-size: 21px; color: #888; }
 
  .section {
- background: #f8f9ff;
- border-left: 5px solid #667eea;
+ background: #f0f8ff;
+ border-left: 6px solid #0057d9;
  padding: 20px 24px;
  margin-bottom: 24px;
  border-radius: 8px;
  }
  .section h2 {
- font-size: 21px;
- color: #764ba2;
+ font-size: 24px;
+ color: #0057d9;
  margin-bottom: 16px;
  text-transform: uppercase;
  letter-spacing: 0.5px;
@@ -75,31 +79,31 @@
  align-items: flex-start;
  gap: 14px;
  background: white;
- border: 1px solid #dde2ff;
+ border: 1px solid #bbdefb;
  border-radius: 10px;
  padding: 16px;
  margin-bottom: 12px;
  transition: border-color 0.2s;
  }
- .checklist-item:hover { border-color: #667eea; }
+ .checklist-item:hover { border-color: #1976d2; }
 
  .checklist-item input[type="checkbox"] {
  width: 24px;
  height: 24px;
  flex-shrink: 0;
  margin-top: 2px;
- accent-color: #667eea;
+ accent-color: #1976d2;
  cursor: pointer;
  }
 
  .item-content strong {
  display: block;
- font-size: 20px;
- color: #764ba2;
+ font-size: 22px;
+ color: #0057d9;
  margin-bottom: 4px;
  }
  .item-content p {
- font-size: 18px;
+ font-size: 21px;
  color: #555;
  line-height: 1.6;
  margin-bottom: 4px;
@@ -111,7 +115,7 @@
  padding: 12px 14px;
  border-radius: 6px;
  margin-top: 10px;
- font-size: 17px;
+ font-size: 20px;
  color: #8b7500;
  }
 
@@ -124,19 +128,19 @@
  }
  .progress-bar-fill {
  height: 100%;
- background: linear-gradient(90deg, #667eea, #764ba2);
+ background: linear-gradient(90deg, #1976d2, #0d47a1);
  border-radius: 20px;
  width: 0%;
  transition: width 0.4s ease;
  }
  .progress-label {
- font-size: 17px;
+ font-size: 20px;
  color: #888;
  text-align: right;
  }
 
  .reminder-list p {
- font-size: 19px;
+ font-size: 22px;
  color: #555;
  line-height: 1.7;
  margin-bottom: 8px;
@@ -148,11 +152,11 @@
  text-align: center;
  margin-top: 36px;
  padding: 20px;
- background: #f8f9ff;
+ background: #f0f8ff;
  border-radius: 12px;
- border: 1px solid #dde2ff;
+ border: 1px solid #bbdefb;
  }
- .footer-note p { font-size: 19px; color: #764ba2; font-weight: 600; margin-bottom: 4px; }
+ .footer-note p { font-size: 22px; color: #0057d9; font-weight: 600; margin-bottom: 4px; }
 
  .footer {
  text-align: center;
@@ -160,13 +164,50 @@
  padding-top: 20px;
  border-top: 1px solid #eee;
  color: #aaa;
- font-size: 17px;
+ font-size: 20px;
  }
 
  @media (max-width: 700px) {
  .container { padding: 20px; }
- .header h1 { font-size: 26px; }
+ .header h1 { font-size: 30px; }
  }
+
+ /* Colourful section variants */
+ .section:nth-of-type(1) { border-left-color: #f857a6; }
+ .section:nth-of-type(2) { border-left-color: #ff5858; }
+ .section:nth-of-type(3) { border-left-color: #ffb347; }
+ .section:nth-of-type(4) { border-left-color: #43c6ac; }
+ .section:nth-of-type(5) { border-left-color: #0057d9; }
+ .section:nth-of-type(6) { border-left-color: #f857a6; }
+
+ .section:nth-of-type(1) h2 { color: #c2185b; }
+ .section:nth-of-type(2) h2 { color: #d32f2f; }
+ .section:nth-of-type(3) h2 { color: #e65100; }
+ .section:nth-of-type(4) h2 { color: #00695c; }
+ .section:nth-of-type(5) h2 { color: #0057d9; }
+ .section:nth-of-type(6) h2 { color: #c2185b; }
+
+ /* Colourful header */
+ .header h1 {
+   background: linear-gradient(90deg, #f857a6, #ff5858, #ffb347, #43c6ac, #0057d9);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   background-clip: text;
+ }
+
+ /* Colourful container top stripe */
+ .container {
+   border-top: 8px solid;
+   border-image: linear-gradient(90deg, #f857a6, #ff5858, #ffb347, #43c6ac, #0057d9) 1;
+ }
+
+ /* Colourful nav buttons */
+ .nav-btn:nth-child(1) { background: linear-gradient(135deg, #f857a6, #ff5858) !important; }
+ .nav-btn:nth-child(2) { background: linear-gradient(135deg, #ff5858, #ffb347) !important; }
+ .nav-btn:nth-child(3) { background: linear-gradient(135deg, #ffb347, #43c6ac) !important; }
+ .nav-btn:nth-child(4) { background: linear-gradient(135deg, #43c6ac, #0057d9) !important; }
+ .nav-btn:nth-child(5) { background: linear-gradient(135deg, #0057d9, #f857a6) !important; }
+
 </style>
 </head>
 <body>
@@ -174,6 +215,27 @@
  <a href="Lesson_8_Homepage.html" class="back-btn">&#8592; Back to Lesson 8</a>
 
  <div class="header">
+ <svg viewBox="0 0 900 130" xmlns="http://www.w3.org/2000/svg" style="width:100%;margin-bottom:12px;border-radius:12px;overflow:hidden;">
+   <rect width="900" height="130" fill="#e0f7fa"/>
+   <circle cx="820" cy="32" r="22" fill="#FFD600"/>
+   <ellipse cx="100" cy="26" rx="45" ry="18" fill="white" opacity="0.9"/>
+   <ellipse cx="130" cy="18" rx="35" ry="15" fill="white" opacity="0.9"/>
+   <ellipse cx="340" cy="32" rx="38" ry="14" fill="white" opacity="0.8"/>
+   <path d="M0 75 Q112 55 225 75 Q337 95 450 75 Q562 55 675 75 Q787 95 900 75 L900 130 L0 130 Z" fill="#0288d1"/>
+   <path d="M0 90 Q112 70 225 90 Q337 110 450 90 Q562 70 675 90 Q787 110 900 90 L900 130 L0 130 Z" fill="#0057d9" opacity="0.7"/>
+   <ellipse cx="200" cy="108" rx="30" ry="14" fill="#f857a6"/>
+   <polygon points="170,108 150,97 150,119" fill="#f857a6"/>
+   <circle cx="213" cy="103" r="3" fill="white"/>
+   <circle cx="214" cy="103" r="1.5" fill="#333"/>
+   <ellipse cx="650" cy="112" rx="22" ry="10" fill="#ffb347"/>
+   <polygon points="628,112 612,103 612,121" fill="#ffb347"/>
+   <ellipse cx="430" cy="115" rx="18" ry="8" fill="#43c6ac"/>
+   <polygon points="412,115 398,108 398,122" fill="#43c6ac"/>
+   <path d="M750 130 Q745 115 752 102 Q758 90 750 80" stroke="#43c6ac" stroke-width="5" fill="none" stroke-linecap="round"/>
+   <path d="M765 130 Q770 113 762 100 Q756 88 764 78" stroke="#2e7d32" stroke-width="5" fill="none" stroke-linecap="round"/>
+   <circle cx="300" cy="82" r="3.5" fill="none" stroke="white" stroke-width="1.5" opacity="0.6"/>
+   <circle cx="310" cy="76" r="2" fill="none" stroke="white" stroke-width="1.5" opacity="0.6"/>
+ </svg>
  <h1>Final Checklist</h1>
  <p class="meta"> — Before Presenting</p>
 </div>

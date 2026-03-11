@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
  <meta charset="UTF-8">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>Lesson 8: Stakeholder Meeting & Final Presentation</title>
  <style>
@@ -12,8 +14,8 @@
  }
 
  body {
- font-family: 'Segoe UI', Arial, sans-serif;
- background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+ font-family: 'Archivo Black', Arial, sans-serif;
+ background: linear-gradient(180deg, #0077b6 0%, #023e8a 50%, #03045e 100%);
  color: #333;
  min-height: 100vh;
  padding: 20px;
@@ -24,6 +26,8 @@
  margin: 0 auto;
  background: white;
  border-radius: 16px;
+ border-top: 6px solid transparent;
+ border-image: linear-gradient(90deg,#f857a6,#ff5858,#ffb347,#43c6ac,#0057d9) 1;
  padding: 40px;
  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
  }
@@ -36,27 +40,27 @@
  }
 
  .header h1 {
- font-size: 32px;
- color: #764ba2;
+ font-size: 38px;
+ color: #0057d9;
  margin-bottom: 6px;
  }
 
  .header .meta {
- font-size: 18px;
+ font-size: 21px;
  color: #888;
  }
 
  .section {
- background: #f8f9ff;
- border-left: 5px solid #667eea;
+ background: #f0f8ff;
+ border-left: 6px solid #0057d9;
  padding: 20px 24px;
  margin-bottom: 24px;
  border-radius: 8px;
  }
 
  .section h2 {
- font-size: 21px;
- color: #764ba2;
+ font-size: 24px;
+ color: #0057d9;
  margin-bottom: 14px;
  text-transform: uppercase;
  letter-spacing: 0.5px;
@@ -64,7 +68,7 @@
 
  .section p,
  .section li {
- font-size: 20px;
+ font-size: 22px;
  line-height: 1.7;
  color: #444;
  margin-bottom: 6px;
@@ -85,15 +89,15 @@
  background: white;
  padding: 14px;
  border-radius: 8px;
- border: 1px solid #dde2ff;
- font-size: 18px;
+ border: 1px solid #bbdefb;
+ font-size: 21px;
  color: #444;
  line-height: 1.5;
  }
 
  .criteria-box strong {
  display: block;
- color: #764ba2;
+ color: #0057d9;
  margin-bottom: 4px;
  }
 
@@ -105,11 +109,11 @@
  }
 
  .term-badge {
- background: linear-gradient(135deg, #667eea, #764ba2);
+ background: linear-gradient(135deg, #0057d9, #00b4d8);
  color: white;
  padding: 6px 14px;
  border-radius: 20px;
- font-size: 17px;
+ font-size: 20px;
  font-weight: 600;
  }
 
@@ -127,13 +131,13 @@
  .tl-dot {
  width: 28px;
  height: 28px;
- background: linear-gradient(135deg, #667eea, #764ba2);
+ background: linear-gradient(135deg, #0057d9, #00b4d8);
  color: white;
  border-radius: 50%;
  display: flex;
  align-items: center;
  justify-content: center;
- font-size: 17px;
+ font-size: 20px;
  font-weight: bold;
  flex-shrink: 0;
  margin-top: 2px;
@@ -143,19 +147,19 @@
  background: white;
  padding: 12px 16px;
  border-radius: 8px;
- border-left: 3px solid #667eea;
+ border-left: 3px solid #1976d2;
  flex: 1;
  }
 
  .tl-body strong {
  display: block;
- color: #764ba2;
+ color: #0057d9;
  margin-bottom: 3px;
- font-size: 20px;
+ font-size: 22px;
  }
 
  .tl-body p {
- font-size: 18px;
+ font-size: 21px;
  color: #666;
  margin: 0;
  }
@@ -171,7 +175,7 @@
  background: white;
  padding: 14px;
  border-radius: 8px;
- font-size: 17px;
+ font-size: 20px;
  line-height: 1.5;
  color: #444;
  }
@@ -194,23 +198,23 @@
 
  .submit-link-box {
  background: white;
- border: 1px solid #dde2ff;
+ border: 1px solid #bbdefb;
  border-radius: 8px;
  padding: 14px;
- font-size: 18px;
+ font-size: 21px;
  color: #444;
  }
 
  .submit-link-box strong {
  display: block;
- color: #764ba2;
+ color: #0057d9;
  margin-bottom: 6px;
  }
 
  .submit-link-box a {
- color: #667eea;
+ color: #1976d2;
  text-decoration: none;
- font-size: 17px;
+ font-size: 20px;
  }
 
  .exit-ticket {
@@ -222,7 +226,7 @@
  }
 
  .exit-ticket h2 {
- font-size: 21px;
+ font-size: 24px;
  color: #e65100;
  margin-bottom: 12px;
  text-transform: uppercase;
@@ -230,7 +234,7 @@
  }
 
  .exit-ticket p {
- font-size: 20px;
+ font-size: 22px;
  color: #555;
  line-height: 1.7;
  margin-bottom: 8px;
@@ -238,23 +242,23 @@
 
  /* AI Rehearsal Tool */
  .ai-tool-section {
- background: linear-gradient(135deg, #f3e5f5, #ede7f6);
- border: 2px solid #9c27b0;
+ background: linear-gradient(135deg, #e8f4ff, #f0fff4);
+ border: 2px solid #0057d9;
  border-radius: 12px;
  padding: 24px;
  margin-bottom: 24px;
  }
 
  .ai-tool-section h2 {
- font-size: 21px;
- color: #6a1b9a;
+ font-size: 24px;
+ color: #0057d9;
  margin-bottom: 6px;
  text-transform: uppercase;
  letter-spacing: 0.5px;
  }
 
  .ai-tool-section p.desc {
- font-size: 18px;
+ font-size: 21px;
  color: #666;
  margin-bottom: 16px;
  }
@@ -266,9 +270,9 @@
  }
 
  .ai-inputs label {
- font-size: 17px;
+ font-size: 20px;
  font-weight: 600;
- color: #6a1b9a;
+ color: #0057d9;
  margin-bottom: 4px;
  display: block;
  }
@@ -277,10 +281,10 @@
  .ai-inputs textarea {
  width: 100%;
  padding: 10px 12px;
- border: 1.5px solid #ce93d8;
+ border: 1.5px solid #90caf9;
  border-radius: 8px;
  font-family: inherit;
- font-size: 18px;
+ font-size: 21px;
  background: white;
  color: #333;
  }
@@ -293,17 +297,17 @@
  .ai-inputs select:focus,
  .ai-inputs textarea:focus {
  outline: none;
- border-color: #9c27b0;
+ border-color: #1565c0;
  box-shadow: 0 0 0 3px rgba(156,39,176,0.15);
  }
 
  .ai-generate-btn {
- background: linear-gradient(135deg, #9c27b0, #6a1b9a);
+ background: linear-gradient(135deg, #f857a6, #0057d9);
  color: white;
  border: none;
  padding: 12px 24px;
  border-radius: 8px;
- font-size: 20px;
+ font-size: 22px;
  font-weight: 600;
  cursor: pointer;
  transition: all 0.2s ease;
@@ -325,9 +329,9 @@
  margin-top: 16px;
  background: white;
  border-radius: 8px;
- border-left: 4px solid #9c27b0;
+ border-left: 4px solid #1565c0;
  padding: 16px;
- font-size: 18px;
+ font-size: 21px;
  line-height: 1.7;
  color: #333;
  display: none;
@@ -340,8 +344,8 @@
  display: none;
  text-align: center;
  padding: 16px;
- color: #9c27b0;
- font-size: 18px;
+ color: #1565c0;
+ font-size: 21px;
  }
 
  .ai-loading.visible { display: block; }
@@ -349,7 +353,7 @@
  .ai-error {
  display: none;
  color: #c62828;
- font-size: 17px;
+ font-size: 20px;
  padding: 10px;
  background: #ffebee;
  border-radius: 6px;
@@ -367,12 +371,12 @@
  .nav-btn {
  display: block;
  padding: 14px 20px;
- background: linear-gradient(135deg, #667eea, #764ba2);
+ background: linear-gradient(135deg, #0057d9, #00b4d8);
  color: white;
  text-decoration: none;
  border-radius: 10px;
  font-weight: 600;
- font-size: 20px;
+ font-size: 22px;
  text-align: center;
  transition: all 0.2s ease;
  box-shadow: 0 4px 12px rgba(102,126,234,0.3);
@@ -383,21 +387,82 @@
  box-shadow: 0 6px 18px rgba(102,126,234,0.5);
  }
 
- .footer {
+ .results-fab {
+ position: fixed;
+ bottom: 28px;
+ right: 28px;
+ background: linear-gradient(135deg, #2e7d32, #1b5e20);
+ color: white;
+ text-decoration: none;
+ padding: 14px 22px;
+ border-radius: 50px;
+ font-size: 21px;
+ font-weight: 700;
+ box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+ z-index: 999;
+ transition: transform 0.2s, box-shadow 0.2s;
+}
+.results-fab:hover {
+ transform: translateY(-3px);
+ box-shadow: 0 10px 28px rgba(0,0,0,0.4);
+ color: white;
+}
+
+.footer {
  text-align: center;
  margin-top: 36px;
  padding-top: 20px;
  border-top: 1px solid #eee;
  color: #aaa;
- font-size: 17px;
+ font-size: 20px;
  }
 
  @media (max-width: 700px) {
  .criteria-grid,
  .ai-rules,
  .submit-links { grid-template-columns: 1fr; }
- h1 { font-size: 26px; }
+ h1 { font-size: 30px; }
  }
+
+ /* Colourful section variants */
+ .section:nth-of-type(1) { border-left-color: #f857a6; }
+ .section:nth-of-type(2) { border-left-color: #ff5858; }
+ .section:nth-of-type(3) { border-left-color: #ffb347; }
+ .section:nth-of-type(4) { border-left-color: #43c6ac; }
+ .section:nth-of-type(5) { border-left-color: #0057d9; }
+ .section:nth-of-type(6) { border-left-color: #f857a6; }
+
+ .section:nth-of-type(1) h2 { color: #c2185b; }
+ .section:nth-of-type(2) h2 { color: #d32f2f; }
+ .section:nth-of-type(3) h2 { color: #e65100; }
+ .section:nth-of-type(4) h2 { color: #00695c; }
+ .section:nth-of-type(5) h2 { color: #0057d9; }
+ .section:nth-of-type(6) h2 { color: #c2185b; }
+
+ /* Colourful header */
+ .header h1 {
+   background: linear-gradient(90deg, #f857a6, #ff5858, #ffb347, #43c6ac, #0057d9);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   background-clip: text;
+ }
+
+ /* Colourful container top stripe */
+ .container {
+   border-top: 8px solid;
+   border-image: linear-gradient(90deg, #f857a6, #ff5858, #ffb347, #43c6ac, #0057d9) 1;
+ }
+
+ /* Colourful nav buttons */
+ .nav-btn:nth-child(1) { background: linear-gradient(135deg, #f857a6, #ff5858) !important; }
+ .nav-btn:nth-child(2) { background: linear-gradient(135deg, #ff5858, #ffb347) !important; }
+ .nav-btn:nth-child(3) { background: linear-gradient(135deg, #ffb347, #43c6ac) !important; }
+ .nav-btn:nth-child(4) { background: linear-gradient(135deg, #43c6ac, #0057d9) !important; }
+ .nav-btn:nth-child(5) { background: linear-gradient(135deg, #0057d9, #f857a6) !important; }
+
+
+ .wave-divider { margin: 8px 0; line-height: 0; }
+ .wave-divider svg { display: block; width: 100%; }
 </style>
 </head>
 <body>
@@ -405,13 +470,52 @@
 
  <!-- Header -->
  <div class="header">
+ <svg viewBox="0 0 900 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;margin-bottom:12px;border-radius:12px;overflow:hidden;">
+   <rect width="900" height="160" fill="#e0f7fa"/>
+   <circle cx="820" cy="38" r="28" fill="#FFD600"/>
+   <line x1="820" y1="2" x2="820" y2="14" stroke="#FFD600" stroke-width="4" stroke-linecap="round"/>
+   <line x1="820" y1="62" x2="820" y2="74" stroke="#FFD600" stroke-width="4" stroke-linecap="round"/>
+   <line x1="784" y1="38" x2="772" y2="38" stroke="#FFD600" stroke-width="4" stroke-linecap="round"/>
+   <line x1="856" y1="38" x2="868" y2="38" stroke="#FFD600" stroke-width="4" stroke-linecap="round"/>
+   <line x1="796" y1="14" x2="788" y2="6" stroke="#FFD600" stroke-width="4" stroke-linecap="round"/>
+   <line x1="844" y1="62" x2="852" y2="70" stroke="#FFD600" stroke-width="4" stroke-linecap="round"/>
+   <ellipse cx="100" cy="30" rx="45" ry="20" fill="white" opacity="0.9"/>
+   <ellipse cx="130" cy="22" rx="35" ry="18" fill="white" opacity="0.9"/>
+   <ellipse cx="70" cy="26" rx="30" ry="16" fill="white" opacity="0.9"/>
+   <ellipse cx="320" cy="40" rx="38" ry="16" fill="white" opacity="0.8"/>
+   <ellipse cx="348" cy="32" rx="28" ry="14" fill="white" opacity="0.8"/>
+   <path d="M0 90 Q112 70 225 90 Q337 110 450 90 Q562 70 675 90 Q787 110 900 90 L900 160 L0 160 Z" fill="#0288d1"/>
+   <path d="M0 105 Q112 85 225 105 Q337 125 450 105 Q562 85 675 105 Q787 125 900 105 L900 160 L0 160 Z" fill="#0057d9" opacity="0.7"/>
+   <ellipse cx="160" cy="128" rx="38" ry="18" fill="#f857a6"/>
+   <polygon points="122,128 95,112 95,144" fill="#f857a6"/>
+   <circle cx="175" cy="122" r="4" fill="white"/>
+   <circle cx="176" cy="122" r="2" fill="#333"/>
+   <ellipse cx="680" cy="135" rx="25" ry="12" fill="#ffb347"/>
+   <polygon points="655,135 636,124 636,146" fill="#ffb347"/>
+   <circle cx="691" cy="130" r="3" fill="white"/>
+   <ellipse cx="500" cy="140" rx="16" ry="8" fill="#43c6ac"/>
+   <polygon points="484,140 472,133 472,147" fill="#43c6ac"/>
+   <rect x="380" y="88" width="14" height="26" rx="4" fill="#bbdefb" opacity="0.85"/>
+   <rect x="383" y="84" width="8" height="6" rx="2" fill="#90caf9"/>
+   <ellipse cx="560" cy="118" rx="22" ry="16" fill="#43c6ac"/>
+   <ellipse cx="560" cy="118" rx="14" ry="10" fill="#00897b"/>
+   <ellipse cx="542" cy="112" rx="8" ry="5" fill="#43c6ac" transform="rotate(-30 542 112)"/>
+   <ellipse cx="578" cy="112" rx="8" ry="5" fill="#43c6ac" transform="rotate(30 578 112)"/>
+   <ellipse cx="560" cy="106" rx="7" ry="5" fill="#43c6ac"/>
+   <circle cx="557" cy="104" r="1.5" fill="#333"/>
+   <circle cx="563" cy="104" r="1.5" fill="#333"/>
+   <path d="M750 160 Q745 145 752 132 Q758 119 750 108" stroke="#43c6ac" stroke-width="5" fill="none" stroke-linecap="round"/>
+   <path d="M762 160 Q768 143 760 130 Q754 117 762 104" stroke="#2e7d32" stroke-width="5" fill="none" stroke-linecap="round"/>
+   <circle cx="200" cy="100" r="4" fill="none" stroke="white" stroke-width="1.5" opacity="0.6"/>
+   <circle cx="210" cy="92" r="2.5" fill="none" stroke="white" stroke-width="1.5" opacity="0.6"/>
+ </svg>
  <h1>Lesson 8: Stakeholder Meeting &amp; Final Presentation</h1>
  <p class="meta"> + &nbsp;|&nbsp; 60 minutes &nbsp;|&nbsp; Conclusion</p>
 </div>
 
  <!-- Learning Goals -->
  <div class="section">
- <h2>Learning Goals</h2>
+ <h2><svg width="28" height="28" viewBox="0 0 40 40" style="vertical-align:middle;margin-right:8px;"><ellipse cx="22" cy="20" rx="14" ry="9" fill="#f857a6"/><polygon points="8,20 0,13 0,27" fill="#f857a6"/><circle cx="30" cy="16" r="3" fill="white"/><circle cx="31" cy="16" r="1.5" fill="#333"/></svg>Learning Goals</h2>
  <ul>
  <li>I can present a solution using evidence and reliable sources.</li>
  <li>I can respond to questions as a stakeholder and revise my ideas.</li>
@@ -466,19 +570,20 @@
  <div class="tl-dot">3</div>
  <div class="tl-body">
  <strong>Peer Assessment — 10 min</strong>
- <p>Complete the peer assessment form using the rubric. <a href="Peer_Assessment.html" style="color:#667eea;">Open Form</a></p>
+ <p>Complete the peer assessment form using the rubric. <a href="Peer_Assessment.html" style="color:#1976d2;">Open Form</a></p>
 </div>
 </div>
  <div class="timeline-item">
  <div class="tl-dot">4</div>
  <div class="tl-body">
  <strong>Individual Reflection + AI Use Statement — 10 min</strong>
- <p>Complete your personal reflection and AI disclosure. <a href="Personal_Reflection.html" style="color:#667eea;">Open Form</a></p>
+ <p>Complete your personal reflection and AI disclosure. <a href="Personal_Reflection.html" style="color:#1976d2;">Open Form</a></p>
 </div>
 </div>
 </div>
 </div>
 
+ <div class="wave-divider"><svg viewBox="0 0 900 30" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0 15 Q112 0 225 15 Q337 30 450 15 Q562 0 675 15 Q787 30 900 15 L900 30 L0 30 Z" fill="#e0f7fa"/></svg></div>
  <!-- AI Use Rules -->
  <div class="section">
  <h2>AI Use — Lesson 8</h2>
@@ -498,6 +603,7 @@
 </div>
 </div>
 
+ <div class="wave-divider"><svg viewBox="0 0 900 30" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0 15 Q112 0 225 15 Q337 30 450 15 Q562 0 675 15 Q787 30 900 15 L900 30 L0 30 Z" fill="#e0f7fa"/></svg></div>
  <!-- AI Rehearsal Tool -->
  <div class="ai-tool-section">
  <h2>AI Rehearsal Partner</h2>
@@ -517,20 +623,79 @@
  <label for="solutionDesc">Describe your solution in 1–2 sentences</label>
  <textarea id="solutionDesc" placeholder="Example: We propose installing floating litter booms at typhoon shelters to capture plastic waste before it reaches open water."></textarea>
 </div>
- <button class="ai-generate-btn" id="generateBtn" onclick="generateQuestions()">Generate Stakeholder Questions</button>
+ <div style="display:flex;gap:10px;">
+   <button class="ai-generate-btn" id="generateBtn" onclick="generateQuestions()" style="flex:1;">Generate Stakeholder Questions</button>
+   <button class="ai-generate-btn" onclick="fillRehearsalExample()" style="background:linear-gradient(135deg,#ff9800,#e65100);flex:0 0 auto;">Show Example</button>
+ </div>
  <div class="ai-error" id="aiError"></div>
 </div>
  <div class="ai-loading" id="aiLoading">Generating questions...</div>
  <div class="ai-output" id="aiOutput"></div>
 </div>
 
+ <div class="wave-divider"><svg viewBox="0 0 900 30" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0 15 Q112 0 225 15 Q337 30 450 15 Q562 0 675 15 Q787 30 900 15 L900 30 L0 30 Z" fill="#e0f7fa"/></svg></div>
+ <!-- CER Checker -->
+ <div class="ai-tool-section">
+ <h2>AI CER Checker</h2>
+ <p class="desc">Type your Claim, Evidence, and Reasoning below. AI will check if your reasoning connects well to your evidence and give you tips to improve.</p>
+ <div class="ai-inputs">
+   <div>
+     <label for="cerClaim">Claim</label>
+     <textarea id="cerClaim" placeholder="Example: Marine litter is increasing in Hong Kong waters."></textarea>
+   </div>
+   <div>
+     <label for="cerEvidence">Evidence</label>
+     <textarea id="cerEvidence" placeholder="Example: In 2024, a beach clean-up at Discovery Bay collected 250 kg of plastic waste."></textarea>
+   </div>
+   <div>
+     <label for="cerReasoning">Reasoning</label>
+     <textarea id="cerReasoning" placeholder="Example: This shows pollution is a real, growing problem that affects local beaches."></textarea>
+   </div>
+   <div style="display:flex;gap:10px;">
+     <button class="ai-generate-btn" id="cerBtn" onclick="checkCER()" style="flex:1;">Check My CER</button>
+     <button class="ai-generate-btn" onclick="fillCERExample()" style="background:linear-gradient(135deg,#ff9800,#e65100);flex:0 0 auto;">Show Example</button>
+   </div>
+   <div class="ai-error" id="cerError"></div>
+ </div>
+ <div class="ai-loading" id="cerLoading">Checking your CER...</div>
+ <div class="ai-output" id="cerOutput"></div>
+</div>
+
+ <div class="wave-divider"><svg viewBox="0 0 900 30" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0 15 Q112 0 225 15 Q337 30 450 15 Q562 0 675 15 Q787 30 900 15 L900 30 L0 30 Z" fill="#e0f7fa"/></svg></div>
+ <!-- Peer Feedback Helper -->
+ <div class="ai-tool-section">
+ <h2>AI Peer Feedback Helper</h2>
+ <p class="desc">Write your rough peer feedback below. AI will help you make it kinder, more specific, and more helpful before you submit.</p>
+ <div class="ai-inputs">
+   <div>
+     <label for="feedbackGroup">Which group are you giving feedback to?</label>
+     <textarea id="feedbackGroup" placeholder="Example: Group Ocean Stars — they presented about floating litter booms."></textarea>
+   </div>
+   <div>
+     <label for="feedbackRough">Your rough feedback (write freely, don't worry about wording)</label>
+     <textarea id="feedbackRough" placeholder="Example: Their idea was ok but I think they forgot to talk about cost and it was a bit boring."></textarea>
+   </div>
+   <div style="display:flex;gap:10px;">
+     <button class="ai-generate-btn" id="feedbackBtn" onclick="improveFeedback()" style="flex:1;">Improve My Feedback</button>
+     <button class="ai-generate-btn" onclick="fillFeedbackExample()" style="background:linear-gradient(135deg,#ff9800,#e65100);flex:0 0 auto;">Show Example</button>
+   </div>
+   <div class="ai-error" id="feedbackError"></div>
+ </div>
+ <div class="ai-loading" id="feedbackLoading">Improving your feedback...</div>
+ <div class="ai-output" id="feedbackOutput"></div>
+</div>
+
+ <div class="wave-divider"><svg viewBox="0 0 900 30" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0 15 Q112 0 225 15 Q337 30 450 15 Q562 0 675 15 Q787 30 900 15 L900 30 L0 30 Z" fill="#e0f7fa"/></svg></div>
  <!-- Submit Links -->
  <div class="section">
- <h2>Submit (Final)</h2>
+ <h2><svg width="28" height="28" viewBox="0 0 40 40" style="vertical-align:middle;margin-right:8px;"><rect x="4" y="8" width="32" height="24" rx="4" fill="#0057d9"/><polyline points="4,12 20,24 36,12" fill="none" stroke="white" stroke-width="3"/></svg>Submit (Final)</h2>
  <div class="submit-links">
  <div class="submit-link-box">
  <strong>Group Slides</strong>
- <a href="#">[Insert link]</a>
+ <a href="https://classroom.google.com" target="_blank"
+   style="display:block;margin-top:8px;padding:10px 16px;background:linear-gradient(135deg,#4caf50,#2e7d32);color:white;border-radius:8px;font-size:17px;font-weight:600;cursor:pointer;width:100%;text-align:center;text-decoration:none;">
+   Open Google Classroom
+ </a>
 </div>
  <div class="submit-link-box">
  <strong>Peer Assessment</strong>
@@ -541,11 +706,28 @@
  <a href="Personal_Reflection.html">Open Form</a>
 </div>
 </div>
+
+<!-- Submitted Slides List -->
+<div id="slidesList" style="margin-top:20px;display:none;">
+ <h3 style="font-size:19px;color:#0d47a1;margin-bottom:12px;">Submitted Slides</h3>
+ <table style="width:100%;border-collapse:collapse;font-size:17px;">
+   <thead>
+     <tr style="background:linear-gradient(135deg,#1976d2,#0d47a1);color:white;">
+       <th style="padding:10px 14px;text-align:left;border-radius:6px 0 0 0;">#</th>
+       <th style="padding:10px 14px;text-align:left;">Group Name</th>
+       <th style="padding:10px 14px;text-align:left;">Classroom Link</th>
+       <th style="padding:10px 14px;text-align:left;border-radius:0 6px 0 0;">Submitted At</th>
+     </tr>
+   </thead>
+   <tbody id="slidesTableBody"></tbody>
+ </table>
+</div>
 </div>
 
+ <div class="wave-divider"><svg viewBox="0 0 900 30" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0 15 Q112 0 225 15 Q337 30 450 15 Q562 0 675 15 Q787 30 900 15 L900 30 L0 30 Z" fill="#e0f7fa"/></svg></div>
  <!-- Exit Ticket -->
  <div class="exit-ticket">
- <h2>Exit Ticket (Post-unit)</h2>
+ <h2>Taking Action: My Commitment</h2>
  <p style="margin-bottom:16px;">Complete this sentence before you leave:</p>
  <form id="exitForm">
  <div style="display:flex;flex-direction:column;gap:10px;">
@@ -556,6 +738,10 @@
  <button type="submit"
  style="padding:14px;background:linear-gradient(135deg,#ffa500,#e65100);color:white;border:none;border-radius:10px;font-size:19px;font-weight:700;cursor:pointer;">
  Submit Exit Ticket
+ </button>
+ <button type="button" onclick="fillExitExample()"
+ style="padding:14px;background:linear-gradient(135deg,#ff9800,#e65100);color:white;border:none;border-radius:10px;font-size:19px;font-weight:700;cursor:pointer;">
+ Show Example
  </button>
  </div>
  </form>
@@ -569,7 +755,6 @@
  <a href="Presentation_Guide.html" class="nav-btn">Presentation Guide</a>
  <a href="Peer_Assessment.html" class="nav-btn">Peer Assessment</a>
  <a href="Personal_Reflection.html" class="nav-btn">Reflection Form</a>
- <a href="Results.html" class="nav-btn" style="background:linear-gradient(135deg,#2e7d32,#1b5e20);">View Results</a>
 </div>
 </div>
 
@@ -578,6 +763,8 @@
  <p></p>
 </div>
 </div>
+
+<a href="Results.html" class="results-fab">View Results</a>
 
  <script>
  // Paste your Groq API key here (free at console.groq.com)
@@ -678,6 +865,170 @@ Generate 5 challenging but fair questions this stakeholder would realistically a
  loading.classList.remove('visible');
  }
  }
+
+function fillSlidesExample() {
+ document.getElementById('pptxGroup').value = 'Group Ocean Stars';
+ document.getElementById('classroomLink').value = 'https://classroom.google.com/c/example123';
+}
+
+function fillExitExample() {
+ document.getElementById('exitName').value = 'Alex Chan';
+ document.getElementById('exitAnswer').value = 'One thing I will do to help reduce marine pollution is bring a reusable bag every time I go shopping, because single-use plastic bags are one of the biggest sources of ocean litter in Hong Kong.';
+}
+
+function fillRehearsalExample() {
+ document.getElementById('stakeholderRole').value = 'fisherman';
+ document.getElementById('solutionDesc').value = 'We propose installing a floating litter boom at the entrance of Typhoon Shelter in Sai Kung to trap plastic waste before it reaches open water. The boom is made from recycled materials and can be cleaned weekly by volunteers.';
+}
+
+function fillCERExample() {
+ document.getElementById('cerClaim').value = 'Plastic pollution in Hong Kong waters is harming sea turtles.';
+ document.getElementById('cerEvidence').value = 'According to WWF Hong Kong (2023), 78% of green sea turtles found stranded on local beaches had plastic in their stomachs.';
+ document.getElementById('cerReasoning').value = 'This shows that plastic pollution is dangerous because sea turtles mistake plastic bags for jellyfish and eat them, which can block their digestive system and cause death.';
+}
+
+function fillFeedbackExample() {
+ document.getElementById('feedbackGroup').value = 'Group Blue Waves — they presented a solar-powered water filtration boat.';
+ document.getElementById('feedbackRough').value = 'Their idea was pretty cool but I think they didn\'t explain how it works properly and their slides had too much text. Also they were a bit quiet when presenting.';
+}
+
+async function checkCER() {
+ const claim    = document.getElementById('cerClaim').value.trim();
+ const evidence = document.getElementById('cerEvidence').value.trim();
+ const reasoning= document.getElementById('cerReasoning').value.trim();
+ const btn      = document.getElementById('cerBtn');
+ const output   = document.getElementById('cerOutput');
+ const loading  = document.getElementById('cerLoading');
+ const errorBox = document.getElementById('cerError');
+ output.classList.remove('visible');
+ errorBox.classList.remove('visible');
+ if (!claim || !evidence || !reasoning) {
+   errorBox.textContent = 'Please fill in all three fields (Claim, Evidence, Reasoning).';
+   errorBox.classList.add('visible');
+   return;
+ }
+ btn.disabled = true;
+ loading.classList.add('visible');
+ const prompt = `You are a helpful primary school science teacher. A student has written a CER (Claim-Evidence-Reasoning) about marine pollution in Hong Kong.
+
+Claim: "${claim}"
+Evidence: "${evidence}"
+Reasoning: "${reasoning}"
+
+Please check their CER and give friendly feedback (suitable for a primary school student):
+1. Does the Evidence support the Claim? (Yes/Partly/No — explain briefly)
+2. Does the Reasoning explain HOW the Evidence connects to the Claim? (Yes/Partly/No — explain briefly)
+3. One specific thing they did well
+4. One specific tip to make the CER stronger
+
+Keep your feedback encouraging and easy to understand. Use simple language.`;
+ try {
+   const text = await callGroq(prompt);
+   output.textContent = text;
+   output.classList.add('visible');
+ } catch(err) {
+   errorBox.textContent = err.message;
+   errorBox.classList.add('visible');
+ } finally {
+   btn.disabled = false;
+   loading.classList.remove('visible');
+ }
+}
+
+async function improveFeedback() {
+ const group   = document.getElementById('feedbackGroup').value.trim();
+ const rough   = document.getElementById('feedbackRough').value.trim();
+ const btn     = document.getElementById('feedbackBtn');
+ const output  = document.getElementById('feedbackOutput');
+ const loading = document.getElementById('feedbackLoading');
+ const errorBox= document.getElementById('feedbackError');
+ output.classList.remove('visible');
+ errorBox.classList.remove('visible');
+ if (!rough) {
+   errorBox.textContent = 'Please write your rough feedback first.';
+   errorBox.classList.add('visible');
+   return;
+ }
+ btn.disabled = true;
+ loading.classList.add('visible');
+ const prompt = `You are a kind and helpful primary school teacher. A student has written rough peer feedback about a classmate's presentation on marine pollution in Hong Kong.
+
+${group ? `Group being assessed: ${group}` : ''}
+Student's rough feedback: "${rough}"
+
+Please rewrite this feedback so it is:
+- KIND: uses positive and respectful language
+- HELPFUL: gives a specific suggestion for improvement
+- HONEST: keeps the student's original meaning
+
+Write the improved feedback in 3 short sections:
+1. One thing I really liked: ...
+2. One suggestion: ...
+3. One question I have: ...
+
+Use simple language suitable for a primary school student.`;
+ try {
+   const text = await callGroq(prompt);
+   output.textContent = text;
+   output.classList.add('visible');
+ } catch(err) {
+   errorBox.textContent = err.message;
+   errorBox.classList.add('visible');
+ } finally {
+   btn.disabled = false;
+   loading.classList.remove('visible');
+ }
+}
+
+function submitSlides() {
+ const link  = document.getElementById('classroomLink').value.trim();
+ const group = document.getElementById('pptxGroup').value.trim();
+ if (!link) {
+   alert('Please paste your Google Classroom link first.');
+   return;
+ }
+ if (!group) {
+   alert('Please enter your group name.');
+   return;
+ }
+ const entry = {
+   group,
+   link,
+   time: new Date().toLocaleString()
+ };
+ const saved = JSON.parse(localStorage.getItem('submittedSlides') || '[]');
+ saved.push(entry);
+ localStorage.setItem('submittedSlides', JSON.stringify(saved));
+ document.getElementById('classroomLink').value = '';
+ document.getElementById('pptxGroup').value = '';
+ renderSlidesList();
+ const btn = document.querySelector('#slidesList').previousElementSibling;
+ // Show success overlay
+ const overlay = document.createElement('div');
+ overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:9999;';
+ overlay.id = 'slidesOverlay';
+ overlay.innerHTML = '<div style="background:white;border-radius:16px;padding:40px;max-width:400px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.3);"><p style="font-size:28px;font-weight:700;color:#2e7d32;margin-bottom:12px;">Slides Submitted!</p><p style="font-size:19px;color:#555;margin-bottom:24px;">Your file has been recorded. Well done!</p><button onclick="document.getElementById(\'slidesOverlay\').remove()" style="padding:12px 28px;background:linear-gradient(135deg,#1976d2,#0d47a1);color:white;border:none;border-radius:10px;font-size:18px;font-weight:700;cursor:pointer;">OK</button></div>';
+ document.body.appendChild(overlay);
+}
+
+function renderSlidesList() {
+ const saved = JSON.parse(localStorage.getItem('submittedSlides') || '[]');
+ const container = document.getElementById('slidesList');
+ const tbody = document.getElementById('slidesTableBody');
+ if (saved.length === 0) { container.style.display = 'none'; return; }
+ container.style.display = 'block';
+ tbody.innerHTML = saved.map((e, i) =>
+   `<tr style="background:${i % 2 === 0 ? '#f0f7ff' : 'white'};">
+     <td style="padding:10px 14px;color:#888;">${i + 1}</td>
+     <td style="padding:10px 14px;font-weight:600;color:#0d47a1;">${e.group}</td>
+     <td style="padding:10px 14px;color:#444;"><a href="${e.link}" target="_blank" style="color:#1976d2;word-break:break-all;">Open Link</a></td>
+     <td style="padding:10px 14px;color:#888;font-size:15px;">${e.time}</td>
+   </tr>`
+ ).join('');
+}
+
+// Load list on page load
+renderSlidesList();
 
 document.getElementById('exitForm').addEventListener('submit', function(e) {
  e.preventDefault();
