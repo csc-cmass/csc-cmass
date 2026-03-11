@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Results Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -260,10 +261,32 @@
         }
         .modal-row p { font-size: 17px; color: #333; line-height: 1.6; }
 
+        .charts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+        .chart-card {
+            background: #f8f9ff;
+            border-left: 5px solid #667eea;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .chart-card h3 {
+            font-size: 17px;
+            color: #764ba2;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+        .chart-card canvas { max-height: 240px; }
+
         @media (max-width: 700px) {
             .container { padding: 20px; }
             .header h1 { font-size: 24px; }
             .tabs { flex-wrap: wrap; }
+            .charts-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -285,6 +308,24 @@
     <!-- Peer Assessment Tab -->
     <div class="tab-panel active" id="tab-peer">
         <div class="stats-row" id="peerStats"></div>
+        <div class="charts-grid">
+            <div class="chart-card">
+                <h3>Average Score per Criterion</h3>
+                <canvas id="chartCriteria"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Score Distribution (Total /20)</h3>
+                <canvas id="chartDistribution"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Average Score per Group</h3>
+                <canvas id="chartGroups"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Submissions per Group</h3>
+                <canvas id="chartSubmissions"></canvas>
+            </div>
+        </div>
         <div class="toolbar">
             <input type="text" id="peerSearch" placeholder="Search by name or group..." oninput="renderPeer()">
             <button class="btn-export" onclick="exportCSV('peer')">Export CSV</button>
@@ -320,6 +361,24 @@
     <!-- Reflection Tab -->
     <div class="tab-panel" id="tab-reflection">
         <div class="stats-row" id="reflectionStats"></div>
+        <div class="charts-grid">
+            <div class="chart-card">
+                <h3>AI Usage</h3>
+                <canvas id="chartAIUsage"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>AI Helpfulness Rating</h3>
+                <canvas id="chartAIHelpful"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Student Roles</h3>
+                <canvas id="chartRoles"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>How AI Was Used</h3>
+                <canvas id="chartAIUse"></canvas>
+            </div>
+        </div>
         <div class="toolbar">
             <input type="text" id="reflectionSearch" placeholder="Search by name or group..." oninput="renderReflections()">
             <button class="btn-export" onclick="exportCSV('reflection')">Export CSV</button>
@@ -404,6 +463,7 @@
             return;
         }
         empty.style.display = 'none';
+        renderPeerCharts(filtered);
         tbody.innerHTML = filtered.map((r, i) => {
             const total = [r.r1,r.r2,r.r3,r.r4,r.r5].reduce((a,b) => a + (parseInt(b)||0), 0);
             return `<tr>
@@ -471,6 +531,7 @@
             return;
         }
         empty.style.display = 'none';
+        renderReflectionCharts(filtered);
         tbody.innerHTML = filtered.map((r, i) => `<tr>
             <td>${r.timestamp || '—'}</td>
             <td>${r.studentName || '—'}</td>
@@ -558,6 +619,140 @@
             localStorage.removeItem(key);
             type === 'peer' ? renderPeer() : renderReflections();
         }
+    }
+
+    // ── Chart helpers ──────────────────────────────────────────
+    const chartInstances = {};
+    function makeChart(id, type, labels, datasets, options = {}) {
+        if (chartInstances[id]) chartInstances[id].destroy();
+        const ctx = document.getElementById(id);
+        if (!ctx) return;
+        chartInstances[id] = new Chart(ctx, {
+            type,
+            data: { labels, datasets },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: { labels: { font: { size: 14 } } }
+                },
+                scales: type !== 'doughnut' && type !== 'pie' ? {
+                    y: { beginAtZero: true, ticks: { font: { size: 13 } } },
+                    x: { ticks: { font: { size: 13 } } }
+                } : undefined,
+                ...options
+            }
+        });
+    }
+
+    const COLORS = ['#667eea','#764ba2','#42a5f5','#66bb6a','#ffa726','#ef5350','#ab47bc','#26c6da'];
+
+    function renderPeerCharts(data) {
+        if (!data.length) return;
+
+        // 1. Average score per criterion
+        const criteria = ['Science','Solution','Stakeholders','Sources','Communication'];
+        const keys = ['r1','r2','r3','r4','r5'];
+        const avgCriteria = keys.map(k => {
+            const vals = data.map(r => parseInt(r[k]) || 0).filter(v => v > 0);
+            return vals.length ? (vals.reduce((a,b) => a+b, 0) / vals.length).toFixed(2) : 0;
+        });
+        makeChart('chartCriteria', 'bar', criteria, [{
+            label: 'Average Score (max 4)',
+            data: avgCriteria,
+            backgroundColor: COLORS,
+            borderRadius: 6,
+        }], { plugins: { legend: { display: false } } });
+
+        // 2. Score distribution (total /20)
+        const buckets = { '1-4':0, '5-8':0, '9-12':0, '13-16':0, '17-20':0 };
+        data.forEach(r => {
+            const t = keys.reduce((a,k) => a + (parseInt(r[k])||0), 0);
+            if (t <= 4) buckets['1-4']++;
+            else if (t <= 8) buckets['5-8']++;
+            else if (t <= 12) buckets['9-12']++;
+            else if (t <= 16) buckets['13-16']++;
+            else buckets['17-20']++;
+        });
+        makeChart('chartDistribution', 'bar', Object.keys(buckets), [{
+            label: 'Number of Groups',
+            data: Object.values(buckets),
+            backgroundColor: '#667eea',
+            borderRadius: 6,
+        }], { plugins: { legend: { display: false } } });
+
+        // 3. Average score per group
+        const groups = {};
+        data.forEach(r => {
+            const g = r.groupName || 'Unknown';
+            if (!groups[g]) groups[g] = [];
+            groups[g].push(keys.reduce((a,k) => a + (parseInt(r[k])||0), 0));
+        });
+        const groupNames = Object.keys(groups);
+        const groupAvgs = groupNames.map(g => (groups[g].reduce((a,b)=>a+b,0)/groups[g].length).toFixed(1));
+        makeChart('chartGroups', 'bar', groupNames, [{
+            label: 'Average Total Score (max 20)',
+            data: groupAvgs,
+            backgroundColor: groupNames.map((_,i) => COLORS[i % COLORS.length]),
+            borderRadius: 6,
+        }], { plugins: { legend: { display: false } } });
+
+        // 4. Submissions per group
+        makeChart('chartSubmissions', 'doughnut', groupNames, [{
+            data: groupNames.map(g => groups[g].length),
+            backgroundColor: groupNames.map((_,i) => COLORS[i % COLORS.length]),
+        }]);
+    }
+
+    function renderReflectionCharts(data) {
+        if (!data.length) return;
+
+        // 1. AI Usage doughnut
+        const yes = data.filter(r => r.usedAI === 'Yes').length;
+        const no  = data.length - yes;
+        makeChart('chartAIUsage', 'doughnut', ['Used AI','No AI'], [{
+            data: [yes, no],
+            backgroundColor: ['#667eea','#e0e0e0'],
+        }]);
+
+        // 2. AI Helpfulness (1–5) bar
+        const helpful = {1:0,2:0,3:0,4:0,5:0};
+        data.filter(r => r.usedAI === 'Yes').forEach(r => {
+            const v = parseInt(r.aiHelpful);
+            if (v >= 1 && v <= 5) helpful[v]++;
+        });
+        makeChart('chartAIHelpful', 'bar', ['1','2','3','4','5'], [{
+            label: 'Number of Students',
+            data: Object.values(helpful),
+            backgroundColor: ['#ef5350','#ffa726','#ffee58','#66bb6a','#42a5f5'],
+            borderRadius: 6,
+        }], { plugins: { legend: { display: false } } });
+
+        // 3. Student roles
+        const roleCounts = {};
+        data.forEach(r => {
+            (r.roles || '').split(',').map(s => s.trim()).filter(Boolean).forEach(role => {
+                roleCounts[role] = (roleCounts[role] || 0) + 1;
+            });
+        });
+        makeChart('chartRoles', 'doughnut', Object.keys(roleCounts), [{
+            data: Object.values(roleCounts),
+            backgroundColor: Object.keys(roleCounts).map((_,i) => COLORS[i % COLORS.length]),
+        }]);
+
+        // 4. How AI was used
+        const useCounts = {};
+        data.filter(r => r.usedAI === 'Yes').forEach(r => {
+            (r.aiUses || '').split(',').map(s => s.trim()).filter(Boolean).forEach(u => {
+                useCounts[u] = (useCounts[u] || 0) + 1;
+            });
+        });
+        makeChart('chartAIUse', 'bar', Object.keys(useCounts), [{
+            label: 'Count',
+            data: Object.values(useCounts),
+            backgroundColor: Object.keys(useCounts).map((_,i) => COLORS[i % COLORS.length]),
+            borderRadius: 6,
+        }], { plugins: { legend: { display: false } } });
     }
 
     // ── Init ───────────────────────────────────────────────────
