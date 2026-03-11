@@ -1,475 +1,412 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Presentation Guide - How to Present Successfully</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', cursive, sans-serif;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: #333;
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 30px;
-            padding: 40px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-        }
-        
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .emoji-title {
-            font-size: 70px;
-            margin-bottom: 10px;
-        }
-        
-        h1 {
-            font-size: 40px;
-            color: #f5576c;
-            margin-bottom: 5px;
-        }
-        
-        .subtitle {
-            font-size: 16px;
-            color: #f093fb;
-            font-weight: bold;
-        }
-        
-        .slide-guide {
-            background: linear-gradient(135deg, #fff5f8 0%, #ffe8f0 100%);
-            padding: 30px;
-            margin-bottom: 30px;
-            border-radius: 20px;
-            border: 3px solid #f5576c;
-        }
-        
-        .slide-guide h2 {
-            font-size: 24px;
-            color: #f5576c;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .slide-number {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 40px;
-            font-weight: bold;
-            font-size: 18px;
-            margin-right: 10px;
-        }
-        
-        .slide-content {
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            margin-top: 15px;
-        }
-        
-        .slide-content h3 {
-            color: #f093fb;
-            font-size: 18px;
-            margin-bottom: 12px;
-        }
-        
-        .slide-content p, .slide-content li {
-            font-size: 15px;
-            line-height: 1.7;
-            color: #555;
-            margin-bottom: 10px;
-        }
-        
-        .slide-content ul {
-            margin-left: 20px;
-        }
-        
-        .do-dont {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-top: 15px;
-        }
-        
-        .do-box {
-            background: linear-gradient(135deg, #e8f5e9 0%, #f1f8f6 100%);
-            padding: 15px;
-            border-left: 5px solid #4caf50;
-            border-radius: 10px;
-        }
-        
-        .dont-box {
-            background: linear-gradient(135deg, #ffebee 0%, #fff5f6 100%);
-            padding: 15px;
-            border-left: 5px solid #f44336;
-            border-radius: 10px;
-        }
-        
-        .do-box strong {
-            color: #4caf50;
-            display: block;
-            margin-bottom: 8px;
-        }
-        
-        .dont-box strong {
-            color: #f44336;
-            display: block;
-            margin-bottom: 8px;
-        }
-        
-        .do-box p, .dont-box p {
-            font-size: 13px;
-            color: #555;
-            margin-bottom: 5px;
-        }
-        
-        .timing-box {
-            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
-            padding: 20px;
-            border-left: 5px solid #f093fb;
-            border-radius: 10px;
-            margin: 20px 0;
-        }
-        
-        .timing-box h3 {
-            color: #f5576c;
-            margin-bottom: 15px;
-        }
-        
-        .timing-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 0;
-            border-bottom: 1px dashed #ddd;
-        }
-        
-        .timing-item:last-child {
-            border-bottom: none;
-        }
-        
-        .timing-label {
-            font-weight: bold;
-            color: #f5576c;
-        }
-        
-        .timing-time {
-            background: #f093fb;
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: bold;
-        }
-        
-        .role-play-section {
-            background: linear-gradient(135deg, #fff9e6 0%, #fffaed 100%);
-            padding: 25px;
-            border-left: 5px solid #ffa500;
-            border-radius: 15px;
-            margin: 30px 0;
-        }
-        
-        .role-play-section h2 {
-            color: #ff8c00;
-            margin-bottom: 15px;
-        }
-        
-        .role-box {
-            background: white;
-            padding: 15px;
-            margin-bottom: 12px;
-            border-radius: 10px;
-            border-left: 4px solid #ffa500;
-        }
-        
-        .role-box strong {
-            color: #ff8c00;
-            display: block;
-            margin-bottom: 5px;
-        }
-        
-        .qa-tips {
-            background: linear-gradient(135deg, #f3e5f5 0%, #ede7f6 100%);
-            padding: 20px;
-            border-radius: 15px;
-            margin: 20px 0;
-        }
-        
-        .qa-tips h3 {
-            color: #7c4dff;
-            margin-bottom: 15px;
-            font-size: 18px;
-        }
-        
-        .qa-tips .tip {
-            background: white;
-            padding: 12px;
-            margin-bottom: 10px;
-            border-radius: 8px;
-            border-left: 3px solid #7c4dff;
-        }
-        
-        .qa-tips .tip strong {
-            color: #7c4dff;
-        }
-        
-        @media (max-width: 768px) {
-            .do-dont {
-                grid-template-columns: 1fr;
-            }
-            
-            h1 {
-                font-size: 28px;
-            }
-        }
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Presentation Guide</title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+
+ body {
+ font-family: 'Segoe UI', Arial, sans-serif;
+ background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+ color: #333;
+ min-height: 100vh;
+ padding: 20px;
+ }
+
+ .container {
+ max-width: 900px;
+ margin: 0 auto;
+ background: white;
+ border-radius: 16px;
+ padding: 40px;
+ box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+ }
+
+ .back-btn {
+ display: inline-flex;
+ align-items: center;
+ gap: 8px;
+ padding: 12px 22px;
+ background: #f0f0f0;
+ color: #555;
+ text-decoration: none;
+ border-radius: 10px;
+ font-size: 18px;
+ font-weight: 600;
+ margin-bottom: 28px;
+ transition: background 0.2s;
+ }
+ .back-btn:hover { background: #e0e0e0; color: #333; }
+
+ .header {
+ text-align: center;
+ margin-bottom: 40px;
+ padding-bottom: 24px;
+ border-bottom: 2px solid #f0f0f0;
+ }
+ .header h1 { font-size: 32px; color: #764ba2; margin-bottom: 6px; }
+ .header .meta { font-size: 18px; color: #888; }
+
+ /* Slide cards */
+ .slide-card {
+ background: #f8f9ff;
+ border-left: 5px solid #667eea;
+ border-radius: 8px;
+ padding: 20px 24px;
+ margin-bottom: 24px;
+ }
+ .slide-card h2 {
+ font-size: 21px;
+ color: #764ba2;
+ margin-bottom: 14px;
+ display: flex;
+ align-items: center;
+ gap: 12px;
+ }
+ .slide-num {
+ width: 36px;
+ height: 36px;
+ background: linear-gradient(135deg, #667eea, #764ba2);
+ color: white;
+ border-radius: 50%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 17px;
+ font-weight: bold;
+ flex-shrink: 0;
+ }
+ .slide-body {
+ background: white;
+ border-radius: 8px;
+ padding: 16px 20px;
+ margin-top: 12px;
+ }
+ .slide-body h3 {
+ font-size: 19px;
+ color: #667eea;
+ margin-bottom: 10px;
+ margin-top: 14px;
+ }
+ .slide-body h3:first-child { margin-top: 0; }
+ .slide-body p, .slide-body li {
+ font-size: 18px;
+ color: #555;
+ line-height: 1.7;
+ margin-bottom: 6px;
+ }
+ .slide-body ul { margin-left: 20px; }
+
+ .do-dont {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 12px;
+ margin-top: 14px;
+ }
+ .do-box, .dont-box {
+ padding: 14px;
+ border-radius: 8px;
+ font-size: 17px;
+ line-height: 1.6;
+ }
+ .do-box { background: #e8f5e9; border-left: 4px solid #4caf50; }
+ .dont-box { background: #ffebee; border-left: 4px solid #f44336; }
+ .do-box strong { color: #2e7d32; display: block; margin-bottom: 6px; font-size: 18px; }
+ .dont-box strong { color: #c62828; display: block; margin-bottom: 6px; font-size: 18px; }
+ .do-box p, .dont-box p { color: #555; margin-bottom: 4px; }
+
+ .example-box {
+ background: #f5f5f5;
+ border-left: 4px solid #667eea;
+ padding: 12px 16px;
+ border-radius: 6px;
+ margin: 10px 0;
+ font-size: 17px;
+ color: #555;
+ line-height: 1.7;
+ }
+
+ .ai-box {
+ background: #fff9e6;
+ border-left: 4px solid #ffa500;
+ padding: 16px;
+ border-radius: 8px;
+ margin: 10px 0;
+ font-size: 17px;
+ color: #555;
+ line-height: 1.8;
+ }
+
+ /* Timing */
+ .timing-section {
+ background: #f8f9ff;
+ border-left: 5px solid #667eea;
+ border-radius: 8px;
+ padding: 20px 24px;
+ margin-bottom: 24px;
+ }
+ .timing-section h2 {
+ font-size: 21px;
+ color: #764ba2;
+ margin-bottom: 16px;
+ text-transform: uppercase;
+ letter-spacing: 0.5px;
+ }
+ .timing-row {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 12px 0;
+ border-bottom: 1px dashed #dde2ff;
+ font-size: 18px;
+ }
+ .timing-row:last-child { border-bottom: none; }
+ .timing-row .label { color: #555; font-weight: 600; }
+ .timing-row .time {
+ background: linear-gradient(135deg, #667eea, #764ba2);
+ color: white;
+ padding: 6px 16px;
+ border-radius: 20px;
+ font-size: 16px;
+ font-weight: 700;
+ }
+
+ /* Role play */
+ .roleplay-section {
+ background: #fff9e6;
+ border-left: 5px solid #ffa500;
+ border-radius: 8px;
+ padding: 20px 24px;
+ margin-bottom: 24px;
+ }
+ .roleplay-section h2 {
+ font-size: 21px;
+ color: #e65100;
+ margin-bottom: 8px;
+ text-transform: uppercase;
+ letter-spacing: 0.5px;
+ }
+ .roleplay-section > p {
+ font-size: 18px;
+ color: #666;
+ margin-bottom: 16px;
+ }
+ .role-card {
+ background: white;
+ border-left: 4px solid #ffa500;
+ border-radius: 8px;
+ padding: 14px 16px;
+ margin-bottom: 10px;
+ }
+ .role-card strong { display: block; color: #e65100; font-size: 19px; margin-bottom: 4px; }
+ .role-card p { font-size: 17px; color: #555; line-height: 1.6; }
+
+ /* Q&A Tips */
+ .tips-section {
+ background: #f8f9ff;
+ border-left: 5px solid #667eea;
+ border-radius: 8px;
+ padding: 20px 24px;
+ margin-bottom: 24px;
+ }
+ .tips-section h2 {
+ font-size: 21px;
+ color: #764ba2;
+ margin-bottom: 16px;
+ text-transform: uppercase;
+ letter-spacing: 0.5px;
+ }
+ .tip-card {
+ background: white;
+ border-left: 4px solid #667eea;
+ border-radius: 8px;
+ padding: 14px 16px;
+ margin-bottom: 10px;
+ font-size: 18px;
+ color: #555;
+ }
+ .tip-card strong { color: #764ba2; }
+
+ .footer {
+ text-align: center;
+ margin-top: 36px;
+ padding-top: 20px;
+ border-top: 1px solid #eee;
+ color: #aaa;
+ font-size: 17px;
+ }
+
+ @media (max-width: 700px) {
+ .container { padding: 20px; }
+ .header h1 { font-size: 26px; }
+ .do-dont { grid-template-columns: 1fr; }
+ }
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="emoji-title"></div>
-            <h1>Presentation Guide</h1>
-            <p class="subtitle"> - How to Present Successfully!</p>
-        </div>
-        
-        <!-- Slide 1: Title -->
-        <div class="slide-guide">
-            <h2><span class="slide-number">1</span>Title Slide ()</h2>
-            <div class="slide-content">
-                <h3>What to Include:</h3>
-                <ul>
-                    <li>Group name ()</li>
-                    <li>Unit title: "Clean Seas HK" ()</li>
-                    <li>Big, colorful design with pictures</li>
-                </ul>
-                <div class="do-dont">
-                    <div class="do-box">
-                        <strong> DO</strong>
-                        <p>Make it eye-catching and fun!</p>
-                        <p>Use colors, emoji, drawings</p>
-                    </div>
-                    <div class="dont-box">
-                        <strong> DON'T</strong>
-                        <p>Too much text on title page</p>
-                        <p>Boring, plain design</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Slide 2: Problem -->
-        <div class="slide-guide">
-            <h2><span class="slide-number">2</span>Problem Statement ()</h2>
-            <div class="slide-content">
-                <h3>Example:</h3>
-                <p><strong></strong> "Thousands of plastic bags end up in Hong Kong harbours every year, harming sea animals."</p>
-                <h3>Include:</h3>
-                <ul>
-                    <li>1-2 specific examples ()</li>
-                    <li>Where it happens ()</li>
-                    <li>Why it matters ()</li>
-                    <li>Add a photo or drawing</li>
-                </ul>
-            </div>
-        </div>
-        
-        <!-- Slide 3: Evidence -->
-        <div class="slide-guide">
-            <h2><span class="slide-number">3</span>Evidence & Data ()</h2>
-            <div class="slide-content">
-                <h3>Show Your CER (Claim-Evidence-Reasoning):</h3>
-                <p><strong>Claim:</strong> "Marine litter is increasing in Hong Kong waters"</p>
-                <p><strong>Evidence:</strong> "In 2024, Beach Clean-up @ Discovery Bay collected 250kg of plastic waste"</p>
-                <p><strong>Reasoning:</strong> "This shows that pollution is a real, growing problem that affects local beaches"</p>
-                
-                <h3 style="margin-top: 15px;">Visualization Tips:</h3>
-                <ul>
-                    <li>Use a bar chart or pie chart ()</li>
-                    <li>Include photos from your research ()</li>
-                    <li>Show your data from Lesson 4 (Lesson 4 )</li>
-                </ul>
-            </div>
-        </div>
-        
-        <!-- Slide 4: Solution -->
-        <div class="slide-guide">
-            <h2><span class="slide-number">4</span>Your Solution ()</h2>
-            <div class="slide-content">
-                <h3>Include:</h3>
-                <ul>
-                    <li><strong>What is it?</strong> Name of your solution</li>
-                    <li><strong>Why does it work?</strong> Explain the science</li>
-                    <li><strong>How does it work?</strong> Step-by-step process</li>
-                    <li><strong>Your prototype test results</strong> (from Lesson 7)</li>
-                </ul>
-                
-                <h3>Example Format:</h3>
-                <p><strong>Solution:</strong> "Community Floating Litter Boom at Typhoon Shelter"</p>
-                <p><strong>Why:</strong> "Because waves carry floating litter to sheltered areas where fish live"</p>
-                <p><strong>How:</strong> "We test-built a boom using recycled materials and captured 80% of floating trash"</p>
-                
-                <div class="do-dont">
-                    <div class="do-box">
-                        <strong> DO</strong>
-                        <p>Show photos of your prototype</p>
-                        <p>Include test results/data</p>
-                    </div>
-                    <div class="dont-box">
-                        <strong> DON'T</strong>
-                        <p>Make promises you can't keep</p>
-                        <p>Forget to explain HOW it works</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Slide 5: Stakeholders -->
-        <div class="slide-guide">
-            <h2><span class="slide-number">5</span>Stakeholders ()</h2>
-            <div class="slide-content">
-                <h3>Show Different Perspectives:</h3>
-                <ul>
-                    <li> <strong>Fishermen:</strong> "We worry about lower catch if pollution increases"</li>
-                    <li> <strong>Tourism Industry:</strong> "Dirty beaches lose visitors and income"</li>
-                    <li> <strong>Environmental NGO:</strong> "We support solutions that help animals"</li>
-                    <li> <strong>Government:</strong> "We need cost-effective solutions"</li>
-                    <li>‍‍‍ <strong>Local Communities:</strong> "We care about our home"</li>
-                </ul>
-                
-                <h3>How to present:</h3>
-                <p>Create a simple visual showing who is affected + HOW they are affected</p>
-            </div>
-        </div>
-        
-        <!-- Slide 6: Sources & AI Use Box -->
-        <div class="slide-guide">
-            <h2><span class="slide-number">6</span>Sources & AI Use Box ( AI )</h2>
-            <div class="slide-content">
-                <h3>List Your Sources:</h3>
-                <p>Example format:</p>
-                <p style="background: #f5f5f5; padding: 10px; border-left: 3px solid #f5576c; margin: 10px 0;">
-                    1. Hong Kong Environmental Protection Department (2024)<br>
-                    2. Ocean Care Foundation - Marine Litter Report<br>
-                    3. Our own observation at Discovery Bay Beach (Oct 2024)
-                </p>
-                
-                <h3 style="margin-top: 15px;">AI Use Box (Paste on your slide!):</h3>
-                <p style="background: #fff9e6; padding: 15px; border-left: 3px solid #ffa500; margin: 10px 0;">
-                    <strong> AI Tool Used:</strong> Google Gemini<br><br>
-                    <strong>Prompt:</strong> "Generate 3 questions a fisherman might ask about floating boom solution"<br><br>
-                    <strong>What AI Produced:</strong><br>
-                    • Cost vs. benefit questions<br>
-                    • Impact on boat traffic concerns<br><br>
-                    <strong>What I Verified (2 sources):</strong><br>
-                    • Hong Kong Harbor Safety Regulations<br>
-                    • Fisheries Association feedback<br><br>
-                    <strong>What I Changed and Why:</strong><br>
-                    I added local context (typhoon season impact) that AI missed
-                </p>
-            </div>
-        </div>
-        
-        <!-- Timing Guide -->
-        <div class="timing-box">
-            <h3> Timing Guide ()</h3>
-            <div class="timing-item">
-                <span class="timing-label">Slide 1 (Title)</span>
-                <span class="timing-time">15 seconds</span>
-            </div>
-            <div class="timing-item">
-                <span class="timing-label">Slide 2 (Problem)</span>
-                <span class="timing-time">30 seconds</span>
-            </div>
-            <div class="timing-item">
-                <span class="timing-label">Slide 3 (Evidence)</span>
-                <span class="timing-time">40 seconds</span>
-            </div>
-            <div class="timing-item">
-                <span class="timing-label">Slide 4 (Solution)</span>
-                <span class="timing-time">40 seconds</span>
-            </div>
-            <div class="timing-item">
-                <span class="timing-label">Slide 5 (Stakeholders)</span>
-                <span class="timing-time">20 seconds</span>
-            </div>
-            <div class="timing-item">
-                <span class="timing-label">Slide 6 (Sources)</span>
-                <span class="timing-time">15 seconds</span>
-            </div>
-            <div class="timing-item">
-                <span class="timing-label"><strong>TOTAL</strong></span>
-                <span class="timing-time"><strong>2-3 MIN</strong></span>
-            </div>
-        </div>
-        
-        <!-- Role-Play Guide -->
-        <div class="role-play-section">
-            <h2> Role-Play Guide ()</h2>
-            
-            <p>After presenting, your group will have a 1-2 minute Q&A as stakeholders.</p>
-            
-            <div class="role-box">
-                <strong> Fisher's Perspective:</strong>
-                <p>Ask: "How will your boom affect our fishing nets?" or "What's the cost to us?"</p>
-            </div>
-            
-            <div class="role-box">
-                <strong> Environmentalist:</strong>
-                <p>Ask: "Will this harm marine life?" or "What about long-term solutions?"</p>
-            </div>
-            
-            <div class="role-box">
-                <strong> Government Official:</strong>
-                <p>Ask: "How much will this cost?" or "How long to implement?"</p>
-            </div>
-            
-            <div class="role-box">
-                <strong> Tourism Manager:</strong>
-                <p>Ask: "Will this make our beaches look bad?" or "Timeline for results?"</p>
-            </div>
-            
-            <div class="qa-tips">
-                <h3> Tips for Good Answers:</h3>
-                <div class="tip">
-                    <strong>1. Listen carefully</strong> - Make sure you understand the question
-                </div>
-                <div class="tip">
-                    <strong>2. Take a breath</strong> - Think for 3-5 seconds before answering
-                </div>
-                <div class="tip">
-                    <strong>3. Use evidence</strong> - Say "Based on our data..." or "Our prototype showed..."
-                </div>
-                <div class="tip">
-                    <strong>4. Respect disagreement</strong> - Say "That's a fair concern because..."
-                </div>
-                <div class="tip">
-                    <strong>5. If you don't know</strong> - Say "Good question! We need to research that"
-                </div>
-            </div>
-        </div>
-    </div>
+ <div class="container">
+ <a href="Lesson_8_Homepage.html" class="back-btn">&#8592; Back to Lesson 8</a>
+
+ <div class="header">
+ <h1>Presentation Guide</h1>
+ <p class="meta"> — How to Present Successfully!</p>
+</div>
+
+ <!-- Slide 1 -->
+ <div class="slide-card">
+ <h2><span class="slide-num">1</span>Title Slide</h2>
+ <div class="slide-body">
+ <h3>What to Include:</h3>
+ <ul>
+ <li>Group name</li>
+ <li>Unit title: "Clean Seas HK"</li>
+ <li>Big, colourful design with pictures</li>
+</ul>
+ <div class="do-dont">
+ <div class="do-box"><strong>DO</strong><p>Make it eye-catching and fun!</p><p>Use colours, drawings, photos</p></div>
+ <div class="dont-box"><strong>DON'T</strong><p>Too much text on title page</p><p>Boring, plain design</p></div>
+</div>
+</div>
+</div>
+
+ <!-- Slide 2 -->
+ <div class="slide-card">
+ <h2><span class="slide-num">2</span>Problem Statement</h2>
+ <div class="slide-body">
+ <h3>Example:</h3>
+ <div class="example-box">"Thousands of plastic bags end up in Hong Kong harbours every year, harming sea animals."</div>
+ <h3>Include:</h3>
+ <ul>
+ <li>1–2 specific examples</li>
+ <li>Where it happens</li>
+ <li>Why it matters</li>
+ <li>Add a photo or drawing</li>
+</ul>
+</div>
+</div>
+
+ <!-- Slide 3 -->
+ <div class="slide-card">
+ <h2><span class="slide-num">3</span>Evidence &amp; Data</h2>
+ <div class="slide-body">
+ <h3>Show Your CER (Claim–Evidence–Reasoning):</h3>
+ <p><strong>Claim:</strong> "Marine litter is increasing in Hong Kong waters"</p>
+ <p><strong>Evidence:</strong> "In 2024, Beach Clean-up @ Discovery Bay collected 250 kg of plastic waste"</p>
+ <p><strong>Reasoning:</strong> "This shows pollution is a real, growing problem that affects local beaches"</p>
+ <h3>Visualisation Tips:</h3>
+ <ul>
+ <li>Use a bar chart or pie chart</li>
+ <li>Include photos from your research</li>
+ <li>Show your data from Lesson 4</li>
+</ul>
+</div>
+</div>
+
+ <!-- Slide 4 -->
+ <div class="slide-card">
+ <h2><span class="slide-num">4</span>Your Solution</h2>
+ <div class="slide-body">
+ <h3>Include:</h3>
+ <ul>
+ <li><strong>What is it?</strong> Name of your solution</li>
+ <li><strong>Why does it work?</strong> Explain the science</li>
+ <li><strong>How does it work?</strong> Step-by-step process</li>
+ <li><strong>Your prototype test results</strong> (from Lesson 7)</li>
+</ul>
+ <h3>Example Format:</h3>
+ <div class="example-box">
+ <strong>Solution:</strong> Community Floating Litter Boom at Typhoon Shelter<br>
+ <strong>Why:</strong> Waves carry floating litter to sheltered areas where fish live<br>
+ <strong>How:</strong> We test-built a boom using recycled materials and captured 80% of floating trash
+</div>
+ <div class="do-dont">
+ <div class="do-box"><strong>DO</strong><p>Show photos of your prototype</p><p>Include test results/data</p></div>
+ <div class="dont-box"><strong>DON'T</strong><p>Make promises you can't keep</p><p>Forget to explain HOW it works</p></div>
+</div>
+</div>
+</div>
+
+ <!-- Slide 5 -->
+ <div class="slide-card">
+ <h2><span class="slide-num">5</span>Stakeholders</h2>
+ <div class="slide-body">
+ <h3>Show Different Perspectives:</h3>
+ <ul>
+ <li><strong>Fishermen:</strong> "We worry about lower catch if pollution increases"</li>
+ <li><strong>Tourism Industry:</strong> "Dirty beaches lose visitors and income"</li>
+ <li><strong>Environmental NGO:</strong> "We support solutions that help animals"</li>
+ <li><strong>Government:</strong> "We need cost-effective solutions"</li>
+ <li><strong>Local Communities:</strong> "We care about our home"</li>
+</ul>
+ <h3>How to present:</h3>
+ <p>Create a simple visual showing who is affected + HOW they are affected.</p>
+</div>
+</div>
+
+ <!-- Slide 6 -->
+ <div class="slide-card">
+ <h2><span class="slide-num">6</span>Sources &amp; AI Use Box ( AI )</h2>
+ <div class="slide-body">
+ <h3>List Your Sources:</h3>
+ <div class="example-box">
+ 1. Hong Kong Environmental Protection Department (2024)<br>
+ 2. Ocean Care Foundation — Marine Litter Report<br>
+ 3. Our own observation at Discovery Bay Beach (Oct 2024)
+</div>
+ <h3>AI Use Box (paste this on your final slide!):</h3>
+ <div class="ai-box">
+ <strong>AI Tool Used:</strong> Groq (Llama)<br><br>
+ <strong>Prompt:</strong> "Generate 3 questions a fisherman might ask about a floating boom solution"<br><br>
+ <strong>What AI Produced:</strong><br>
+ • Cost vs. benefit questions<br>
+ • Impact on boat traffic concerns<br><br>
+ <strong>What I Verified (2 sources):</strong><br>
+ • Hong Kong Harbour Safety Regulations<br>
+ • Fisheries Association feedback<br><br>
+ <strong>What I Changed and Why:</strong><br>
+ I added local context (typhoon season impact) that AI missed.
+</div>
+</div>
+</div>
+
+ <!-- Timing -->
+ <div class="timing-section">
+ <h2>Timing Guide</h2>
+ <div class="timing-row"><span class="label">Slide 1 — Title</span><span class="time">15 sec</span></div>
+ <div class="timing-row"><span class="label">Slide 2 — Problem</span><span class="time">30 sec</span></div>
+ <div class="timing-row"><span class="label">Slide 3 — Evidence</span><span class="time">40 sec</span></div>
+ <div class="timing-row"><span class="label">Slide 4 — Solution</span><span class="time">40 sec</span></div>
+ <div class="timing-row"><span class="label">Slide 5 — Stakeholders</span><span class="time">20 sec</span></div>
+ <div class="timing-row"><span class="label">Slide 6 — Sources</span><span class="time">15 sec</span></div>
+ <div class="timing-row"><span class="label"><strong>TOTAL</strong></span><span class="time"><strong>2–3 MIN</strong></span></div>
+</div>
+
+ <!-- Role-Play -->
+ <div class="roleplay-section">
+ <h2>Role-Play Guide</h2>
+ <p>After presenting, your group will have a 1–2 minute Q&amp;A as stakeholders.</p>
+ <div class="role-card"><strong>Fisher's Perspective</strong><p>Ask: "How will your boom affect our fishing nets?" or "What's the cost to us?"</p></div>
+ <div class="role-card"><strong>Environmentalist</strong><p>Ask: "Will this harm marine life?" or "What about long-term solutions?"</p></div>
+ <div class="role-card"><strong>Government Official</strong><p>Ask: "How much will this cost?" or "How long to implement?"</p></div>
+ <div class="role-card"><strong>Tourism Manager</strong><p>Ask: "Will this make our beaches look bad?" or "What is the timeline for results?"</p></div>
+</div>
+
+ <!-- Q&A Tips -->
+ <div class="tips-section">
+ <h2>Tips for Good Answers</h2>
+ <div class="tip-card"><strong>1. Listen carefully</strong> — Make sure you understand the question before answering.</div>
+ <div class="tip-card"><strong>2. Take a breath</strong> — Think for 3–5 seconds before you speak.</div>
+ <div class="tip-card"><strong>3. Use evidence</strong> — Say "Based on our data..." or "Our prototype showed..."</div>
+ <div class="tip-card"><strong>4. Respect disagreement</strong> — Say "That's a fair concern because..."</div>
+ <div class="tip-card"><strong>5. If you don't know</strong> — Say "Good question! We need to research that."</div>
+</div>
+
+ <div class="footer">
+ <p>Clean Seas HK: Investigating Water Pollution and Designing Solutions</p>
+ <p></p>
+</div>
+</div>
 </body>
 </html>

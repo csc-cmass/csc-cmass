@@ -1,358 +1,359 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Final Checklist - Before Presenting</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', cursive, sans-serif;
-            background: linear-gradient(135deg, #00d4ff 0%, #0099ff 100%);
-            color: #333;
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 30px;
-            padding: 40px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-        }
-        
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .emoji-title {
-            font-size: 70px;
-            margin-bottom: 10px;
-        }
-        
-        h1 {
-            font-size: 40px;
-            color: #0099ff;
-            margin-bottom: 5px;
-        }
-        
-        .subtitle {
-            font-size: 16px;
-            color: #00d4ff;
-            font-weight: bold;
-        }
-        
-        .checklist-section {
-            background: linear-gradient(135deg, #e0f7ff 0%, #f0f9ff 100%);
-            padding: 30px;
-            margin-bottom: 30px;
-            border-radius: 20px;
-            border-left: 6px solid #00d4ff;
-        }
-        
-        .checklist-section h2 {
-            font-size: 24px;
-            color: #0099ff;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .checklist-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 18px;
-            padding: 15px;
-            background: white;
-            border-radius: 12px;
-            border: 2px solid #e0f7ff;
-            transition: all 0.3s ease;
-        }
-        
-        .checklist-item:hover {
-            background: #f5fbff;
-            border-color: #00d4ff;
-            transform: translateX(5px);
-        }
-        
-        .checkbox {
-            width: 28px;
-            height: 28px;
-            margin-right: 15px;
-            margin-top: 3px;
-            cursor: pointer;
-            accent-color: #00d4ff;
-            flex-shrink: 0;
-        }
-        
-        .item-content {
-            flex-grow: 1;
-        }
-        
-        .item-content strong {
-            color: #0099ff;
-            font-size: 16px;
-            display: block;
-            margin-bottom: 5px;
-        }
-        
-        .item-content p {
-            font-size: 14px;
-            color: #666;
-            line-height: 1.5;
-        }
-        
-        .tip-box {
-            background: linear-gradient(135deg, #fff9e6 0%, #fffaed 100%);
-            border-left: 5px solid #ffa500;
-            padding: 15px;
-            margin-top: 10px;
-            border-radius: 8px;
-            font-size: 13px;
-            color: #8b7500;
-        }
-        
-        .progress-bar {
-            width: 100%;
-            height: 30px;
-            background: #e0f7ff;
-            border-radius: 15px;
-            overflow: hidden;
-            margin-bottom: 10px;
-            border: 2px solid #00d4ff;
-        }
-        
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #00d4ff 0%, #0099ff 100%);
-            width: 0%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 14px;
-            transition: width 0.3s ease;
-        }
-        
-        .section-icon {
-            font-size: 28px;
-        }
-        
-        .footer-note {
-            text-align: center;
-            margin-top: 40px;
-            padding: 20px;
-            background: linear-gradient(135deg, #e0f7ff 0%, #f0f9ff 100%);
-            border-radius: 15px;
-            color: #0099ff;
-            font-size: 16px;
-            font-weight: bold;
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-            }
-            
-            h1 {
-                font-size: 28px;
-            }
-            
-            .checklist-section {
-                padding: 20px;
-            }
-        }
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Final Checklist - Before Presenting</title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+
+ body {
+ font-family: 'Segoe UI', Arial, sans-serif;
+ background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+ color: #333;
+ min-height: 100vh;
+ padding: 20px;
+ }
+
+ .container {
+ max-width: 900px;
+ margin: 0 auto;
+ background: white;
+ border-radius: 16px;
+ padding: 40px;
+ box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+ }
+
+ .back-btn {
+ display: inline-flex;
+ align-items: center;
+ gap: 8px;
+ padding: 12px 22px;
+ background: #f0f0f0;
+ color: #555;
+ text-decoration: none;
+ border-radius: 10px;
+ font-size: 18px;
+ font-weight: 600;
+ margin-bottom: 28px;
+ transition: background 0.2s;
+ }
+ .back-btn:hover { background: #e0e0e0; color: #333; }
+
+ .header {
+ text-align: center;
+ margin-bottom: 40px;
+ padding-bottom: 24px;
+ border-bottom: 2px solid #f0f0f0;
+ }
+ .header h1 { font-size: 32px; color: #764ba2; margin-bottom: 6px; }
+ .header .meta { font-size: 18px; color: #888; }
+
+ .section {
+ background: #f8f9ff;
+ border-left: 5px solid #667eea;
+ padding: 20px 24px;
+ margin-bottom: 24px;
+ border-radius: 8px;
+ }
+ .section h2 {
+ font-size: 21px;
+ color: #764ba2;
+ margin-bottom: 16px;
+ text-transform: uppercase;
+ letter-spacing: 0.5px;
+ }
+
+ .section.warning {
+ background: #fff5f5;
+ border-left-color: #f44336;
+ }
+ .section.warning h2 { color: #c62828; }
+
+ .checklist-item {
+ display: flex;
+ align-items: flex-start;
+ gap: 14px;
+ background: white;
+ border: 1px solid #dde2ff;
+ border-radius: 10px;
+ padding: 16px;
+ margin-bottom: 12px;
+ transition: border-color 0.2s;
+ }
+ .checklist-item:hover { border-color: #667eea; }
+
+ .checklist-item input[type="checkbox"] {
+ width: 24px;
+ height: 24px;
+ flex-shrink: 0;
+ margin-top: 2px;
+ accent-color: #667eea;
+ cursor: pointer;
+ }
+
+ .item-content strong {
+ display: block;
+ font-size: 20px;
+ color: #764ba2;
+ margin-bottom: 4px;
+ }
+ .item-content p {
+ font-size: 18px;
+ color: #555;
+ line-height: 1.6;
+ margin-bottom: 4px;
+ }
+
+ .tip-box {
+ background: #fff9e6;
+ border-left: 4px solid #ffa500;
+ padding: 12px 14px;
+ border-radius: 6px;
+ margin-top: 10px;
+ font-size: 17px;
+ color: #8b7500;
+ }
+
+ .progress-bar-wrap {
+ background: #eee;
+ border-radius: 20px;
+ height: 14px;
+ margin: 10px 0 6px;
+ overflow: hidden;
+ }
+ .progress-bar-fill {
+ height: 100%;
+ background: linear-gradient(90deg, #667eea, #764ba2);
+ border-radius: 20px;
+ width: 0%;
+ transition: width 0.4s ease;
+ }
+ .progress-label {
+ font-size: 17px;
+ color: #888;
+ text-align: right;
+ }
+
+ .reminder-list p {
+ font-size: 19px;
+ color: #555;
+ line-height: 1.7;
+ margin-bottom: 8px;
+ padding-left: 8px;
+ border-left: 3px solid #f44336;
+ }
+
+ .footer-note {
+ text-align: center;
+ margin-top: 36px;
+ padding: 20px;
+ background: #f8f9ff;
+ border-radius: 12px;
+ border: 1px solid #dde2ff;
+ }
+ .footer-note p { font-size: 19px; color: #764ba2; font-weight: 600; margin-bottom: 4px; }
+
+ .footer {
+ text-align: center;
+ margin-top: 36px;
+ padding-top: 20px;
+ border-top: 1px solid #eee;
+ color: #aaa;
+ font-size: 17px;
+ }
+
+ @media (max-width: 700px) {
+ .container { padding: 20px; }
+ .header h1 { font-size: 26px; }
+ }
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="emoji-title"></div>
-            <h1>Final Checklist</h1>
-            <p class="subtitle"> - Before Presenting</p>
-        </div>
-        
-        <!-- Content Check -->
-        <div class="checklist-section">
-            <h2><span class="section-icon"></span>Content Check ()</h2>
-            
-            <div class="checklist-item">
-                <input type="checkbox" class="checkbox" id="check1">
-                <div class="item-content">
-                    <strong> Problem is Clear ()</strong>
-                    <p>You can explain what marine pollution problem you chose in 1-2 sentences.</p>
-                </div>
-            </div>
-            
-            <div class="checklist-item">
-                <input type="checkbox" class="checkbox" id="check2">
-                <div class="item-content">
-                    <strong> Evidence is Strong ()</strong>
-                    <p>You have 2-3 real data points or observations from Lessons 3-4.</p>
-                </div>
-            </div>
-            
-            <div class="checklist-item">
-                <input type="checkbox" class="checkbox" id="check3">
-                <div class="item-content">
-                    <strong> Solution is Explained ()</strong>
-                    <p>You explain WHY your solution works, not just WHAT it is.</p>
-                </div>
-            </div>
-            
-            <div class="checklist-item">
-                <input type="checkbox" class="checkbox" id="check4">
-                <div class="item-content">
-                    <strong> Feasibility () Discussed</strong>
-                    <p>You mention cost, time, or challenges - and how to overcome them.</p>
-                </div>
-            </div>
-            
-            <div class="checklist-item">
-                <input type="checkbox" class="checkbox" id="check5">
-                <div class="item-content">
-                    <strong> Stakeholders () Identified</strong>
-                    <p>You name at least 2-3 groups affected (fishermen, tourists, NGO, government).</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Sources Check -->
-        <div class="checklist-section">
-            <h2><span class="section-icon"></span>Sources & Citations ()</h2>
-            
-            <div class="checklist-item">
-                <input type="checkbox" class="checkbox" id="check6">
-                <div class="item-content">
-                    <strong> At Least 2-3 Reliable Sources (2-3)</strong>
-                    <p>Government, university, NGO, or verified news - NOT just Wikipedia or Google</p>
-                </div>
-            </div>
-            
-            <div class="checklist-item">
-                <input type="checkbox" class="checkbox" id="check7">
-                <div class="item-content">
-                    <strong> Sources are Cited ()</strong>
-                    <p>Your slides show: [Author/Organization] + [Date] + [Website/Report]</p>
-                </div>
-            </div>
-            
-            <div class="checklist-item">
-                <input type="checkbox" class="checkbox" id="check8">
-                <div class="item-content">
-                    <strong> Sources are Diverse ()</strong>
-                    <p>You don't rely on just 1 organization - mix government, research, and NGO sources.</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- AI Use Box Check -->
-        <div class="checklist-section">
-            <h2><span class="section-icon"></span>AI Use Box (AI )</h2>
-            
-            <div class="checklist-item">
-                <input type="checkbox" class="checkbox" id="check9">
-                <div class="item-content">
-                    <strong> AI Tool Listed (AI )</strong>
-                    <p>Write the name: ChatGPT / Google Gemini / other</p>
-                </div>
-            </div>
-            
-            <div class="checklist-item">
-                <input type="checkbox" class="checkbox" id="check10">
-                <div class="item-content">
-                    <strong> Prompt is Clear ()</strong>
-                    <p>Paste the 1-2 line prompt you gave to AI</p>
-                </div>
-            </div>
-            
-            <div class="checklist-item">
-                <input type="checkbox" class="checkbox" id="check11">
-                <div class="item-content">
-                    <strong> What AI Produced (AI ) - 2 bullets</strong>
-                    <p>Describe the key ideas AI suggested to you</p>
-                </div>
-            </div>
-            
-            <div class="checklist-item">
-                <input type="checkbox" class="checkbox" id="check12">
-                <div class="item-content">
-                    <strong> What You Verified () - 2 sources</strong>
-                    <p>Write which real sources you checked against AI's ideas</p>
-                </div>
-            </div>
-            
-            <div class="checklist-item">
-                <input type="checkbox" class="checkbox" id="check13">
-                <div class="item-content">
-                    <strong> What You Changed ()</strong>
-                    <p>Explain what YOU improved or modified from AI's output</p>
-                    <div class="tip-box">
-                         <strong>TIP:</strong> You MUST have made changes! AI output is not your final answer.
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Presentation Skills Check -->
-        <div class="checklist-section">
-            <h2><span class="section-icon"></span>Presentation Skills ()</h2>
-            
-            <div class="checklist-item">
-                <input type="checkbox" class="checkbox" id="check14">
-                <div class="item-content">
-                    <strong> Slides are Clear ()</strong>
-                    <p>Big fonts, not too much text, includes visuals (charts, photos)</p>
-                </div>
-            </div>
-            
-            <div class="checklist-item">
-                <input type="checkbox" class="checkbox" id="check15">
-                <div class="item-content">
-                    <strong> You Can Explain ()</strong>
-                    <p>Practice your 2-3 min pitch - know your facts!</p>
-                </div>
-            </div>
-            
-            <div class="checklist-item">
-                <input type="checkbox" class="checkbox" id="check16">
-                <div class="item-content">
-                    <strong> Team is Ready ()</strong>
-                    <p>Each person knows their part. Who speaks first/second/third?</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Important Reminders -->
-        <div class="checklist-section" style="border-left-color: #ff6b6b; background: linear-gradient(135deg, #ffe0e0 0%, #fff0f0 100%);">
-            <h2 style="color: #ff6b6b;"><span class="section-icon"></span>Important Reminders!</h2>
-            
-            <div class="checklist-item" style="background: #fff5f5; border-color: #ffe0e0;">
-                <div class="item-content">
-                    <strong style="color: #ff6b6b;">Remember:</strong>
-                    <p> NO made-up data! Only use REAL observations or published sources.</p>
-                    <p> AI can help you ask better questions, but YOU must verify all facts.</p>
-                    <p> Be ready to answer difficult questions - think about opposite views!</p>
-                    <p> Show respect for all stakeholder perspectives, even if you disagree.</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="footer-note">
-            <p> You're almost ready! Review this checklist, then present with confidence!</p>
-            <p></p>
-        </div>
-    </div>
+ <div class="container">
+ <a href="Lesson_8_Homepage.html" class="back-btn">&#8592; Back to Lesson 8</a>
+
+ <div class="header">
+ <h1>Final Checklist</h1>
+ <p class="meta"> — Before Presenting</p>
+</div>
+
+ <!-- Progress -->
+ <div class="section">
+ <h2>Your Progress</h2>
+ <div class="progress-bar-wrap">
+ <div class="progress-bar-fill" id="progressFill"></div>
+</div>
+ <p class="progress-label" id="progressLabel">0 / 16 completed</p>
+</div>
+
+ <!-- Content Check -->
+ <div class="section">
+ <h2>Content Check</h2>
+ <div class="checklist-item">
+ <input type="checkbox" class="cb" id="c1">
+ <div class="item-content">
+ <strong>Problem is Clear</strong>
+ <p>You can explain what marine pollution problem you chose in 1–2 sentences.</p>
+</div>
+</div>
+ <div class="checklist-item">
+ <input type="checkbox" class="cb" id="c2">
+ <div class="item-content">
+ <strong>Evidence is Strong</strong>
+ <p>You have 2–3 real data points or observations from Lessons 3–4.</p>
+</div>
+</div>
+ <div class="checklist-item">
+ <input type="checkbox" class="cb" id="c3">
+ <div class="item-content">
+ <strong>Solution is Explained</strong>
+ <p>You explain WHY your solution works, not just WHAT it is.</p>
+</div>
+</div>
+ <div class="checklist-item">
+ <input type="checkbox" class="cb" id="c4">
+ <div class="item-content">
+ <strong>Feasibility Discussed</strong>
+ <p>You mention cost, time, or challenges — and how to overcome them.</p>
+</div>
+</div>
+ <div class="checklist-item">
+ <input type="checkbox" class="cb" id="c5">
+ <div class="item-content">
+ <strong>Stakeholders Identified</strong>
+ <p>You name at least 2–3 groups affected (fishermen, tourists, NGO, government).</p>
+</div>
+</div>
+</div>
+
+ <!-- Sources Check -->
+ <div class="section">
+ <h2>Sources &amp; Citations</h2>
+ <div class="checklist-item">
+ <input type="checkbox" class="cb" id="c6">
+ <div class="item-content">
+ <strong>At Least 2–3 Reliable Sources (2–3)</strong>
+ <p>Government, university, NGO, or verified news — NOT just Wikipedia or Google.</p>
+</div>
+</div>
+ <div class="checklist-item">
+ <input type="checkbox" class="cb" id="c7">
+ <div class="item-content">
+ <strong>Sources are Cited</strong>
+ <p>Your slides show: [Author/Organization] + [Date] + [Website/Report]</p>
+</div>
+</div>
+ <div class="checklist-item">
+ <input type="checkbox" class="cb" id="c8">
+ <div class="item-content">
+ <strong>Sources are Diverse</strong>
+ <p>You don't rely on just 1 organization — mix government, research, and NGO sources.</p>
+</div>
+</div>
+</div>
+
+ <!-- AI Use Box Check -->
+ <div class="section">
+ <h2>AI Use Box (AI )</h2>
+ <div class="checklist-item">
+ <input type="checkbox" class="cb" id="c9">
+ <div class="item-content">
+ <strong>AI Tool Listed (AI )</strong>
+ <p>Write the name: ChatGPT / Google Gemini / Groq / other</p>
+</div>
+</div>
+ <div class="checklist-item">
+ <input type="checkbox" class="cb" id="c10">
+ <div class="item-content">
+ <strong>Prompt is Clear</strong>
+ <p>Paste the 1–2 line prompt you gave to AI.</p>
+</div>
+</div>
+ <div class="checklist-item">
+ <input type="checkbox" class="cb" id="c11">
+ <div class="item-content">
+ <strong>What AI Produced (AI ) — 2 bullets</strong>
+ <p>Describe the key ideas AI suggested to you.</p>
+</div>
+</div>
+ <div class="checklist-item">
+ <input type="checkbox" class="cb" id="c12">
+ <div class="item-content">
+ <strong>What You Verified — 2 sources</strong>
+ <p>Write which real sources you checked against AI's ideas.</p>
+</div>
+</div>
+ <div class="checklist-item">
+ <input type="checkbox" class="cb" id="c13">
+ <div class="item-content">
+ <strong>What You Changed</strong>
+ <p>Explain what YOU improved or modified from AI's output.</p>
+ <div class="tip-box"><strong>TIP:</strong> You MUST have made changes! AI output is not your final answer.</div>
+</div>
+</div>
+</div>
+
+ <!-- Presentation Skills -->
+ <div class="section">
+ <h2>Presentation Skills</h2>
+ <div class="checklist-item">
+ <input type="checkbox" class="cb" id="c14">
+ <div class="item-content">
+ <strong>Slides are Clear</strong>
+ <p>Big fonts, not too much text, includes visuals (charts, photos).</p>
+</div>
+</div>
+ <div class="checklist-item">
+ <input type="checkbox" class="cb" id="c15">
+ <div class="item-content">
+ <strong>You Can Explain</strong>
+ <p>Practise your 2–3 min pitch — know your facts!</p>
+</div>
+</div>
+ <div class="checklist-item">
+ <input type="checkbox" class="cb" id="c16">
+ <div class="item-content">
+ <strong>Team is Ready</strong>
+ <p>Each person knows their part. Who speaks first/second/third?</p>
+</div>
+</div>
+</div>
+
+ <!-- Important Reminders -->
+ <div class="section warning">
+ <h2>Important Reminders!</h2>
+ <div class="reminder-list">
+ <p>NO made-up data! Only use REAL observations or published sources.</p>
+ <p>AI can help you ask better questions, but YOU must verify all facts.</p>
+ <p>Be ready to answer difficult questions — think about opposite views!</p>
+ <p>Show respect for all stakeholder perspectives, even if you disagree.</p>
+</div>
+</div>
+
+ <div class="footer-note">
+ <p>You're almost ready!</p>
+ <p>Review this checklist, then present with confidence!</p>
+</div>
+
+ <div class="footer">
+ <p>Clean Seas HK: Investigating Water Pollution and Designing Solutions</p>
+ <p></p>
+</div>
+</div>
+
+ <script>
+ const checkboxes = document.querySelectorAll('.cb');
+ const total = checkboxes.length;
+
+ function updateProgress() {
+ const done = document.querySelectorAll('.cb:checked').length;
+ document.getElementById('progressFill').style.width = (done / total * 100) + '%';
+ document.getElementById('progressLabel').textContent = done + ' / ' + total + ' completed';
+ }
+
+ checkboxes.forEach(cb => cb.addEventListener('change', updateProgress));
+ updateProgress();
+</script>
 </body>
 </html>

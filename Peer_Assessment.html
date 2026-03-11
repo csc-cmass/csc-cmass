@@ -1,432 +1,361 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peer Assessment Form</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', cursive, sans-serif;
-            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-            color: #333;
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 30px;
-            padding: 40px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-        }
-        
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .emoji-title {
-            font-size: 70px;
-            margin-bottom: 10px;
-        }
-        
-        h1 {
-            font-size: 40px;
-            color: #ff6b9d;
-            margin-bottom: 5px;
-        }
-        
-        .subtitle {
-            font-size: 16px;
-            color: #c44569;
-            font-weight: bold;
-        }
-        
-        .form-section {
-            background: linear-gradient(135deg, #fff5f8 0%, #ffe8f0 100%);
-            padding: 25px;
-            margin-bottom: 25px;
-            border-radius: 20px;
-            border: 2px solid #ffb6d9;
-        }
-        
-        .form-section h2 {
-            color: #ff6b9d;
-            margin-bottom: 20px;
-            font-size: 20px;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #c44569;
-            font-size: 15px;
-        }
-        
-        input[type="text"],
-        input[type="date"],
-        select,
-        textarea {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #ffb6d9;
-            border-radius: 10px;
-            font-family: 'Arial', sans-serif;
-            font-size: 14px;
-            background: white;
-        }
-        
-        input[type="text"]:focus,
-        input[type="date"]:focus,
-        select:focus,
-        textarea:focus {
-            outline: none;
-            border-color: #ff6b9d;
-            box-shadow: 0 0 8px rgba(255, 107, 157, 0.3);
-        }
-        
-        textarea {
-            resize: vertical;
-            min-height: 80px;
-        }
-        
-        .rating-section {
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            margin-bottom: 15px;
-            border: 2px dashed #ffb6d9;
-        }
-        
-        .rating-section h3 {
-            color: #ff6b9d;
-            font-size: 16px;
-            margin-bottom: 12px;
-        }
-        
-        .rating-description {
-            font-size: 13px;
-            color: #888;
-            margin-bottom: 12px;
-            line-height: 1.5;
-        }
-        
-        .stars {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-        
-        .star-button {
-            width: 40px;
-            height: 40px;
-            background: white;
-            border: 2px solid #ffb6d9;
-            border-radius: 50%;
-            font-size: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ffb6d9;
-        }
-        
-        .star-button:hover {
-            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-            transform: scale(1.2);
-        }
-        
-        .star-button.selected {
-            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
-            color: white;
-            border-color: #ff6b9d;
-        }
-        
-        .scale-labels {
-            display: flex;
-            justify-content: space-between;
-            font-size: 12px;
-            color: #999;
-            margin-top: 8px;
-        }
-        
-        .feedback-section {
-            background: linear-gradient(135deg, #e8f5f8 0%, #f0f0f0 100%);
-            padding: 20px;
-            border-radius: 15px;
-            border-left: 5px solid #00bcd4;
-            margin: 20px 0;
-        }
-        
-        .feedback-section h3 {
-            color: #00897b;
-            margin-bottom: 12px;
-        }
-        
-        .feedback-prompt {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 10px;
-            font-style: italic;
-        }
-        
-        .submit-btn {
-            display: inline-block;
-            padding: 15px 40px;
-            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
-            color: white;
-            border: none;
-            border-radius: 20px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255, 107, 157, 0.4);
-            width: 100%;
-            margin-top: 20px;
-        }
-        
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 107, 157, 0.6);
-        }
-        
-        .important-note {
-            background: linear-gradient(135deg, #fff9e6 0%, #fffaed 100%);
-            border-left: 5px solid #ffa500;
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px 0;
-            font-size: 14px;
-            color: #8b7500;
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-            }
-            
-            h1 {
-                font-size: 28px;
-            }
-        }
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Peer Assessment Form</title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+
+ body {
+ font-family: 'Segoe UI', Arial, sans-serif;
+ background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+ color: #333;
+ min-height: 100vh;
+ padding: 20px;
+ }
+
+ .container {
+ max-width: 900px;
+ margin: 0 auto;
+ background: white;
+ border-radius: 16px;
+ padding: 40px;
+ box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+ }
+
+ .back-btn {
+ display: inline-flex;
+ align-items: center;
+ gap: 8px;
+ padding: 12px 22px;
+ background: #f0f0f0;
+ color: #555;
+ text-decoration: none;
+ border-radius: 10px;
+ font-size: 18px;
+ font-weight: 600;
+ margin-bottom: 28px;
+ transition: background 0.2s;
+ }
+ .back-btn:hover { background: #e0e0e0; color: #333; }
+
+ .header {
+ text-align: center;
+ margin-bottom: 40px;
+ padding-bottom: 24px;
+ border-bottom: 2px solid #f0f0f0;
+ }
+ .header h1 { font-size: 32px; color: #764ba2; margin-bottom: 6px; }
+ .header .meta { font-size: 18px; color: #888; }
+
+ .section {
+ background: #f8f9ff;
+ border-left: 5px solid #667eea;
+ padding: 20px 24px;
+ margin-bottom: 24px;
+ border-radius: 8px;
+ }
+ .section h2 {
+ font-size: 21px;
+ color: #764ba2;
+ margin-bottom: 18px;
+ text-transform: uppercase;
+ letter-spacing: 0.5px;
+ }
+
+ .form-group { margin-bottom: 20px; }
+
+ label {
+ display: block;
+ font-size: 19px;
+ font-weight: 600;
+ color: #764ba2;
+ margin-bottom: 8px;
+ }
+
+ input[type="text"],
+ input[type="date"],
+ textarea {
+ width: 100%;
+ padding: 12px 14px;
+ border: 2px solid #dde2ff;
+ border-radius: 10px;
+ font-family: inherit;
+ font-size: 18px;
+ background: white;
+ color: #333;
+ transition: border-color 0.2s;
+ }
+
+ input[type="text"]:focus,
+ input[type="date"]:focus,
+ textarea:focus {
+ outline: none;
+ border-color: #667eea;
+ box-shadow: 0 0 0 3px rgba(102,126,234,0.15);
+ }
+
+ textarea { resize: vertical; min-height: 90px; }
+
+ .note-box {
+ background: #fff9e6;
+ border-left: 5px solid #ffa500;
+ padding: 16px 20px;
+ border-radius: 8px;
+ margin-bottom: 24px;
+ font-size: 18px;
+ color: #8b7500;
+ }
+
+ /* Rating */
+ .rating-card {
+ background: white;
+ border: 1px solid #dde2ff;
+ border-radius: 10px;
+ padding: 18px;
+ margin-bottom: 14px;
+ }
+ .rating-card h3 {
+ font-size: 19px;
+ color: #764ba2;
+ margin-bottom: 6px;
+ }
+ .rating-card .desc {
+ font-size: 17px;
+ color: #777;
+ margin-bottom: 14px;
+ line-height: 1.5;
+ }
+ .stars {
+ display: flex;
+ gap: 10px;
+ align-items: center;
+ flex-wrap: wrap;
+ }
+ .star-btn {
+ width: 48px;
+ height: 48px;
+ border: 2px solid #dde2ff;
+ border-radius: 10px;
+ font-size: 20px;
+ font-weight: 700;
+ background: white;
+ color: #aaa;
+ cursor: pointer;
+ transition: all 0.2s;
+ }
+ .star-btn:hover { border-color: #667eea; color: #667eea; }
+ .star-btn.selected {
+ background: linear-gradient(135deg, #667eea, #764ba2);
+ color: white;
+ border-color: #667eea;
+ }
+ .scale-labels {
+ display: flex;
+ justify-content: space-between;
+ font-size: 15px;
+ color: #aaa;
+ margin-top: 8px;
+ }
+
+ /* Feedback */
+ .feedback-card {
+ background: white;
+ border: 1px solid #dde2ff;
+ border-radius: 10px;
+ padding: 18px;
+ margin-bottom: 14px;
+ }
+ .feedback-card h3 { font-size: 19px; color: #764ba2; margin-bottom: 4px; }
+ .feedback-card .prompt { font-size: 16px; color: #999; font-style: italic; margin-bottom: 10px; }
+
+ .submit-btn {
+ width: 100%;
+ padding: 16px;
+ background: linear-gradient(135deg, #667eea, #764ba2);
+ color: white;
+ border: none;
+ border-radius: 12px;
+ font-size: 20px;
+ font-weight: 700;
+ cursor: pointer;
+ transition: all 0.2s ease;
+ box-shadow: 0 4px 12px rgba(102,126,234,0.3);
+ margin-top: 10px;
+ }
+ .submit-btn:hover {
+ transform: translateY(-2px);
+ box-shadow: 0 6px 18px rgba(102,126,234,0.5);
+ }
+
+ .footer {
+ text-align: center;
+ margin-top: 36px;
+ padding-top: 20px;
+ border-top: 1px solid #eee;
+ color: #aaa;
+ font-size: 17px;
+ }
+
+ @media (max-width: 700px) {
+ .container { padding: 20px; }
+ .header h1 { font-size: 26px; }
+ }
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="emoji-title"></div>
-            <h1>Peer Assessment Form</h1>
-            <p class="subtitle"></p>
-        </div>
-        
-        <!-- Student Information -->
-        <form id="assessmentForm">
-            <div class="form-section">
-                <h2> Your Information ()</h2>
-                
-                <div class="form-group">
-                    <label for="assessorName">Your Name () *</label>
-                    <input type="text" id="assessorName" name="assessorName" placeholder="Enter your name" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="assessorClass">Your Class ()</label>
-                    <input type="text" id="assessorClass" name="assessorClass" placeholder="e.g., P6A">
-                </div>
-                
-                <div class="form-group">
-                    <label for="groupName">Group Name Being Assessed () *</label>
-                    <input type="text" id="groupName" name="groupName" placeholder="Enter the group name" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="date">Date () *</label>
-                    <input type="date" id="date" name="date" required>
-                </div>
-            </div>
-            
-            <div class="important-note">
-                 <strong>Remember:</strong> Give feedback that is KIND (), HELPFUL (), and HONEST ()!
-            </div>
-            
-            <!-- Scoring Section -->
-            <div class="form-section">
-                <h2> Rate the Group's Presentation ()</h2>
-                
-                <!-- Criterion 1 -->
-                <div class="rating-section">
-                    <h3>1⃣ Science Understanding & Evidence ()</h3>
-                    <p class="rating-description">
-                        Did they explain the water pollution problem clearly? Did they use real data or observations?
-                    </p>
-                    <div class="stars" id="rating1">
-                        <button type="button" class="star-button" data-value="1">1</button>
-                        <button type="button" class="star-button" data-value="2">2</button>
-                        <button type="button" class="star-button" data-value="3">3</button>
-                        <button type="button" class="star-button" data-value="4">4</button>
-                    </div>
-                    <div class="scale-labels">
-                        <span>Poor ()</span>
-                        <span>Excellent ()</span>
-                    </div>
-                    <input type="hidden" name="rating1" id="rating1Value">
-                </div>
-                
-                <!-- Criterion 2 -->
-                <div class="rating-section">
-                    <h3>2⃣ Solution Quality ()</h3>
-                    <p class="rating-description">
-                        Is their solution realistic and feasible? Did they explain WHY it works?
-                    </p>
-                    <div class="stars" id="rating2">
-                        <button type="button" class="star-button" data-value="1">1</button>
-                        <button type="button" class="star-button" data-value="2">2</button>
-                        <button type="button" class="star-button" data-value="3">3</button>
-                        <button type="button" class="star-button" data-value="4">4</button>
-                    </div>
-                    <div class="scale-labels">
-                        <span>Not feasible ()</span>
-                        <span>Very creative & feasible (+ )</span>
-                    </div>
-                    <input type="hidden" name="rating2" id="rating2Value">
-                </div>
-                
-                <!-- Criterion 3 -->
-                <div class="rating-section">
-                    <h3>3⃣ Stakeholder Perspectives ()</h3>
-                    <p class="rating-description">
-                        Did they show different viewpoints? Did they respect different opinions?
-                    </p>
-                    <div class="stars" id="rating3">
-                        <button type="button" class="star-button" data-value="1">1</button>
-                        <button type="button" class="star-button" data-value="2">2</button>
-                        <button type="button" class="star-button" data-value="3">3</button>
-                        <button type="button" class="star-button" data-value="4">4</button>
-                    </div>
-                    <div class="scale-labels">
-                        <span>No perspectives shown</span>
-                        <span>Excellent multi-perspective view</span>
-                    </div>
-                    <input type="hidden" name="rating3" id="rating3Value">
-                </div>
-                
-                <!-- Criterion 4 -->
-                <div class="rating-section">
-                    <h3>4⃣ Sources & Citations ()</h3>
-                    <p class="rating-description">
-                        Did they cite reliable sources? Are they referenced properly?
-                    </p>
-                    <div class="stars" id="rating4">
-                        <button type="button" class="star-button" data-value="1">1</button>
-                        <button type="button" class="star-button" data-value="2">2</button>
-                        <button type="button" class="star-button" data-value="3">3</button>
-                        <button type="button" class="star-button" data-value="4">4</button>
-                    </div>
-                    <div class="scale-labels">
-                        <span>No sources cited</span>
-                        <span>Strong, reliable sources</span>
-                    </div>
-                    <input type="hidden" name="rating4" id="rating4Value">
-                </div>
-                
-                <!-- Criterion 5 -->
-                <div class="rating-section">
-                    <h3>5⃣ Communication & Presentation ()</h3>
-                    <p class="rating-description">
-                        Was the presentation clear? Did they answer questions well?
-                    </p>
-                    <div class="stars" id="rating5">
-                        <button type="button" class="star-button" data-value="1">1</button>
-                        <button type="button" class="star-button" data-value="2">2</button>
-                        <button type="button" class="star-button" data-value="3">3</button>
-                        <button type="button" class="star-button" data-value="4">4</button>
-                    </div>
-                    <div class="scale-labels">
-                        <span>Unclear presentation</span>
-                        <span>Excellent communication</span>
-                    </div>
-                    <input type="hidden" name="rating5" id="rating5Value">
-                </div>
-            </div>
-            
-            <!-- Qualitative Feedback -->
-            <div class="form-section">
-                <h2> Written Feedback ()</h2>
-                
-                <div class="feedback-section">
-                    <h3> One thing I really liked about this presentation was:</h3>
-                    <p class="feedback-prompt">()</p>
-                    <textarea name="whatWasGood" placeholder="Be specific! Example: I liked how they explained the data clearly..." required></textarea>
-                </div>
-                
-                <div class="feedback-section">
-                    <h3> One suggestion for improvement:</h3>
-                    <p class="feedback-prompt">()</p>
-                    <textarea name="whatCanImprove" placeholder="Be constructive! Example: They could add more photos to show..." required></textarea>
-                </div>
-                
-                <div class="feedback-section">
-                    <h3> One question I would like to ask them:</h3>
-                    <p class="feedback-prompt">()</p>
-                    <textarea name="oneQuestion" placeholder="Example: How would your solution work during typhoon season?"></textarea>
-                </div>
-            </div>
-            
-            <!-- Submit Button -->
-            <button type="submit" class="submit-btn"> Submit Assessment ()</button>
-        </form>
-    </div>
-    
-    <script>
-        // Handle star rating clicks
-        document.querySelectorAll('.stars').forEach(ratingGroup => {
-            const buttons = ratingGroup.querySelectorAll('.star-button');
-            const hiddenInput = ratingGroup.nextElementSibling.nextElementSibling;
-            
-            buttons.forEach(button => {
-                button.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const value = button.getAttribute('data-value');
-                    
-                    // Remove selected class from all buttons
-                    buttons.forEach(btn => btn.classList.remove('selected'));
-                    
-                    // Add selected class to clicked button and all previous buttons
-                    for (let i = 0; i < value; i++) {
-                        buttons[i].classList.add('selected');
-                    }
-                    button.classList.add('selected');
-                    
-                    // Store value in hidden input
-                    if (hiddenInput) {
-                        hiddenInput.value = value;
-                    }
-                });
-            });
-        });
-        
-        // Form submission
-        document.getElementById('assessmentForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your feedback! \n\nYour assessment has been submitted. ');
-            // In a real scenario, you would send this to a Google Form or database
-        });
-    </script>
+ <div class="container">
+ <a href="Lesson_8_Homepage.html" class="back-btn">&#8592; Back to Lesson 8</a>
+
+ <div class="header">
+ <h1>Peer Assessment Form</h1>
+ <p class="meta"></p>
+</div>
+
+ <div class="note-box">
+ <strong>Remember:</strong> Give feedback that is KIND, HELPFUL, and HONEST!
+</div>
+
+ <form id="assessmentForm">
+ <!-- Your Information -->
+ <div class="section">
+ <h2>Your Information</h2>
+ <div class="form-group">
+ <label for="assessorName">Your Name *</label>
+ <input type="text" id="assessorName" name="assessorName" placeholder="Enter your name" required>
+</div>
+ <div class="form-group">
+ <label for="assessorClass">Your Class</label>
+ <input type="text" id="assessorClass" name="assessorClass" placeholder="e.g., P6A">
+</div>
+ <div class="form-group">
+ <label for="groupName">Group Name Being Assessed *</label>
+ <input type="text" id="groupName" name="groupName" placeholder="Enter the group name" required>
+</div>
+ <div class="form-group">
+ <label for="date">Date *</label>
+ <input type="date" id="date" name="date" required>
+</div>
+</div>
+
+ <!-- Ratings -->
+ <div class="section">
+ <h2>Rate the Presentation ( 1–4)</h2>
+
+ <div class="rating-card">
+ <h3>1. Science Understanding &amp; Evidence</h3>
+ <p class="desc">Did they explain the water pollution problem clearly? Did they use real data or observations?</p>
+ <div class="stars" id="rating1">
+ <button type="button" class="star-btn" data-value="1">1</button>
+ <button type="button" class="star-btn" data-value="2">2</button>
+ <button type="button" class="star-btn" data-value="3">3</button>
+ <button type="button" class="star-btn" data-value="4">4</button>
+</div>
+ <div class="scale-labels"><span>Poor</span><span>Excellent</span></div>
+ <input type="hidden" name="rating1" id="rating1Value">
+</div>
+
+ <div class="rating-card">
+ <h3>2. Solution Quality</h3>
+ <p class="desc">Is their solution realistic and feasible? Did they explain WHY it works?</p>
+ <div class="stars" id="rating2">
+ <button type="button" class="star-btn" data-value="1">1</button>
+ <button type="button" class="star-btn" data-value="2">2</button>
+ <button type="button" class="star-btn" data-value="3">3</button>
+ <button type="button" class="star-btn" data-value="4">4</button>
+</div>
+ <div class="scale-labels"><span>Not feasible</span><span>Very creative &amp; feasible (+)</span></div>
+ <input type="hidden" name="rating2" id="rating2Value">
+</div>
+
+ <div class="rating-card">
+ <h3>3. Stakeholder Perspectives</h3>
+ <p class="desc">Did they show different viewpoints? Did they respect different opinions?</p>
+ <div class="stars" id="rating3">
+ <button type="button" class="star-btn" data-value="1">1</button>
+ <button type="button" class="star-btn" data-value="2">2</button>
+ <button type="button" class="star-btn" data-value="3">3</button>
+ <button type="button" class="star-btn" data-value="4">4</button>
+</div>
+ <div class="scale-labels"><span>No perspectives shown</span><span>Excellent multi-perspective view</span></div>
+ <input type="hidden" name="rating3" id="rating3Value">
+</div>
+
+ <div class="rating-card">
+ <h3>4. Sources &amp; Citations</h3>
+ <p class="desc">Did they cite reliable sources? Are they referenced properly?</p>
+ <div class="stars" id="rating4">
+ <button type="button" class="star-btn" data-value="1">1</button>
+ <button type="button" class="star-btn" data-value="2">2</button>
+ <button type="button" class="star-btn" data-value="3">3</button>
+ <button type="button" class="star-btn" data-value="4">4</button>
+</div>
+ <div class="scale-labels"><span>No sources cited</span><span>Strong, reliable sources</span></div>
+ <input type="hidden" name="rating4" id="rating4Value">
+</div>
+
+ <div class="rating-card">
+ <h3>5. Communication &amp; Presentation</h3>
+ <p class="desc">Was the presentation clear? Did they answer questions well?</p>
+ <div class="stars" id="rating5">
+ <button type="button" class="star-btn" data-value="1">1</button>
+ <button type="button" class="star-btn" data-value="2">2</button>
+ <button type="button" class="star-btn" data-value="3">3</button>
+ <button type="button" class="star-btn" data-value="4">4</button>
+</div>
+ <div class="scale-labels"><span>Unclear presentation</span><span>Excellent communication</span></div>
+ <input type="hidden" name="rating5" id="rating5Value">
+</div>
+</div>
+
+ <!-- Written Feedback -->
+ <div class="section">
+ <h2>Written Feedback</h2>
+ <div class="feedback-card">
+ <h3>One thing I really liked about this presentation:</h3>
+ <p class="prompt"></p>
+ <textarea name="whatWasGood" placeholder="Be specific! Example: I liked how they explained the data clearly..." required></textarea>
+</div>
+ <div class="feedback-card">
+ <h3>One suggestion for improvement:</h3>
+ <p class="prompt"></p>
+ <textarea name="whatCanImprove" placeholder="Be constructive! Example: They could add more photos to show..." required></textarea>
+</div>
+ <div class="feedback-card">
+ <h3>One question I would like to ask them:</h3>
+ <p class="prompt"></p>
+ <textarea name="oneQuestion" placeholder="Example: How would your solution work during typhoon season?"></textarea>
+</div>
+</div>
+
+ <button type="submit" class="submit-btn">Submit Assessment</button>
+</form>
+
+ <div class="footer">
+ <p>Clean Seas HK: Investigating Water Pollution and Designing Solutions</p>
+ <p></p>
+</div>
+</div>
+
+ <script>
+ document.querySelectorAll('.stars').forEach(group => {
+ const btns = group.querySelectorAll('.star-btn');
+ const input = group.nextElementSibling.nextElementSibling;
+ btns.forEach(btn => {
+ btn.addEventListener('click', e => {
+ e.preventDefault();
+ const val = parseInt(btn.getAttribute('data-value'));
+ btns.forEach((b, i) => b.classList.toggle('selected', i < val));
+ if (input) input.value = val;
+ });
+ });
+ });
+
+ document.getElementById('assessmentForm').addEventListener('submit', e => {
+ e.preventDefault();
+ alert('Thank you for your feedback!\n\n\nYour assessment has been submitted.\n');
+ });
+</script>
 </body>
 </html>
