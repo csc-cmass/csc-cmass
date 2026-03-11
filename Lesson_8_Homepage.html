@@ -1,0 +1,334 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 8: Stakeholder Meeting & Final Presentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', cursive, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .emoji-title {
+            font-size: 80px;
+            margin-bottom: 10px;
+        }
+        
+        h1 {
+            font-size: 42px;
+            color: #764ba2;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .subtitle {
+            font-size: 18px;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #f0f4f8 100%);
+            border-left: 8px solid #667eea;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateX(10px);
+        }
+        
+        .section h2 {
+            font-size: 24px;
+            color: #764ba2;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .section-emoji {
+            font-size: 32px;
+        }
+        
+        .section p, .section li {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        
+        .section ul {
+            margin-left: 20px;
+        }
+        
+        .success-criteria {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .criteria-box {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px dashed #667eea;
+        }
+        
+        .criteria-box strong {
+            color: #764ba2;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .key-terms {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
+        }
+        
+        .term-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .button-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.6);
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .timeline-dot {
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-top: 5px;
+        }
+        
+        .timeline-content {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 3px solid #667eea;
+        }
+        
+        .timeline-content strong {
+            color: #764ba2;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #f0f4f8;
+            color: #999;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+            
+            .emoji-title {
+                font-size: 50px;
+            }
+            
+            .success-criteria {
+                grid-template-columns: 1fr;
+            }
+            
+            .section h2 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="emoji-title">🎤🌊🎯</div>
+            <h1>Lesson 8: Stakeholder Meeting & Final Presentation</h1>
+            <p class="subtitle">利益相關者會議 + 最終呈現 (60 分鐘)</p>
+        </div>
+        
+        <!-- Learning Goals Section -->
+        <div class="section">
+            <h2><span class="section-emoji">🎓</span>Learning Goals (課程目標)</h2>
+            <ul>
+                <li><strong>Goal 1:</strong> Present your solution using evidence (證據) and reliable sources (可靠來源)</li>
+                <li><strong>Goal 2:</strong> Listen and respond respectfully as different stakeholders (利益相關者)</li>
+                <li><strong>Goal 3:</strong> Understand how different people are affected by water pollution (如何不同人群受海洋污染影響)</li>
+            </ul>
+        </div>
+        
+        <!-- Success Criteria Section -->
+        <div class="section">
+            <h2><span class="section-emoji">✅</span>Success Criteria (成功標準)</h2>
+            <div class="success-criteria">
+                <div class="criteria-box">
+                    <strong>📊 Slides Include:</strong>
+                    Problem → Evidence → Solution → Stakeholders → Sources
+                </div>
+                <div class="criteria-box">
+                    <strong>🗣️ Role-play Shows:</strong>
+                    Different viewpoints + Respectful discussion
+                </div>
+                <div class="criteria-box">
+                    <strong>💬 Your Responses:</strong>
+                    Use data or observations to answer questions
+                </div>
+                <div class="criteria-box">
+                    <strong>📚 Final Slide:</strong>
+                    Includes Sources + AI Use Box
+                </div>
+            </div>
+        </div>
+        
+        <!-- Key Terms Section -->
+        <div class="section">
+            <h2><span class="section-emoji">📝</span>Key Vocabulary (關鍵詞彙)</h2>
+            <div class="key-terms">
+                <div class="term-badge">stakeholder (持分者)</div>
+                <div class="term-badge">citation (引用)</div>
+                <div class="term-badge">proposal (建議書)</div>
+                <div class="term-badge">feasibility (可行性)</div>
+                <div class="term-badge">trade-off (取捨)</div>
+                <div class="term-badge">fairness (公平)</div>
+                <div class="term-badge">evidence (證據)</div>
+                <div class="term-badge">perspective (觀點)</div>
+            </div>
+        </div>
+        
+        <!-- Lesson Flow Section -->
+        <div class="section">
+            <h2><span class="section-emoji">⏱️</span>Lesson Flow (課堂流程)</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot">1</div>
+                    <div class="timeline-content">
+                        <strong>Final Check (10 分鐘)</strong>
+                        <p>Review your slides checklist before presenting</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">2</div>
+                    <div class="timeline-content">
+                        <strong>Group Presentations + Role-play (30 分鐘)</strong>
+                        <p>2-3 min pitch + 1-2 min Q&A per group</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">3</div>
+                    <div class="timeline-content">
+                        <strong>Peer Assessment (10 分鐘)</strong>
+                        <p>Complete the peer evaluation form</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">4</div>
+                    <div class="timeline-content">
+                        <strong>Personal Reflection (10 分鐘)</strong>
+                        <p>AI Use Statement + Learning Reflection</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Action Buttons -->
+        <div class="button-group">
+            <a href="#" class="btn">📋 Final Checklist</a>
+            <a href="#" class="btn">🎬 Presentation Guide</a>
+            <a href="#" class="btn">⭐ Peer Assessment</a>
+            <a href="#" class="btn">💭 Reflection Form</a>
+        </div>
+        
+        <div class="footer">
+            <p>Clean Seas HK: Investigating Water Pollution and Designing Solutions 🌊</p>
+            <p>淨化香港海域：調查水污染及設計解決方案</p>
+        </div>
+    </div>
+</body>
+</html>

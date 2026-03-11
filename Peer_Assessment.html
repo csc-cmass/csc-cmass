@@ -1,0 +1,432 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peer Assessment Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', cursive, sans-serif;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .emoji-title {
+            font-size: 70px;
+            margin-bottom: 10px;
+        }
+        
+        h1 {
+            font-size: 40px;
+            color: #ff6b9d;
+            margin-bottom: 5px;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            color: #c44569;
+            font-weight: bold;
+        }
+        
+        .form-section {
+            background: linear-gradient(135deg, #fff5f8 0%, #ffe8f0 100%);
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 20px;
+            border: 2px solid #ffb6d9;
+        }
+        
+        .form-section h2 {
+            color: #ff6b9d;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #c44569;
+            font-size: 15px;
+        }
+        
+        input[type="text"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ffb6d9;
+            border-radius: 10px;
+            font-family: 'Arial', sans-serif;
+            font-size: 14px;
+            background: white;
+        }
+        
+        input[type="text"]:focus,
+        input[type="date"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #ff6b9d;
+            box-shadow: 0 0 8px rgba(255, 107, 157, 0.3);
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        
+        .rating-section {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            border: 2px dashed #ffb6d9;
+        }
+        
+        .rating-section h3 {
+            color: #ff6b9d;
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+        
+        .rating-description {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+        
+        .stars {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .star-button {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border: 2px solid #ffb6d9;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffb6d9;
+        }
+        
+        .star-button:hover {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            transform: scale(1.2);
+        }
+        
+        .star-button.selected {
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+            color: white;
+            border-color: #ff6b9d;
+        }
+        
+        .scale-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #999;
+            margin-top: 8px;
+        }
+        
+        .feedback-section {
+            background: linear-gradient(135deg, #e8f5f8 0%, #f0f0f0 100%);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #00bcd4;
+            margin: 20px 0;
+        }
+        
+        .feedback-section h3 {
+            color: #00897b;
+            margin-bottom: 12px;
+        }
+        
+        .feedback-prompt {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        
+        .submit-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 107, 157, 0.4);
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 107, 157, 0.6);
+        }
+        
+        .important-note {
+            background: linear-gradient(135deg, #fff9e6 0%, #fffaed 100%);
+            border-left: 5px solid #ffa500;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #8b7500;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="emoji-title">⭐👥💬</div>
+            <h1>Peer Assessment Form</h1>
+            <p class="subtitle">同儕互評表單</p>
+        </div>
+        
+        <!-- Student Information -->
+        <form id="assessmentForm">
+            <div class="form-section">
+                <h2>📋 Your Information (你的資料)</h2>
+                
+                <div class="form-group">
+                    <label for="assessorName">Your Name (你的名字) *</label>
+                    <input type="text" id="assessorName" name="assessorName" placeholder="Enter your name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="assessorClass">Your Class (你的班級)</label>
+                    <input type="text" id="assessorClass" name="assessorClass" placeholder="e.g., P6A">
+                </div>
+                
+                <div class="form-group">
+                    <label for="groupName">Group Name Being Assessed (被評估的小組名稱) *</label>
+                    <input type="text" id="groupName" name="groupName" placeholder="Enter the group name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="date">Date (日期) *</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+            </div>
+            
+            <div class="important-note">
+                💡 <strong>Remember:</strong> Give feedback that is KIND (親切), HELPFUL (有幫助), and HONEST (誠實)!
+            </div>
+            
+            <!-- Scoring Section -->
+            <div class="form-section">
+                <h2>⭐ Rate the Group's Presentation (評分)</h2>
+                
+                <!-- Criterion 1 -->
+                <div class="rating-section">
+                    <h3>1️⃣ Science Understanding & Evidence (科學理解與證據)</h3>
+                    <p class="rating-description">
+                        Did they explain the water pollution problem clearly? Did they use real data or observations?
+                    </p>
+                    <div class="stars" id="rating1">
+                        <button type="button" class="star-button" data-value="1">1</button>
+                        <button type="button" class="star-button" data-value="2">2</button>
+                        <button type="button" class="star-button" data-value="3">3</button>
+                        <button type="button" class="star-button" data-value="4">4</button>
+                    </div>
+                    <div class="scale-labels">
+                        <span>Poor (不清楚)</span>
+                        <span>Excellent (很好)</span>
+                    </div>
+                    <input type="hidden" name="rating1" id="rating1Value">
+                </div>
+                
+                <!-- Criterion 2 -->
+                <div class="rating-section">
+                    <h3>2️⃣ Solution Quality (解決方案品質)</h3>
+                    <p class="rating-description">
+                        Is their solution realistic and feasible? Did they explain WHY it works?
+                    </p>
+                    <div class="stars" id="rating2">
+                        <button type="button" class="star-button" data-value="1">1</button>
+                        <button type="button" class="star-button" data-value="2">2</button>
+                        <button type="button" class="star-button" data-value="3">3</button>
+                        <button type="button" class="star-button" data-value="4">4</button>
+                    </div>
+                    <div class="scale-labels">
+                        <span>Not feasible (不可行)</span>
+                        <span>Very creative & feasible (創意+ 可行)</span>
+                    </div>
+                    <input type="hidden" name="rating2" id="rating2Value">
+                </div>
+                
+                <!-- Criterion 3 -->
+                <div class="rating-section">
+                    <h3>3️⃣ Stakeholder Perspectives (利益相關者觀點)</h3>
+                    <p class="rating-description">
+                        Did they show different viewpoints? Did they respect different opinions?
+                    </p>
+                    <div class="stars" id="rating3">
+                        <button type="button" class="star-button" data-value="1">1</button>
+                        <button type="button" class="star-button" data-value="2">2</button>
+                        <button type="button" class="star-button" data-value="3">3</button>
+                        <button type="button" class="star-button" data-value="4">4</button>
+                    </div>
+                    <div class="scale-labels">
+                        <span>No perspectives shown</span>
+                        <span>Excellent multi-perspective view</span>
+                    </div>
+                    <input type="hidden" name="rating3" id="rating3Value">
+                </div>
+                
+                <!-- Criterion 4 -->
+                <div class="rating-section">
+                    <h3>4️⃣ Sources & Citations (來源與引用)</h3>
+                    <p class="rating-description">
+                        Did they cite reliable sources? Are they referenced properly?
+                    </p>
+                    <div class="stars" id="rating4">
+                        <button type="button" class="star-button" data-value="1">1</button>
+                        <button type="button" class="star-button" data-value="2">2</button>
+                        <button type="button" class="star-button" data-value="3">3</button>
+                        <button type="button" class="star-button" data-value="4">4</button>
+                    </div>
+                    <div class="scale-labels">
+                        <span>No sources cited</span>
+                        <span>Strong, reliable sources</span>
+                    </div>
+                    <input type="hidden" name="rating4" id="rating4Value">
+                </div>
+                
+                <!-- Criterion 5 -->
+                <div class="rating-section">
+                    <h3>5️⃣ Communication & Presentation (表達與呈現)</h3>
+                    <p class="rating-description">
+                        Was the presentation clear? Did they answer questions well?
+                    </p>
+                    <div class="stars" id="rating5">
+                        <button type="button" class="star-button" data-value="1">1</button>
+                        <button type="button" class="star-button" data-value="2">2</button>
+                        <button type="button" class="star-button" data-value="3">3</button>
+                        <button type="button" class="star-button" data-value="4">4</button>
+                    </div>
+                    <div class="scale-labels">
+                        <span>Unclear presentation</span>
+                        <span>Excellent communication</span>
+                    </div>
+                    <input type="hidden" name="rating5" id="rating5Value">
+                </div>
+            </div>
+            
+            <!-- Qualitative Feedback -->
+            <div class="form-section">
+                <h2>💭 Written Feedback (書面反饋)</h2>
+                
+                <div class="feedback-section">
+                    <h3>✨ One thing I really liked about this presentation was:</h3>
+                    <p class="feedback-prompt">(我最欣賞這個呈現的一點是：)</p>
+                    <textarea name="whatWasGood" placeholder="Be specific! Example: I liked how they explained the data clearly..." required></textarea>
+                </div>
+                
+                <div class="feedback-section">
+                    <h3>💡 One suggestion for improvement:</h3>
+                    <p class="feedback-prompt">(一個可以改進的地方是：)</p>
+                    <textarea name="whatCanImprove" placeholder="Be constructive! Example: They could add more photos to show..." required></textarea>
+                </div>
+                
+                <div class="feedback-section">
+                    <h3>❓ One question I would like to ask them:</h3>
+                    <p class="feedback-prompt">(我想問他們的一個問題是：)</p>
+                    <textarea name="oneQuestion" placeholder="Example: How would your solution work during typhoon season?"></textarea>
+                </div>
+            </div>
+            
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">✅ Submit Assessment (提交評估)</button>
+        </form>
+    </div>
+    
+    <script>
+        // Handle star rating clicks
+        document.querySelectorAll('.stars').forEach(ratingGroup => {
+            const buttons = ratingGroup.querySelectorAll('.star-button');
+            const hiddenInput = ratingGroup.nextElementSibling.nextElementSibling;
+            
+            buttons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const value = button.getAttribute('data-value');
+                    
+                    // Remove selected class from all buttons
+                    buttons.forEach(btn => btn.classList.remove('selected'));
+                    
+                    // Add selected class to clicked button and all previous buttons
+                    for (let i = 0; i < value; i++) {
+                        buttons[i].classList.add('selected');
+                    }
+                    button.classList.add('selected');
+                    
+                    // Store value in hidden input
+                    if (hiddenInput) {
+                        hiddenInput.value = value;
+                    }
+                });
+            });
+        });
+        
+        // Form submission
+        document.getElementById('assessmentForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your feedback! 感謝你的反饋！\n\nYour assessment has been submitted. 你的評估已提交。');
+            // In a real scenario, you would send this to a Google Form or database
+        });
+    </script>
+</body>
+</html>
