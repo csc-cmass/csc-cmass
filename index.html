@@ -597,7 +597,7 @@
 </svg>
 
  <h1>Clean Seas Kids: Water Pollution Action</h1>
- <p class="meta">Grade 5–6 • 60 minutes • Big Finish</p>
+ <p class="meta">Primary Student • 60 minutes • Big Finish</p>
 </div>
 
  <div class="fun-strip" aria-hidden="true">
@@ -897,8 +897,26 @@
 </div>
 
  <script>
- // Paste your Groq API key here (free at console.groq.com)
- const GROQ_API_KEY = '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';
+ // ═══════════════════════════════════════════════════════════════
+ // OpenRouter AI Configuration
+ // ═══════════════════════════════════════════════════════════════
+ // API Key: Get from https://openrouter.ai/
+ const OPENROUTER_API_KEY = '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';
+ 
+ // Model Options (choose one):
+ // • openrouter/auto - Auto-selected best available model ⭐ RECOMMENDED
+ // • mistralai/mistral-7b-instruct-v0.2 - Good budget option
+ // • meta-llama/llama-3.1-8b-instruct - Improved Llama
+ // • openai/gpt-3.5-turbo - More capable, paid
+ const OPENROUTER_MODEL = 'openrouter/auto';
+ 
+ // Request settings
+ const OPENROUTER_CONFIG = {
+ max_tokens: 800,
+ temperature: 0.7,
+ top_p: 0.95,
+ timeout: 30000 // 30 second timeout
+ };
 
  // DATA INTEGRITY: Ensure forms don't mix data
  (function cleanupLocalStorage() {
@@ -933,24 +951,27 @@
  local: 'a local community member who lives near the coast and cares deeply about the health of their neighbourhood',
  };
 
- async function callGroq(prompt, retries = 3) {
+ async function callOpenRouter(prompt, retries = 3) {
  for (let attempt = 1; attempt <= retries; attempt++) {
- const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+ const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
  method: 'POST',
  headers: {
  'Content-Type': 'application/json',
- 'Authorization': `Bearer ${GROQ_API_KEY}`
+ 'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
+ 'HTTP-Referer': window.location.origin,
+ 'X-Title': 'Clean Seas Kids'
  },
  body: JSON.stringify({
- model: 'llama-3.1-8b-instant',
+ model: OPENROUTER_MODEL,
  messages: [{ role: 'user', content: prompt }],
- max_tokens: 800
+ max_tokens: OPENROUTER_CONFIG.max_tokens,
+ temperature: OPENROUTER_CONFIG.temperature,
+ top_p: OPENROUTER_CONFIG.top_p
  })
  });
 
  if (response.status === 429) {
- const errData = await response.json();
- const waitSec = parseInt(response.headers.get('retry-after') || '15') + 2;
+ const waitSec = 15;
  if (attempt < retries) {
  document.getElementById('aiLoading').textContent =
  `Rate limit reached. Retrying in ${waitSec} seconds... (attempt ${attempt}/${retries})`;
@@ -963,13 +984,19 @@
  }
 
  if (!response.ok) {
+ let errorMsg = `HTTP ${response.status}`;
+ try {
  const errData = await response.json();
- throw new Error(errData.error?.message || `HTTP ${response.status}`);
+ errorMsg = errData.error?.message || errData.message || errorMsg;
+ } catch (e) {
+ errorMsg = `HTTP ${response.status}: ${response.statusText}`;
+ }
+ throw new Error(errorMsg);
  }
 
  const data = await response.json();
  const text = data.choices?.[0]?.message?.content;
- if (!text) throw new Error('No response received from Groq.');
+ if (!text) throw new Error('No response received from OpenRouter.');
  return text;
  }
 }
@@ -1004,11 +1031,18 @@ async function checkCER() {
    errorBox.classList.add('visible');
    return;
  }
+
+ if (OPENROUTER_API_KEY === 'YOUR_OPENROUTER_API_KEY_HERE') {
+ errorBox.textContent = 'API key not configured. Please add your OpenRouter API key at the top of the script.';
+ errorBox.classList.add('visible');
+ return;
+ }
+
  btn.disabled = true;
  loading.classList.add('visible');
  const prompt = `You are a helpful primary school science teacher. A student has written a CER (Claim-Evidence-Reasoning) about marine pollution in Hong Kong.\n\nClaim: "${claim}"\nEvidence: "${evidence}"\nReasoning: "${reasoning}"\n\nPlease check their CER and give friendly feedback (suitable for a primary school student):\n1. Does the Evidence support the Claim? (Yes/Partly/No — explain briefly)\n2. Does the Reasoning explain HOW the Evidence connects to the Claim? (Yes/Partly/No — explain briefly)\n3. One specific thing they did well\n4. One specific tip to make the CER stronger\n\nKeep your feedback encouraging and easy to understand. Use simple language.`;
  try {
-   const text = await callGroq(prompt);
+   const text = await callOpenRouter(prompt);
    output.textContent = text;
    output.classList.add('visible');
  } catch(err) {
@@ -1034,11 +1068,18 @@ async function improveFeedback() {
    errorBox.classList.add('visible');
    return;
  }
+
+ if (OPENROUTER_API_KEY === 'YOUR_OPENROUTER_API_KEY_HERE') {
+ errorBox.textContent = 'API key not configured. Please add your OpenRouter API key at the top of the script.';
+ errorBox.classList.add('visible');
+ return;
+ }
+
  btn.disabled = true;
  loading.classList.add('visible');
  const prompt = `You are a kind and helpful primary school teacher. A student has written rough peer feedback about a classmate's presentation on marine pollution in Hong Kong.\n\n${group ? `Group being assessed: ${group}` : ''}\nStudent's rough feedback: "${rough}"\n\nPlease rewrite this feedback so it is:\n- KIND: uses positive and respectful language\n- HELPFUL: gives a specific suggestion for improvement\n- HONEST: keeps the student's original meaning\n\nWrite the improved feedback in 3 short sections:\n1. One thing I really liked: ...\n2. One suggestion: ...\n3. One question I have: ...\n\nUse simple language suitable for a primary school student.`;
  try {
-   const text = await callGroq(prompt);
+   const text = await callOpenRouter(prompt);
    output.textContent = text;
    output.classList.add('visible');
  } catch(err) {
@@ -1061,15 +1102,14 @@ async function generateQuestions() {
  output.classList.remove('visible');
  errorBox.classList.remove('visible');
 
-    if (!solution) {
-    errorBox.textContent = 'Please describe your solution first.';
-    errorBox.classList.add('visible');
-    return;
-     
-}
+ if (!solution) {
+ errorBox.textContent = 'Please describe your solution first.';
+ errorBox.classList.add('visible');
+ return;
+ }
 
- if (GROQ_API_KEY === 'YOUR_GROQ_API_KEY') {
- errorBox.textContent = 'API key not configured. Get a free key at console.groq.com and paste it into the script.';
+ if (OPENROUTER_API_KEY === 'YOUR_OPENROUTER_API_KEY_HERE') {
+ errorBox.textContent = 'API key not configured. Please add your OpenRouter API key at the top of the script.';
  errorBox.classList.add('visible');
  return;
  }
@@ -1086,7 +1126,7 @@ A student group has proposed the following solution to marine pollution in Hong 
 Generate 5 challenging but fair questions this stakeholder would realistically ask the presenting group. Reflect this stakeholder's specific concerns and interests. Keep each question to 1–2 sentences. Number them 1–5.`;
 
  try {
- const text = await callGroq(prompt);
+ const text = await callOpenRouter(prompt);
  output.textContent = text;
  output.classList.add('visible');
  } catch (err) {
